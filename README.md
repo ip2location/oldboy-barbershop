@@ -20,4 +20,5 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Working on a feature
 - Select appropriate branch purpose from the list: `feature`, `fix`, `test`, or `release`
-- Everytime you work on a feature, create remote branch that follows the next pattern: `tag/HNJ-id_short-description`. For example, for the ticket https://zhyldyzargynbaeva.atlassian.net/browse/HNJ-1 it will be: `feature/HNJ-1_initializing-Nextjs-project`
+- Try to give a short but descriptive name for branches
+- Everytime you work on a feature, create remote branch that follows the next pattern: `tag/OLDBOY-id_short-description`. For example, `feature/OLDBOY-1_initializing-Nextjs-project`
