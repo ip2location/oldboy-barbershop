@@ -1,16 +1,21 @@
 import {describe, expect, test} from '@jest/globals';
-// import { render, screen } from '@testing-library/react'
 import Home from "../src/app/page";
+import "@testing-library/jest-dom";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { renderHook } from '@testing-library/react-hooks'
 
-describe('Home', () => {
-    test('testing a home page', () => {
-        expect(Home)
-    })
+describe("Calculator", () => {
+   
+    it('should pass all the tests', () => {
+    const {result} = renderHook(() => Home())
+    expect(result.all);
+    expect(screen.findAllByTestId("result")).toBeInTheDocument;
+    expect(screen.findAllByTestId("num1")).toBeInTheDocument;
+    expect(screen.findAllByTestId("num2")).toBeInTheDocument;
+    expect(screen.findAllByTestId("add")).toBeInTheDocument;
+    expect(screen.findAllByTestId("subtract")).toBeInTheDocument;
+    expect(screen.findAllByTestId("multiply")).toBeInTheDocument;
+    expect(screen.findAllByTestId("divide")).toBeInTheDocument;
+    });
+});
 
-  //   const home = screen.getByRole('heading', {
-  //     name: /welcome to next\.js!/i,
-  //   })
-
-  //   expect(heading).toBeInTheDocument()
-  // })
-})
