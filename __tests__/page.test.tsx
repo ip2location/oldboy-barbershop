@@ -2,7 +2,7 @@ import {describe, expect, test} from '@jest/globals';
 import Home from "../src/app/page";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react-hooks';
 
 describe("Calculator", () => {
    
