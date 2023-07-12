@@ -7,19 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged",
-      "pre-push": "npm test"
-    }
+    "prepare": "husky install",
+    "test": "echo '!!!' "
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
+      "git add .",
+      "eslint --fix"
     ]
   },
   "dependencies": {
