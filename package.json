@@ -9,6 +9,12 @@
     "lint": "next lint",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
   "dependencies": {
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
