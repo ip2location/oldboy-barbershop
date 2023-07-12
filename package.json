@@ -12,8 +12,15 @@
   "husky": {
     "hooks": {
       "pre-commit": "npx lint-staged",
-      "pre-push": "npm run test"
+      "pre-push": "npm test"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@types/node": "20.3.3",
