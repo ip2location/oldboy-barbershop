@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const mainNavItems = [
   { title: 'Главная', href: '#' },
@@ -24,12 +25,12 @@ const Header = () => {
               {mainNavItems.map((navItem) => {
                 return (
                   <li key={navItem.title} className="main-nav__item float-left mr-4 text-center">
-                    <a
+                    <Link
                       href={navItem.href}
                       className="main-nav__link font-rex mr-3.75 text-base hover:text-orange-400 transition delay-150"
                     >
                       {navItem.title}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
