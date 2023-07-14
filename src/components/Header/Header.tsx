@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 const mainNavItems = [
@@ -14,7 +13,7 @@ const mainNavItems = [
   { title: 'Филиалы', href: '#' },
 ];
 
-const Header = () => {
+export const Header = (): JSX.Element => {
   return (
     <header className="hero relative pt-12 px-12 pb-17 overflow-hidden bg-header-bg text-white">
       <div className="hero__top relative flex mb-5">
@@ -22,14 +21,14 @@ const Header = () => {
         <div className="hero__nav hero__nav--hidden left-0">
           <nav className="main-nav inset-0 flex items-center">
             <ul className="main-nav__list flex m-0">
-              {mainNavItems.map((navItem) => {
+              {mainNavItems.map(({ title, href }) => {
                 return (
-                  <li key={navItem.title} className="main-nav__item float-left mr-4 text-center">
+                  <li key={title} className="main-nav__item float-left mr-4 text-center">
                     <Link
-                      href={navItem.href}
+                      href={href}
                       className="main-nav__link font-rex mr-3.75 text-base hover:text-orange-400 transition delay-150"
                     >
-                      {navItem.title}
+                      {title}
                     </Link>
                   </li>
                 );
@@ -41,5 +40,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

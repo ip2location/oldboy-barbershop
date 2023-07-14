@@ -6,7 +6,7 @@
 @layer base {
   @font-face {
     font-family: 'Rex-Bold';
-    src: url('../fonts/Rex-Bold.ttf');
+    src: url('../styles/fonts/Rex-Bold.ttf');
     }
 }
 
