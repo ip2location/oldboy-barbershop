@@ -28,9 +28,9 @@ body {
 
 @font-face {
   font-family: Rex_Bold;
-  src: url("fonts/Rex_Bold.otf") format("opentype");
+  src: url("../app//styles/fonts/Rex_Bold.otf") format("opentype");
 }
 @font-face {
   font-family: Rex_Inline;
-  src: url("fonts/Rex_Bold_Inline.otf") format("opentype");
+  src: url("../app/styles/fonts/Rex_Bold_Inline.otf") format("opentype");
 }
