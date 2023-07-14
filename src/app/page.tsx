@@ -1,4 +1,4 @@
-import PromoBanner from "../../components/promo-banner/promo-banner";
+import PromoBanner from "./components/promo-banner/promo-banner";
 
 export default function Home() {
   return (
