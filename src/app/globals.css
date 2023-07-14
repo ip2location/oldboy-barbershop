@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@font-face {
+  font-family: Rex_Bold;
+  src: url("fonts/Rex_Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Rex_Inline;
+  src: url("fonts/Rex_Bold_Inline.otf") format("opentype");
+}

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,9 +13,16 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      fontFamily: {
-        rex: ["Rex_Bold", "sans-serif"],
+      colors: {
+        "orange-title": "#d6a354",
       },
+      fontFamily: {
+        rex: ["Rex_Bold", "Arial", "sans-serif"],
+        rex_inline: ["Rex_Inline", "Arial", "sans-serif"],
+      },
+      skew: {
+        '15': '-15deg',
+      }
     },
   },
   plugins: [],
