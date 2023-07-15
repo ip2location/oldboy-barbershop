@@ -1,4 +1,4 @@
-import Logo from '../../assets/image.svg';
+// import Logo from '../../assets/image.svg';
 
 import Image from 'next/image';
 export const PromoBanner = () => {
@@ -25,7 +25,7 @@ export const PromoBanner = () => {
         <p className="w-auto bg-orange-title h-1 mb-2.5"></p>
         <p className="text-base text-white">намного больше чем просто мужская парихмахерская</p>
 
-        <Image src={Logo} alt="Logo" width={61} height={33} />
+        {/* <Image src={Logo} alt="Logo" width={61} height={33} /> */}
       </div>
     </div>
   );
