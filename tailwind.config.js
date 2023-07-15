@@ -2,9 +2,9 @@
 
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -12,7 +12,7 @@ module.exports = {
         'brand-blue': '#1DA1F2',
         'brand-green': '#17BF63',
         'header-bg': '#131313',
-        "orange-title": "#d6a354",
+        'orange-title': '#d6a354',
       },
       fontSize: {
         xs: '.75rem',
@@ -30,11 +30,11 @@ module.exports = {
       },
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
-        rex_inline: ["Rex_Inline", "Arial", "sans-serif"],
+        rex_inline: ['Rex_Inline', 'Arial', 'sans-serif'],
       },
       skew: {
-        '15': '-15deg',
-      }
+        15: '-15deg',
+      },
     },
   },
   variants: {},

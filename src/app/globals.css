@@ -8,13 +8,20 @@
     font-family: 'Rex-Bold';
     src: url('../styles/fonts/Rex-Bold.ttf');
     }
+    /* @font-face {
+      font-family: Rex_Bold;
+      src: url("../app//styles/fonts/Rex_Bold.otf") format("opentype");
+    } */
+    @font-face {
+      font-family: Rex_Inline;
+      src: url("../app/styles/fonts/Rex_Bold_Inline.otf") format("opentype");
+    }
 }
 
 .hero__nav--hidden {
   right: -110%
 }
-
-/* :root {
+ /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -38,11 +45,4 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@font-face {
-  font-family: Rex_Bold;
-  src: url("../app//styles/fonts/Rex_Bold.otf") format("opentype");
-}
-@font-face {
-  font-family: Rex_Inline;
-  src: url("../app/styles/fonts/Rex_Bold_Inline.otf") format("opentype");
-}
+
