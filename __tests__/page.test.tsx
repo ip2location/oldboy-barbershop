@@ -1,10 +1,10 @@
+import { Header } from '../src/components/Header/Header';
 import { render, screen } from '@testing-library/react';
 import { PromoBanner } from '../src/app/components/promo-banner/promo-banner';
 
-describe('Home', () => {
-  describe('promo-banner', () => {
-    render(<PromoBanner />);
-    const myBanner = screen.getByText('открытых филиала');
-    expect(myBanner).toBeInTheDocument();
+describe('Header', () => {
+  it('should pass all the tests', () => {
+    render(<Header />);
+    expect(screen.getByText('Главная')).toBeInTheDocument();
   });
 });

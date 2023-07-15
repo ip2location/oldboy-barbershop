@@ -2,7 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+
+@layer base {
+  @font-face {
+    font-family: 'Rex-Bold';
+    src: url('../styles/fonts/Rex-Bold.ttf');
+    }
+}
+
+.hero__nav--hidden {
+  right: -110%
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;

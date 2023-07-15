@@ -8,16 +8,28 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
+        'brand-blue': '#1DA1F2',
+        'brand-green': '#17BF63',
+        'header-bg': '#131313',
         "orange-title": "#d6a354",
       },
+      fontSize: {
+        xs: '.75rem',
+        sm: '.875rem',
+        tiny: '.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '6xl': '4rem',
+        '7xl': '5rem',
+      },
       fontFamily: {
-        rex: ["Rex_Bold", "Arial", "sans-serif"],
+        rex: ['Rex-Bold', 'sans-serif'],
         rex_inline: ["Rex_Inline", "Arial", "sans-serif"],
       },
       skew: {
@@ -25,5 +37,6 @@ module.exports = {
       }
     },
   },
+  variants: {},
   plugins: [],
 };
