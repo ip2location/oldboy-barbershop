@@ -1,11 +1,9 @@
-import Home from '../src/app/page';
+import { Header } from '../src/components/Header/Header';
 import { render, screen } from '@testing-library/react';
 
-describe('Home', () => {
+describe('Header', () => {
   it('should pass all the tests', () => {
-    render(<Home />);
-    expect(
-      screen.getByText('Instantly deploy your Next.js site to a shareable URL with Vercel.'),
-    ).toBeInTheDocument();
+    render(<Header />);
+    expect(screen.getByText('Главная')).toBeInTheDocument();
   });
 });
