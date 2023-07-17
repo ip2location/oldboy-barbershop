@@ -10,12 +10,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: EsLint
-      run: npm run lint
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checks-out
+        run: npm run lint
 
-    - name: Test
-      run: npm run test
+      - name: Lint
+        run: npm run lint
 
-    - name: Build
-      run: npm run build
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
