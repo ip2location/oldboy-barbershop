@@ -30,10 +30,6 @@ module.exports = {
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
       },
-      backgroundImage: {
-        'hero-bg-header': "url('/images/bg/hero.jpg')",
-        'hero-after-bg': "url('/images/bg/white-grunge.svg')",
-      },
     },
   },
   variants: {},

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ReactElement } from 'react';
 
 const mainNavItems = [
   { title: 'Главная', href: '#' },
@@ -13,10 +14,31 @@ const mainNavItems = [
   { title: 'Филиалы', href: '#' },
 ];
 
-export const Header = (): JSX.Element => {
+export const Header = (): ReactElement => {
   return (
-    <header className="hero after:bg-hero-after-bg after:-bottom-10 after:z-7 after:absolute after:content-[''] after:h-20 after:bg-repeat-x after:bg-[top_0.125rem_center] after:bg-[length:50rem] after:left-0 after:w-full hero--branch relative pt-12 px-12 pb-17 overflow-hidden bg-header-bg text-white">
-      <div className="hero__top relative flex mb-5">
+    <header
+      className="
+        h-screen
+        bg-[url('../images/bg/hero.jpg')]
+        relative
+        pt-12
+        px-12
+        pb-17
+        overflow-hidden
+        text-white
+        after:bg-[url('../images/bg/white-grunge.svg')]
+        after:block
+        after:-bottom-10
+        after:z-10
+        after:absolute
+        after:h-20
+        after:bg-repeat-x
+        after:bg-[top_0.125rem_center]
+        after:bg-[length:50rem]
+        after:left-0
+        after:w-full"
+    >
+      <div className="hero__top  relative flex mb-5">
         <div className="hero__logo"></div>
         <div className="hero__nav hero__nav--hidden left-0">
           <nav className="main-nav inset-0 flex items-center">

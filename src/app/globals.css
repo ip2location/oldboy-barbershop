@@ -11,14 +11,8 @@
 }
 
 @layer components {
- 
   .hero__nav--hidden {
     right: -110%;
-  }
-  .hero--branch {
-    background-image: url('../images/bg/hero.jpg');
-    @apply bg-[35%_0] bg-cover;
-
   }
 }
 
