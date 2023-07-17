@@ -1,0 +1,21 @@
+name: barbershop
+
+on: 
+  pull_request:
+    branches:
+      - main
+      - development
+
+jobs:
+  build:
+  runs-on: ubuntu-latest
+    
+steps:
+  - name: EsLint
+    run: npm run lint
+
+  - name: Test
+    run: npm run test
+
+  - name: Build
+    run: npm run build
