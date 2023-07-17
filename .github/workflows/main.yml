@@ -1,6 +1,6 @@
 name: barbershop
 
-on: 
+on:
   pull_request:
     branches:
       - main
@@ -8,14 +8,14 @@ on:
 
 jobs:
   build:
-   runs-on: ubuntu-latest
-    
-steps:
-  - name: EsLint
-    run: npm run lint
+    runs-on: ubuntu-latest
 
-  - name: Test
-    run: npm run test
+  steps:
+    - name: EsLint
+      run: npm run lint
 
-  - name: Build
-    run: npm run build
+    - name: Test
+      run: npm run test
+
+    - name: Build
+      run: npm run build
