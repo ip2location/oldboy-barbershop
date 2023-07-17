@@ -15,7 +15,7 @@ const mainNavItems = [
 
 export const Header = (): JSX.Element => {
   return (
-    <header className="hero relative pt-12 px-12 pb-17 overflow-hidden bg-header-bg text-white">
+    <header className="hero after:bg-hero-after-bg after:-bottom-10 after:z-7 after:absolute after:content-[''] after:h-20 after:bg-repeat-x after:bg-[top_0.125rem_center] after:bg-[length:50rem] after:left-0 after:w-full hero--branch relative pt-12 px-12 pb-17 overflow-hidden bg-header-bg text-white">
       <div className="hero__top relative flex mb-5">
         <div className="hero__logo"></div>
         <div className="hero__nav hero__nav--hidden left-0">
