@@ -15,8 +15,11 @@ jobs:
       - name: Checks-out
         uses: actions/checkout@v3
 
+      - name: Install modules
+        uses: npm ci
+
       - name: Lint
-        run: npx next lint
+        run: npm run lint
 
       - name: Test
         run: npm run test
