@@ -8,8 +8,8 @@
     src: url('../styles/fonts/Rex-Bold.ttf');
   }
   @font-face {
-    font-family: Rex_Inline;
-    src: url('../styles/fonts/Rex-BoldInline.ttf') 
+    font-family: 'Rex-Inline';
+    src: url('../styles/fonts/Rex-BoldInline.ttf');
   }
 }
 

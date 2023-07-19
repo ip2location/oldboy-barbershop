@@ -30,7 +30,7 @@ module.exports = {
       },
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
-        rex_inline: ['Rex_Inline', 'Arial', 'sans-serif'],
+        rex_inline: ['Rex-Inline', 'Arial', 'sans-serif'],
       },
       skew: {
         15: '-15deg',

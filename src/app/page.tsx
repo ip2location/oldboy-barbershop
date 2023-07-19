@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Header } from '@/components/Header';
-import { PromoBanner } from '@/components/promo-banner';
-import Logo from '../assets/logo.svg';
+import { PromoBanner } from '@/components/PromoBanner';
+import Logo from '../assets/logo/logo.svg';
+import { barbsershopData } from '@/components/PromoBanner/PromoData';
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <Image src={Logo} alt="Logo" width={100} height={30} className="mt-12" />
         <Header />
       </div>
-      <PromoBanner />
+      <PromoBanner barbershopCount={barbsershopData.barbershopCount} />
     </main>
   );
 }
