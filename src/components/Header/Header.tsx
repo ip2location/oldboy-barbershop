@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
+import Image from 'next/image';
+import logo from '../../images/logo/logo.svg';
 
 const mainNavItems = [
   { title: 'Главная', href: '#' },
@@ -18,12 +20,15 @@ export const Header = (): ReactElement => {
   return (
     <header
       className="
+        hero
+        hero--branch
+        flex
         h-screen
         bg-[url('../images/bg/hero.jpg')]
         relative
-        pt-12
+        pt-14
         px-12
-        pb-17
+        pb-16
         overflow-hidden
         text-white
         after:bg-[url('../images/bg/white-grunge.svg')]
@@ -38,8 +43,12 @@ export const Header = (): ReactElement => {
         after:left-0
         after:w-full"
     >
-      <div className="hero__top  relative flex mb-5">
-        <div className="hero__logo"></div>
+      <div className="hero__top  relative flex mb-5 mt-1.3">
+        <div className="hero__logo relative w-36 mr-6 flex align-top">
+          <Link href={'/'}>
+            <Image src={logo} alt="Oldboy Barbershop vector logo" sizes="(width:100%)" />
+          </Link>
+        </div>
         <div className="hero__nav hero__nav--hidden left-0">
           <nav className="main-nav inset-0 flex items-center">
             <ul className="main-nav__list flex m-0">
