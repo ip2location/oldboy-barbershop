@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import logo from '../../images/logo/logo.svg';
+// import logo from '../../images/logo/logo.svg';
 import React from 'react';
 
 const mainNavItems = [
@@ -47,7 +47,7 @@ export const Header = (): ReactElement => {
       <div className="hero__top  relative flex mb-5 mt-1.3">
         <div className="hero__logo relative w-36 mr-6 flex align-top">
           <Link href={'/'}>
-            <Image src={logo} alt="Oldboy Barbershop vector logo" sizes="(width:100%)" />
+            {/* <Image src={logo} alt="Oldboy Barbershop vector logo" sizes="(width:100%)" /> */}
           </Link>
         </div>
         <div className="hero__nav hero__nav--hidden left-0">
