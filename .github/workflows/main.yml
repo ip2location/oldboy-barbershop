@@ -11,12 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checks-out
         uses: actions/checkout@v3
 
       - name: Install modules
-        uses: npm ci
+        run: npm ci
 
       - name: Lint
         run: npm run lint
