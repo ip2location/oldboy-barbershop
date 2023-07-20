@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   @font-face {
     font-family: 'Rex-Bold';
@@ -10,6 +11,12 @@
   @font-face {
     font-family: 'Rex-Inline';
     src: url('../styles/fonts/Rex-BoldInline.ttf');
+  }
+}
+
+@layer components {
+  .hero__nav--hidden {
+    right: -110%;
   }
 }
 
