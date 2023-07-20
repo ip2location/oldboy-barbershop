@@ -16,7 +16,7 @@ const mainNavItems = [
   { title: 'Филиалы', href: '#' },
 ];
 
-export const Header = (): ReactElement => {
+export function Header(): ReactElement {
   return (
     <header
       className="
@@ -45,7 +45,7 @@ export const Header = (): ReactElement => {
     >
       <div className="hero__top  relative flex mb-5 mt-1.3">
         <div className="hero__logo relative w-36 mr-6 flex align-top">
-          <Link href={'/'}>
+          <Link href="/">
             <Image src={logo} alt="Oldboy Barbershop vector logo" sizes="(width:100%)" />
           </Link>
         </div>
@@ -70,4 +70,4 @@ export const Header = (): ReactElement => {
       </div>
     </header>
   );
-};
+}
