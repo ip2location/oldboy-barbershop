@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { PromoBanner } from '@/components/PromoBanner';
-import Logo from '../assets/logo/logo.svg';
 import { barbsershopData } from '@/components/PromoBanner/PromoData';
+import Logo from '../assets/logo/logo.svg';
 
 export default function Home() {
   return (

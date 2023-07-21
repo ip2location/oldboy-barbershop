@@ -1,14 +1,10 @@
 import { render, screen } from '@testing-library/react';
+
 import { PromoBanner } from './PromoBanner';
-import React, { ClassAttributes, ImgHTMLAttributes } from 'react';
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLImageElement> &
-      ImgHTMLAttributes<HTMLImageElement>,
-  ) => <div />,
+  default: () => <div />,
 }));
 
 describe('PromoBanner', () => {
