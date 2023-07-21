@@ -7,7 +7,11 @@
   @font-face {
     font-family: 'Rex-Bold';
     src: url('../styles/fonts/Rex-Bold.ttf');
-    }
+  }
+  @font-face {
+    font-family: 'Rex-Inline';
+    src: url('../styles/fonts/Rex-BoldInline.ttf');
+  }
 }
 
 @layer components {
@@ -16,6 +20,9 @@
   }
 }
 
+.hero__nav--hidden {
+  right: -110%;
+}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
@@ -39,4 +46,5 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-} */
+}
+*/
