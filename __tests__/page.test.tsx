@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Header } from '../src/components/Header/Header';
+import { Header } from '../src/components/Header';
 import React, { ClassAttributes, ImgHTMLAttributes } from 'react';
 
 describe('Header', () => {
