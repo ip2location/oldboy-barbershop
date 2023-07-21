@@ -23,14 +23,14 @@ export function Header(): ReactElement {
         hero--branch
         flex
         h-screen
-        bg-[url('../images/bg/hero.jpg')]
+        bg-[url('/images/bg/hero.jpg')]
         relative
         pt-14
         px-12
         pb-16
         overflow-hidden
         text-white
-        after:bg-[url('../images/bg/white-grunge.svg')]
+        after:bg-[url('/images/bg/white-grunge.svg')]
         after:block
         after:-bottom-10
         after:z-10
