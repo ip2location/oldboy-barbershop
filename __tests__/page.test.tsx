@@ -1,6 +1,6 @@
-import { Header } from '../src/components/Header/Header';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
+import { Header } from '../src/components/Header';
+import React, { ClassAttributes, ImgHTMLAttributes } from 'react';
 
 describe('Header', () => {
   it('should pass all the tests', () => {

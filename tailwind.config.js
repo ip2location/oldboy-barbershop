@@ -12,6 +12,7 @@ module.exports = {
         'brand-blue': '#1DA1F2',
         'brand-green': '#17BF63',
         'header-bg': '#131313',
+        'orange-title': '#d6a354',
       },
       fontSize: {
         xs: '.75rem',
@@ -29,6 +30,10 @@ module.exports = {
       },
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
+        rex_inline: ['Rex-Inline', 'Arial', 'sans-serif'],
+      },
+      skew: {
+        15: '-15deg',
       },
     },
   },
