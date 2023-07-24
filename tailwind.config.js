@@ -13,6 +13,8 @@ module.exports = {
         'brand-green': '#17BF63',
         'header-bg': '#131313',
         'orange-title': '#d6a354',
+        'gold-title': '#BFA15C',
+        'btn-blue': '#56afe1',
       },
       fontSize: {
         xs: '.75rem',
@@ -31,9 +33,13 @@ module.exports = {
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
         rex_inline: ['Rex-Inline', 'Arial', 'sans-serif'],
+        button_font: ['Open Sans', 'Arial', 'sans - serif'],
       },
       skew: {
         15: '-15deg',
+      },
+      boxShadow: {
+        btn: '0 3px 10px rgba(84,220,179,.5)',
       },
     },
   },
