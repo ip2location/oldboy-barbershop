@@ -9,7 +9,6 @@
     "react/jsx-one-expression-per-line": "off",
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
-    "no-console": "warn",
     "func-names": "off",
     "no-process-exit": "off",
     "class-methods-use-this": "off",
@@ -17,7 +16,8 @@
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-static-element-interactions": "off"
-    "no-param-reassign": "warn"
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-param-reassign": "off", //did it temporarily
+    "no-console": "off" //did it temporarily
   }
 }

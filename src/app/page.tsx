@@ -1,13 +1,10 @@
-import { HeaderPage } from '@/components/features/header';
-
 'use client';
 
-import { Header } from '@/components/Header/Header';
-import { PromoBanner } from '@/components/PromoBanner';
+import { useState } from 'react';
+
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
-import { barbsershopData } from '@/components/PromoBanner/PromoData';
-import { useState } from 'react';
+import { HeaderPage } from '@/components/features/header';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
@@ -34,9 +31,7 @@ export default function Home() {
         after:left-0
         after:w-full"
       >
-        <Header />
-        <PromoBanner barbershopCount={barbsershopData.barbershopCount} />
-        <div className="block bg-[url('/images/hero_overlay.png')] w-full h-full bg-no-repeat bg-[center_bottom] bg-[length:85%] z-10 absolute" />
+        <HeaderPage />
       </div>
       <input
         type="text"

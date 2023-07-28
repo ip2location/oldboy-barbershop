@@ -28,7 +28,7 @@ export function Location(): ReactElement {
       <ul>
         {cityLocations.map(({ city, branch }) => (
           // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-          <li key={city} className="border-xl bg-gray-400">
+          <li key={city} className="border-xl">
             {/* onClick={handleCityClick} */}
             <div className="flex p-2 m-2 font-button_font">
               <FiNavigation color="#BFA15C" size={20} fill="#BFA15C" className="mt-4" />
