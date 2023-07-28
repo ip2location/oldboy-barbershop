@@ -27,8 +27,9 @@ export const oldBoySlice = createSlice({
       };
     },
     displayFunction: (state, action: PayloadAction<string>) => {
+      // eslint-disable-next-line no-param-reassign
       state.value.myInput = action.payload;
-      return alert(state.value);
+      // return alert(state.value);
     },
   },
 });
