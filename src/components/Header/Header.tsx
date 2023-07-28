@@ -23,7 +23,6 @@ export const Header = (): ReactElement => {
       className="hero
         hero--main
         flex
-        w-screen
         relative
         pt-14
         px-12
