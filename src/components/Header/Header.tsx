@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
@@ -15,7 +17,7 @@ const mainNavItems = [
   { title: 'Филиалы', href: '#' },
 ];
 
-export function Header(): ReactElement {
+export const Header = (): ReactElement => {
   return (
     <header
       className="
@@ -75,4 +77,4 @@ export function Header(): ReactElement {
       </div>
     </header>
   );
-}
+};
