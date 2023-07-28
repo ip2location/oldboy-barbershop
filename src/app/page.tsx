@@ -1,6 +1,6 @@
 'use client';
 
-import { Header } from '@/components/Header/Header';
+import { Header } from '@/components/Header';
 import { PromoBanner } from '@/components/PromoBanner';
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
