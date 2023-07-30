@@ -1,11 +1,11 @@
+import { ReactElement } from 'react';
 import { Cities } from '../components/cities/cities';
 
 interface SidebarProps {
-  isOpen: boolean;
-  setIsOpen: (value: boolean) => void;
+  setIsOpen: () => void;
 }
 
-export function Sidebar({ isOpen, setIsOpen }: SidebarProps): JSX.Element {
+export function Sidebar({ setIsOpen }: SidebarProps): ReactElement {
   return (
     <div
       className="relative z-10"
@@ -20,7 +20,7 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps): JSX.Element {
               {/* Close function and Icon */}
               <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
                 <button
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={setIsOpen}
                   type="button"
                   className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                 >

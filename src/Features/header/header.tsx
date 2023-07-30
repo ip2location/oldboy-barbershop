@@ -35,7 +35,7 @@ export const HeaderPage = (): ReactElement => {
           </Link>
         </div>
       </div>
-      {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {isOpen && <Sidebar setIsOpen={() => setIsOpen((prevState) => !prevState)} />}
     </>
   );
 };
