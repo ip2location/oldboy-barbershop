@@ -1,12 +1,10 @@
 'use client';
 
-
 import { useAppSelector, useAppDispatch } from '@/store/store';
-import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
-import { useState } from 'react';
-import { Promo } from '@/Features/promo';
-
 import { createFunction } from '@/features/oldBoyBarbershop/oldBoySlice';
+
+import { useState } from 'react';
+
 import { HeaderPage } from '@/features/header/header';
 
 export default function Home() {
@@ -41,7 +39,6 @@ export default function Home() {
         h-screen"
       >
         <HeaderPage />
-        <Promo />
       </div>
       <input
         type="text"

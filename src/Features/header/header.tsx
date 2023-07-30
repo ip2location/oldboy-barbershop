@@ -13,27 +13,29 @@ export const HeaderPage = (): JSX.Element => {
 
   return (
     <>
-      <Header />
-      <PromoBanner barbershopCount={barbsershopData.barbershopCount} />
-      {isOpen ?? <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
-      <div className="display: inline-grid absolute top-96 mt-44 ml-12">
-        <button
-          onClick={(previous) => setIsOpen(!previous)}
-          type="button"
-          className="text-white bg-orange-title border-2 border-orange-title h-10 w-44 m-2 rounded-3xl font-button_font uppercase text-xs font-medium hover:bg-white hover:text-black"
-        >
-          запись онлайн
-        </button>
-
-        <Link href="/">
+      <div>
+        <Header />
+        <PromoBanner barbershopCount={barbsershopData.barbershopCount} />
+        <div className="display: inline-grid absolute top-96 mt-44 ml-12">
           <button
+            onClick={(previous) => setIsOpen(!previous)}
             type="button"
-            className="text-btn-blue bg-transparent border-2 border-btn-blue h-10 w-44 m-2 rounded-3xl font-button_font uppercase text-xs font-medium shadow-btn opacity-70 hover:opacity-100"
+            className="text-white bg-orange-title border-2 border-orange-title h-10 w-44 m-2 rounded-3xl font-button_font uppercase text-xs font-medium hover:bg-white hover:text-black"
           >
-            купить косметику
+            запись онлайн
           </button>
-        </Link>
+
+          <Link href="/">
+            <button
+              type="button"
+              className="text-btn-blue bg-transparent border-2 border-btn-blue h-10 w-44 m-2 rounded-3xl font-button_font uppercase text-xs font-medium shadow-btn opacity-70 hover:opacity-100"
+            >
+              купить косметику
+            </button>
+          </Link>
+        </div>
       </div>
+      {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
     </>
   );
 };
