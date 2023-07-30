@@ -1,18 +1,16 @@
 'use client';
 
-import { useAppSelector, useAppDispatch } from '@/store/store';
+import { useAppDispatch } from '@/store/store';
 import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
 import { useState } from 'react';
 import { Promo } from '@/Features/promo';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
-  const oldBoy = useAppSelector((state) => state.oldBoyReducer.value.myInput);
   const dispatch = useAppDispatch();
 
   const alertOnClick = () => {
     dispatch(createFunction(inputValue));
-    console.log(inputValue, oldBoy);
   };
 
   return (
