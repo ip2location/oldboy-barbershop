@@ -1,14 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 
 import { Header } from '../../components/Header';
 import { PromoBanner } from '../../components/PromoBanner';
 import { barbsershopData } from '../../components/PromoBanner/PromoData';
 import { Sidebar } from '../sidebar/sidebar';
 
-export const HeaderPage = (): JSX.Element => {
+export const HeaderPage = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
