@@ -1,7 +1,5 @@
 'use client';
 
-import { Header } from '@/components/Header/Header';
-import { PromoBanner } from '@/components/PromoBanner';
 import { useAppDispatch } from '@/store/store';
 import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
 import { useState } from 'react';
