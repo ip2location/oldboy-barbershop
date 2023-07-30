@@ -2,23 +2,17 @@
 
 import { Header } from '@/components/Header/Header';
 import { PromoBanner } from '@/components/PromoBanner';
-import {
-  // useAppSelector,
-  useAppDispatch,
-} from '@/store/store';
+import { useAppDispatch } from '@/store/store';
 import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
 import { barbsershopData } from '@/components/PromoBanner/PromoData';
 import { useState } from 'react';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
-  // const oldBoy = useAppSelector((state) => state.oldBoyReducer.value.myInput);
-  // console.log(oldBoy);
   const dispatch = useAppDispatch();
 
   const alertOnClick = () => {
     dispatch(createFunction(inputValue));
-    // console.log(inputValue, oldBoy);
   };
 
   return (

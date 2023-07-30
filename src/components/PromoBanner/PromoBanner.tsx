@@ -1,5 +1,5 @@
-// import Image from 'next/image';
-// import promoScissors from '../../assets/promo/promoScissors.svg';
+import Image from 'next/image';
+import promoScissors from '../../assets/promo/promoScissors.svg';
 import { PromoBannerProps } from './PromoData';
 
 export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element => {
@@ -23,7 +23,7 @@ export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element 
       </div>
       <p className="w-auto bg-orange-title h-1 mb-2.5 mt-6" />
       <p className="text-base text-white">намного больше чем просто мужская парихмахерская</p>
-      {/* <Image src={promoScissors} alt="Logo" width={61} height={33} /> */}
+      <Image src={promoScissors} alt="Logo" width={61} height={33} />
     </div>
   );
 };
