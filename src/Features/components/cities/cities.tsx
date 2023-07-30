@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { FiNavigation } from 'react-icons/fi';
-import { ReactElement, useMemo } from 'react';
+import { ReactElement, useMemo, useCallback } from 'react';
 
 export const cityLocations = [
   { city: 'Москва', branch: 92 },
@@ -13,23 +12,19 @@ export const cityLocations = [
   { city: 'Раменское', branch: 3 },
 ];
 
-export function Location(): ReactElement {
-  // for later using onClick to naviagte to the locations
-
-  // const handleCityClick = useCallback(
-  //   () => () => {
-  //     console.log('City Show');
-  //   },
-  //   [],
-  // );
+export function Cities(): ReactElement {
+  const handleCityClick = useCallback(
+    () => () => {
+      console.log('onClick city');
+    },
+    [],
+  );
 
   return useMemo(
     () => (
       <ul>
         {cityLocations.map(({ city, branch }) => (
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-          <li key={city} className="border-xl">
-            {/* onClick={handleCityClick} */}
+          <li key={city} className="border-xl" onClick={handleCityClick}>
             <div className="flex p-2 m-2 font-button_font">
               <FiNavigation color="#BFA15C" size={20} fill="#BFA15C" className="mt-4" />
               <div className="ml-4">
@@ -42,6 +37,6 @@ export function Location(): ReactElement {
         ))}
       </ul>
     ),
-    [],
+    [handleCityClick],
   );
 }

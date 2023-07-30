@@ -17,7 +17,16 @@
     "react/function-component-definition": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-    "no-param-reassign": "off", //did it temporarily
-    "no-console": "off" //did it temporarily
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "no-console": "off",
+    "eslint-disable-next-line": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state", "ctx"]
+      }
+    ]
   }
 }

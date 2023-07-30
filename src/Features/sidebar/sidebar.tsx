@@ -1,11 +1,11 @@
-import { Location } from './components/cities';
+import { Cities } from '../components/cities/cities';
 
-interface ModalWindow {
+interface SidebarProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }
 
-export function Sidebar({ isOpen, setIsOpen }: ModalWindow): JSX.Element {
+export function Sidebar({ isOpen, setIsOpen }: SidebarProps): JSX.Element {
   return (
     <div
       className="relative z-10"
@@ -70,7 +70,7 @@ export function Sidebar({ isOpen, setIsOpen }: ModalWindow): JSX.Element {
 
                 {/* Hardcoded cities imported */}
                 <div>
-                  <Location />
+                  <Cities />
                 </div>
               </div>
             </div>
