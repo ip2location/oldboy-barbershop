@@ -1,11 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 
+import { Promo } from '@/Features/promo';
 import { Header } from '../../components/Header';
-import { PromoBanner } from '../../components/PromoBanner';
-import { barbsershopData } from '../../components/PromoBanner/PromoData';
 import { Sidebar } from '../sidebar/sidebar';
 
 export const HeaderPage = (): ReactElement => {
@@ -15,8 +12,8 @@ export const HeaderPage = (): ReactElement => {
     <>
       <div>
         <Header />
-        <PromoBanner barbershopCount={barbsershopData.barbershopCount} />
-        <div className="display: inline-grid absolute top-96 mt-44 ml-12">
+        <Promo />
+        <div className="display: inline-grid mt-44 ml-12">
           <button
             onClick={(previous) => setIsOpen(!previous)}
             type="button"
