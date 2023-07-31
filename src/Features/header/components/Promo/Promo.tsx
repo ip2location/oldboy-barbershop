@@ -1,5 +1,4 @@
-import { barbsershopData } from '@/components/PromoBanner/PromoData';
-import { PromoBanner } from '@/components/PromoBanner';
+import { PromoBanner, barbsershopData } from '../../../../components/PromoBanner';
 
 export const Promo = () => {
   return (

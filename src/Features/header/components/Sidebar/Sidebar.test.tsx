@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Sidebar } from './sidebar';
+import { Sidebar } from './Sidebar';
 
 const setIsOpen = jest.fn();
 

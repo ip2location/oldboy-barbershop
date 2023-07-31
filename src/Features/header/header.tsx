@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
-import { Header } from '@/components/Header';
+import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
 
