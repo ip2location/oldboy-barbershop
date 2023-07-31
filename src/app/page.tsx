@@ -1,10 +1,9 @@
 'use client';
 
-import { useAppDispatch } from '@/store/store';
-import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
 import { useState } from 'react';
 
-import { HeaderPage } from '@/Features/header';
+import { useAppDispatch } from '@/store/store';
+import { createFunction, HeaderPage } from '@/Features/header';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');

@@ -12,7 +12,7 @@ export const cityLocations = [
   { city: 'Раменское', branch: 3 },
 ];
 
-export function Cities(): ReactElement {
+export const Cities = (): ReactElement => {
   const handleCityClick = useCallback(
     () => () => {
       console.log('onClick city');
@@ -39,4 +39,4 @@ export function Cities(): ReactElement {
     ),
     [handleCityClick],
   );
-}
+};

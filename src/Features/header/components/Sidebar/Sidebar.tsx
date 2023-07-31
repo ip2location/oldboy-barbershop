@@ -1,11 +1,11 @@
 import { ReactElement } from 'react';
-import { Cities } from '../components/cities/cities';
+import { Cities } from '../Cities';
 
 interface SidebarProps {
   setIsOpen: () => void;
 }
 
-export function Sidebar({ setIsOpen }: SidebarProps): ReactElement {
+export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
   return (
     <div
       className="relative z-10"
@@ -79,4 +79,4 @@ export function Sidebar({ setIsOpen }: SidebarProps): ReactElement {
       </div>
     </div>
   );
-}
+};

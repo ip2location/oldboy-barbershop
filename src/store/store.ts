@@ -2,11 +2,11 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import oldBoyReducer from '../features/oldBoyBarbershop/oldBoySlice';
+import { headerReducer } from '../Features/header';
 
 export const store = configureStore({
   reducer: {
-    oldBoyReducer,
+    headerReducer,
   },
 });
 
