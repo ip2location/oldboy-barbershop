@@ -28,7 +28,6 @@ export const oldBoySlice = createSlice({
     },
     displayFunction: (state, action: PayloadAction<string>) => {
       state.value.myInput = action.payload;
-      // return alert(state.value);
     },
   },
 });
