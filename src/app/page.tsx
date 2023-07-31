@@ -3,8 +3,8 @@
 import { useAppSelector, useAppDispatch } from '@/store/store';
 import { useState } from 'react';
 
-import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
-import { HeaderPage } from '@/Features/header';
+import { createFunction } from '@/features/oldBoyBarbershop/oldBoySlice';
+import { HeaderPage } from '@/features/header';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');

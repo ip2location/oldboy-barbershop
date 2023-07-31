@@ -1,1 +1,3 @@
-export * from './header';
+import { HeaderPage } from './header';
+
+export { HeaderPage };

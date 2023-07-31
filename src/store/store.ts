@@ -2,7 +2,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import oldBoyReducer from '../Features/oldBoyBarbershop/oldBoySlice';
+import oldBoyReducer from '../features/oldBoyBarbershop/oldBoySlice';
 
 export const store = configureStore({
   reducer: {
