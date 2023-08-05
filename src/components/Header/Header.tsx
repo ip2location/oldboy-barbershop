@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
@@ -25,8 +23,6 @@ export const Header = (): ReactElement => {
         flex
         relative
         pt-14
-        px-12
-        pb-16
         overflow-hidden
         text-white"
     >

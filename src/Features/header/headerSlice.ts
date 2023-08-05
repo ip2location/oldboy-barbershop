@@ -12,7 +12,7 @@ const initialState = {
   } as OldBoyState,
 };
 
-export const oldBoySlice = createSlice({
+export const headerSlice = createSlice({
   name: 'oldBoyBarbershop',
   initialState,
   reducers: {
@@ -32,6 +32,6 @@ export const oldBoySlice = createSlice({
   },
 });
 
-export const { createFunction, displayFunction, clearValueFunction } = oldBoySlice.actions;
+export const { createFunction, displayFunction, clearValueFunction } = headerSlice.actions;
 
-export default oldBoySlice.reducer;
+export default headerSlice.reducer;

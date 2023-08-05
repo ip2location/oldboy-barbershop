@@ -1,9 +1,9 @@
 'use client';
 
-import { useAppDispatch } from '@/store/store';
-import { createFunction } from '@/Features/oldBoyBarbershop/oldBoySlice';
 import { useState } from 'react';
-import { Promo } from '@/Features/promo';
+
+import { useAppDispatch } from '@/store/store';
+import { createFunction, HeaderPage } from '@/Features/header';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
@@ -34,7 +34,7 @@ export default function Home() {
         after:w-full
         h-screen"
       >
-        <Promo />
+        <HeaderPage />
       </div>
       <input
         type="text"
