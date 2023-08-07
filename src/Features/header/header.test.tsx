@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
 import { HeaderPage } from './header';
 
 jest.mock('next/image', () => ({
@@ -20,5 +19,7 @@ describe('HeaderMainPage', () => {
     const btnBuy = await screen.findByRole('button', { name: 'купить косметику' });
 
     expect(btnBuy).toBeEnabled();
+
+    expect(screen.getByText('Спрашивайте косметику')).toBeInTheDocument();
   });
 });

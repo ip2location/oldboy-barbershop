@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 import { Header } from '../../components/Header';
-import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
+import { Promo } from './components/Promo';
 
 export const HeaderPage = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
