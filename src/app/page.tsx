@@ -1,17 +1,17 @@
 'use client';
 
-// import { useState } from 'react';
-// import { useAppDispatch } from '@/store/store';
-import { HeaderPage } from '@/Features/header';
+import { useState } from 'react';
+import { useAppDispatch } from '@/store/store';
+import { HeaderPage, createFunction } from '@/Features/header';
 import { PromoCard } from '@/components/PromoCard';
 
 export default function Home() {
-  // const [inputValue, setInputValue] = useState('');
-  // const dispatch = useAppDispatch();
+  const [inputValue, setInputValue] = useState('');
+  const dispatch = useAppDispatch();
 
-  // const alertOnClick = () => {
-  //   dispatch(createFunction(inputValue));
-  // };
+  const alertOnClick = () => {
+    dispatch(createFunction(inputValue));
+  };
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
@@ -27,9 +27,9 @@ export default function Home() {
         relative
         after:bg-[url('/images/bg/white-grunge.svg')]
         after:z-10
-        after:h-32
+        after:h-12
         after:bg-repeat-x
-        after:bg-[top_5rem_center]
+        after:bg-[top_1rem_center]
         after:bg-[length:50rem]
         after:left-0
         after:w-full"
@@ -37,14 +37,14 @@ export default function Home() {
         <HeaderPage />
       </div>
       <PromoCard />
-      {/* <input
+      <input
         type="text"
         placeholder="Enter any value here..."
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <button className="rounded-full w-40 bg-orange-300 px-1" type="button" onClick={alertOnClick}>
+      <button type="button" onClick={alertOnClick}>
         Click to display state value
-      </button> */}
+      </button>
     </main>
   );
 }
