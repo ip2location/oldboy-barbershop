@@ -1,18 +1,9 @@
 'use client';
 
-// import { useState } from 'react';
-// import { useAppDispatch } from '@/store/store';
 import { HeaderPage } from '@/Features/header';
 import { PromoCard } from '@/components/PromoCard';
 
 export default function Home() {
-  // const [inputValue, setInputValue] = useState('');
-  // const dispatch = useAppDispatch();
-
-  // const alertOnClick = () => {
-  //   dispatch(createFunction(inputValue));
-  // };
-
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
       <div
@@ -37,14 +28,6 @@ export default function Home() {
         <HeaderPage />
       </div>
       <PromoCard />
-      {/* <input
-        type="text"
-        placeholder="Enter any value here..."
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button className="rounded-full w-40 bg-orange-300 px-1" type="button" onClick={alertOnClick}>
-        Click to display state value
-      </button> */}
     </main>
   );
 }
