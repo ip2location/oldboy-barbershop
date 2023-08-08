@@ -12,7 +12,7 @@ export const Cosmetics = (): ReactElement => {
           <br />
           во всех барбершопах <br /> сети OldBoy
         </h2>
-        <p className="hero-cosmetics__text m-0 text-orange-title text-xs font-rex">
+        <p className="hero-cosmetics__text m-0 text-orange-title text-[10px] font-rex">
           OLDBOY BARBERSHOP x barber wild
         </p>
         <Link
@@ -20,11 +20,11 @@ export const Cosmetics = (): ReactElement => {
           className="hero-cosmetics__link
             bg-transparent
             absolute
-            -top-5
+            top-8
             -right-9
             z-10
             w-[25rem]
-            h-[20rem]
+            h-[17rem]
             before:absolute
             before:right-0
             before:bottom-0
@@ -44,7 +44,7 @@ export const Cosmetics = (): ReactElement => {
             after:right-[-25px]
             after:bottom-[-20px]
             after:w-full
-            after:h-full
+            after:h-[105%]
             after:bg-[url('/images/bg/cosmetics-deco.png')]
             after:bg-[position:bottom_52px_right_30px]
             after:bg-contain

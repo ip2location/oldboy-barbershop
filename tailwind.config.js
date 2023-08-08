@@ -16,6 +16,7 @@ module.exports = {
         'orange-title': '#d6a354',
         'gold-title': '#BFA15C',
         'btn-blue': '#56afe1',
+        'orange-bg': '#896322',
       },
       fontSize: {
         xs: '.75rem',
