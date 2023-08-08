@@ -1,11 +1,10 @@
-/* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import { ReactElement } from 'react';
 
-type PromoOrangeHeader = {
-  children: React.ReactNode;
+type Props = {
+  children: any;
 };
 
-export const PromoHeader = (props: PromoOrangeHeader): React.JSX.Element => {
+export const PromoHeader = ({ children }: Props): ReactElement => {
   return (
     <header
       className="section-header z-10 max-w-[23rem] w-11/12 flex relative skew-y-15 bg-orange-title 
@@ -21,7 +20,7 @@ export const PromoHeader = (props: PromoOrangeHeader): React.JSX.Element => {
             after:h-full
             after:content-['']"
     >
-      {props.children}
+      {children}
     </header>
   );
 };
