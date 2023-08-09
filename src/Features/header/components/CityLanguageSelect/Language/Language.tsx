@@ -11,7 +11,7 @@ export const Language = () => {
   return (
     <div className="language-select flex relative z-30 w-8">
       <div
-        className="language-select__current relative font-rex z-20 flex align-items-center 
+        className="language-select__current relative font-rex z-50 flex align-items-center 
         align-content-center justify-center h-8 w-8 border-2 
         border-orange-title rounded-full
         hover:bg-orange-title transition-all ease-out duration-200 select-none"
@@ -22,7 +22,7 @@ export const Language = () => {
       <div
         className={`${
           isVisible ? 'visible' : 'hidden'
-        } language-select__popup absolute top-0 left-0 py-8 px-8 overflow-hidden bg-orange-bg rounded-2xl z-10`}
+        } language-select__popup absolute top-0 right-0 left-auto py-8 px-8 bg-orange-bg rounded-2xl z-40`}
       >
         <ul className="w-max m-0 p-0">
           <li>

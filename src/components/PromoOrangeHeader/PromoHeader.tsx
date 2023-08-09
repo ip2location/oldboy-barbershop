@@ -1,8 +1,6 @@
-interface Props {
-  children: any;
-}
+import { PropsWithChildren, ReactElement } from 'react';
 
-export const PromoHeader = ({ children }: Props) => {
+export const PromoHeader = ({ children }: PropsWithChildren): ReactElement => {
   return (
     <header
       className="section-header z-10 max-w-[23rem] w-11/12 flex relative skew-y-15 bg-orange-title 
