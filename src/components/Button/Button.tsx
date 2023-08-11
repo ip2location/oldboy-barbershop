@@ -20,7 +20,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={`bg-${background} text-${textColor} border-${borderColor} h-${height} w-${width} m-2 font-button_font rounded-3xl hover:${onHover}`}
+      className={`bg-${background} text-${textColor} border-${borderColor} h-${height} w-${width}  m-2 font-button_font rounded-3xl hover:${onHover}`}
     >
       {buttonText}
     </button>

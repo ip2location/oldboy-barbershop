@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import { CityLanguageSelect } from '@/Features/header/components/CityLanguageSelect';
+import { CityLanguageSelect } from '../../Features/header/components/CityLanguageSelect/CityLanguageSelect';
 
 const mainNavItems = [
   { title: 'Главная', href: '#' },
