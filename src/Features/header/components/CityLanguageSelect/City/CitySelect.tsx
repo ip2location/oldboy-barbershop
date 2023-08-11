@@ -32,6 +32,7 @@ export const CitySelect: React.FC<CitySelectProps> = ({ myValue }): ReactElement
 
   const handlePClick = (value: string) => {
     selectValue(value);
+    setShowModal(false);
   };
 
   return (
@@ -56,7 +57,7 @@ export const CitySelect: React.FC<CitySelectProps> = ({ myValue }): ReactElement
           Выбери свой <br /> барбершоп:
           <span className="m-0 text-orange-title font-rex text-[8.5px]">&#x25BC;</span>
         </p>
-        <p className="city-select__city font-rex m-0 text-base">Москва</p>
+        <p className="city-select__city font-rex m-0 text-base">{selectedValue}</p>
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
@@ -73,8 +74,6 @@ export const CitySelect: React.FC<CitySelectProps> = ({ myValue }): ReactElement
           >
             Бишкек
           </p>
-
-          {selectedValue && <p className="text-black font-rex">Ваш город: {selectedValue}</p>}
         </Modal>
       ) : null}
     </>

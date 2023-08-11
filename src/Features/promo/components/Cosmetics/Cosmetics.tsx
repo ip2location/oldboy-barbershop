@@ -31,6 +31,7 @@ export const Cosmetics = (): ReactElement => {
             before:w-full
             before:h-full
             before:bg-[url('/images/bg/cosmetics-deco-bg.png')]
+            before:z-40
             before:bg-no-repeat
             before:bg-[position:bottom_52px_right_30px]
             before:bg-[length:305px_auto]
@@ -51,7 +52,7 @@ export const Cosmetics = (): ReactElement => {
             after:bg-no-repeat
             after:transition duration-200 linear
             after:opacity-100 
-            after:z-50
+            after:z-40
             after:content-['']
         "
         />

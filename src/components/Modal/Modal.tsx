@@ -14,7 +14,7 @@ export const Modal: React.FC<PropTypes> = ({ showModal, onClose, children }) => 
   };
   return (
     <section
-      className={`location-selector block fixed inset-0 top-0 bottom-0 left-0 right-0 w-full h-full flex flex-wrap flex-col z-50 justify-center items-center 
+      className={`location-selector fixed inset-0 overflow-hidden w-full flex flex-col z-50 justify-center items-center 
         transition-all ease-out duration-200 ${showModal ? 'visible bg-white' : 'invisible'}`}
     >
       <div
