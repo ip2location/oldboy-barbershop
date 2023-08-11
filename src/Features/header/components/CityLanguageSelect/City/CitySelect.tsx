@@ -2,36 +2,36 @@ import Link from 'next/link';
 import React, { ReactElement, useState, useEffect } from 'react';
 import { setCookie, getCookie, CookieValueTypes } from 'cookies-next';
 import { Modal } from '../../../../../components/Modal/Modal';
+import { SEVEN_DAYS } from '../../../../../constants';
 
 interface CitySelectProps {
-  myValue: string | undefined;
+  cityValue: string;
 }
 
-export const CitySelect: React.FC<CitySelectProps> = ({ myValue }): ReactElement => {
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(myValue);
+export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCity, setSelectedCity] = useState(cityValue);
 
   useEffect(() => {
-    const cookieValue = getCookie('myValue') as CookieValueTypes;
+    const cookieValue = getCookie('cityValue') as CookieValueTypes;
     if (typeof cookieValue === 'string') {
-      setSelectedValue(cookieValue || undefined);
+      setSelectedCity(cookieValue);
     }
   }, []);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     setShowModal(true);
+    return showModal;
   };
 
-  const selectValue = (value: string) => {
-    const expires = new Date();
-    expires.setDate(expires.getDate() + 7);
-    setCookie('myValue', value, { expires });
-    setSelectedValue(value);
+  const selectCity = (value: string) => {
+    setCookie('cityValue', value, { expires: SEVEN_DAYS });
+    setSelectedCity(value);
   };
 
-  const handlePClick = (value: string) => {
-    selectValue(value);
+  const handlePickCity = (value: string) => {
+    selectCity(value);
     setShowModal(false);
   };
 
@@ -57,20 +57,20 @@ export const CitySelect: React.FC<CitySelectProps> = ({ myValue }): ReactElement
           Выбери свой <br /> барбершоп:
           <span className="m-0 text-orange-title font-rex text-[8.5px]">&#x25BC;</span>
         </p>
-        <p className="city-select__city font-rex m-0 text-base">{selectedValue}</p>
+        <p className="city-select__city font-rex m-0 text-base">{selectedCity}</p>
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
           <h1 className="text-black font-rex">Выбери свой барбершоп</h1>
           <p
             className="font-rex p-2 mt-5 text-black cursor-pointer"
-            onClick={() => handlePClick('Москва')}
+            onClick={() => handlePickCity('Москва')}
           >
             Москва
           </p>
           <p
             className="font-rex p-2 text-black cursor-pointer"
-            onClick={() => handlePClick('Бишкек')}
+            onClick={() => handlePickCity('Бишкек')}
           >
             Бишкек
           </p>

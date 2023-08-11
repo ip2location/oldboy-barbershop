@@ -1,32 +1,30 @@
-import { CookieValueTypes, getCookie, setCookie } from 'cookies-next';
+import { setCookie, getCookie, CookieValueTypes } from 'cookies-next';
+import { SEVEN_DAYS, EN, RU } from '@/constants';
 import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
 
 interface LanguageSelectProps {
-  languageValue: string | undefined;
+  languageValue: string;
 }
 
-// eslint-disable-next-line react/prop-types
-export const Language: React.FC<LanguageSelectProps> = ({ languageValue }): ReactElement => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(languageValue);
+export const Language = ({ languageValue }: LanguageSelectProps): ReactElement => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(languageValue);
 
   useEffect(() => {
     const cookieValue = getCookie('languageValue') as CookieValueTypes;
     if (typeof cookieValue === 'string') {
-      setSelectedValue(cookieValue || undefined);
+      setSelectedLanguage(cookieValue);
     }
   }, []);
 
-  const selectValue = (value: string) => {
-    const expires = new Date();
-    expires.setDate(expires.getDate() + 7);
-    setCookie('languageValue', value, { expires });
-    setSelectedValue(value);
+  const selectLanguage = (value: string) => {
+    setCookie('languageValue', value, { expires: SEVEN_DAYS });
+    setSelectedLanguage(value);
   };
 
-  const handlePClick = (value: string) => {
-    selectValue(value);
+  const handlePickLanguage = (value: string) => {
+    selectLanguage(value);
   };
 
   const handleShow = () => {
@@ -42,7 +40,7 @@ export const Language: React.FC<LanguageSelectProps> = ({ languageValue }): Reac
         hover:bg-orange-title transition-all ease-out duration-200 select-none"
         onClick={handleShow}
       >
-        <p className="p-1 text-center">{selectedValue === 'RU' ? 'ru' : 'en'}</p>
+        <p className="p-1 text-center">{selectedLanguage === EN ? 'ru' : 'en'}</p>
       </div>
 
       <section
@@ -52,13 +50,13 @@ export const Language: React.FC<LanguageSelectProps> = ({ languageValue }): Reac
       >
         <ul className="w-max m-0 p-0">
           <li>
-            {selectedValue === 'RU' ? (
-              <Link className="font-rex" onClick={() => handlePClick('EN')} href="/">
-                EN - US &nbsp;&nbsp;English
+            {selectedLanguage === RU ? (
+              <Link className="font-rex" onClick={() => handlePickLanguage(EN)} href="/">
+                RU - РУ - РУССКИЙ
               </Link>
             ) : (
-              <Link className="font-rex" onClick={() => handlePClick('RU')} href="/">
-                RU - RU &nbsp;&nbsp;Russian
+              <Link className="font-rex" onClick={() => handlePickLanguage(RU)} href="/">
+                EN - US - ENGLISH
               </Link>
             )}
           </li>
