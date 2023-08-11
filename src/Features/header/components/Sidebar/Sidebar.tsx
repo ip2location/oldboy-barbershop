@@ -14,11 +14,15 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
       aria-modal="true"
     >
       <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-            <div className="pointer-events-auto relative w-screen max-w-md">
-              {/* Close function and Icon */}
-              <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+        <div
+          className="fixed inset-0 w-full h-full bg-opacity-tan opacity-50"
+          onClick={setIsOpen}
+        />
+        <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+          <div className="pointer-events-auto w-screen max-w-md">
+            {/* Close function and Icon */}
+            <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+              <div className="absolute top-0  flex pt-4 sm:-ml-10 sm:pr-4">
                 <button
                   onClick={setIsOpen}
                   type="button"
@@ -38,7 +42,7 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
                 </button>
               </div>
 
-              <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl text-black">
+              <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl text-black m-0 ">
                 {/* Search area */}
                 <form>
                   <div className="relative m-4">
