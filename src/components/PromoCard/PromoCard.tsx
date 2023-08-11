@@ -5,7 +5,18 @@ export const PromoCard = (): ReactElement => {
   return (
     <section className="about mt-8">
       <div className="about-header flex flex-col mb-8 pb-5">
-        <PromoHeader />
+        <PromoHeader>
+          <h2
+            className="section-header__title 
+            text-5xl
+            mt-2.5 pl-10 pr-12 py-4
+            text-white font-rex 
+            leading-tight 
+            drop-shadow-[-3px_2px_0_rgba(137,99,34)]"
+          >
+            О нашем <br /> барбершопе
+          </h2>
+        </PromoHeader>
         <div
           className="section-header__image bg-[url('/images/bg/about.jpg')] 
             bg-cover bg-[position:bottom_center] w-[25.5rem] 
@@ -15,7 +26,6 @@ export const PromoCard = (): ReactElement => {
             after:-right-5
             after:bg-[url('/images/bg/white-grunge-90.svg')]
             after:bg-repeat-y
-            
             after:bg-cover
             after:w-10
             after:h-full

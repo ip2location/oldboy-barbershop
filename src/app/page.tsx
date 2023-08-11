@@ -18,9 +18,9 @@ export default function Home() {
         relative
         after:bg-[url('/images/bg/white-grunge.svg')]
         after:z-10
-        after:h-32
+        after:h-12
         after:bg-repeat-x
-        after:bg-[top_5rem_center]
+        after:bg-[top_1rem_center]
         after:bg-[length:50rem]
         after:left-0
         after:w-full"

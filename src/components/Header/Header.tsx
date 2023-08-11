@@ -23,7 +23,6 @@ export const Header = (): ReactElement => {
         flex
         relative
         pt-14
-        px-12
         overflow-hidden
         text-white"
     >
