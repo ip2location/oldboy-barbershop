@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import { useAppDispatch } from '@/store/store';
-import { createFunction, HeaderPage } from '@/Features/header';
+import { useAppDispatch } from '../store/store';
+import { createFunction, HeaderPage } from '../Features/header';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');

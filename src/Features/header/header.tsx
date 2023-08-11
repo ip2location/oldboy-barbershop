@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 import { Layout } from '../../components/Layout';
 import { Button } from '../../components/Button';
@@ -20,9 +19,7 @@ export const HeaderPage = (): ReactElement => {
             Запись онлайн
           </Button>
           <div className="mt-6">
-            <Link href="/">
-              <Button variant="accentLink">Купить косметику</Button>
-            </Link>
+            <Button variant="accentLink">Купить косметику</Button>
           </div>
         </div>
       </div>

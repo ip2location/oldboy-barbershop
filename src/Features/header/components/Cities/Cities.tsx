@@ -39,6 +39,6 @@ export const Cities = (): ReactElement => {
         )}
       </div>
     ),
-    [handleCityClick, data],
+    [handleCityClick, data, isLoading],
   );
 };
