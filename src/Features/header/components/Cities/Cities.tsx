@@ -16,6 +16,8 @@ export const Cities = (): ReactElement => {
     return data;
   }, [data]);
 
+  console.log(data);
+
   return useMemo(
     () => (
       <div>
@@ -23,7 +25,7 @@ export const Cities = (): ReactElement => {
           <LoadingSpinner />
         ) : (
           <ul>
-            {data.data.map(({ city, branch }: CityList) => (
+            {data?.map(({ city, branch }: CityList) => (
               <li key={city} className="border-xl" onClick={handleCityClick}>
                 <div className="flex p-2 m-2 font-button_font">
                   <FiNavigation color="#BFA15C" size={20} fill="#BFA15C" className="mt-4" />

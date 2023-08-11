@@ -23,9 +23,9 @@ describe('HeaderMainPage', () => {
 
     expect(buttonRecord).toBeEnabled();
 
-    const buttonBuy = screen.getByText('Купить косметику', { exact: false });
+    const buttonBuy = screen.getByRole('button', { name: 'Купить косметику' });
+    await userEvent.click(buttonBuy);
 
-    expect(buttonBuy).toBeInTheDocument();
-    expect(buttonBuy).toBeInTheDocument();
+    expect(buttonBuy).toBeEnabled();
   });
 });
