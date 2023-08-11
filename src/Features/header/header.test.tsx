@@ -26,5 +26,6 @@ describe('HeaderMainPage', () => {
     const buttonBuy = screen.getByText('Купить косметику', { exact: false });
 
     expect(buttonBuy).toBeInTheDocument();
+    expect(buttonBuy).toBeInTheDocument();
   });
 });

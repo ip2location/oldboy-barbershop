@@ -4,7 +4,7 @@ import { PromoBannerProps } from './PromoData';
 
 export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element => {
   return (
-    <div className="tracking-tigh sm:text-4xl uppercase font-rex w-48 m-12 mt-6 ml-0 text-transform: skew-y-15">
+    <div className="tracking-tigh sm:text-4xl uppercase font-rex w-48 m-12 mt-6 text-transform: skew-y-15">
       <h1 className="text-3xl text-white leading-8">
         Oldboy <br /> barbershop
       </h1>

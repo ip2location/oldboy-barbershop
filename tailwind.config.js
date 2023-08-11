@@ -5,7 +5,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/Features/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/Features/**/*.{js,ts,jsx,tsx, mdx}'
   ],
   theme: {
     extend: {
@@ -41,7 +41,7 @@ module.exports = {
         15: '-15deg',
       },
       boxShadow: {
-        btn: '0 3px 10px rgba(84, 220, 179, .5)',
+        btn: '0 3px 10px rgba(84,220,179,.5)',
       },
       width: {
         180: '180px',
