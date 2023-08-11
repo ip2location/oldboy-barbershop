@@ -17,6 +17,7 @@ module.exports = {
         'gold-title': '#BFA15C',
         'btn-blue': '#56afe1',
         'orange-bg': '#896322',
+        'opacity-tan': '#333',
       },
       fontSize: {
         xs: '.75rem',
@@ -42,6 +43,15 @@ module.exports = {
       },
       boxShadow: {
         btn: '0 3px 10px rgba(84,220,179,.5)',
+      },
+      width: {
+        180: '180px',
+      },
+      minWidth: {
+        180: '180px',
+      },
+      maxWidth: {
+        180: '180px',
       },
     },
   },

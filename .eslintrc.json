@@ -27,6 +27,7 @@
         "props": true,
         "ignorePropertyModificationsFor": ["state", "ctx"]
       }
-    ]
+    ],
+    "react/require-default-props" : "off"
   }
 }

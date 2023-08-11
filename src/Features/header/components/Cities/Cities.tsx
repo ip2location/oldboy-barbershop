@@ -13,12 +13,9 @@ export const cityLocations = [
 ];
 
 export const Cities = (): ReactElement => {
-  const handleCityClick = useCallback(
-    () => () => {
-      console.log('onClick city');
-    },
-    [],
-  );
+  const handleCityClick = useCallback(() => {
+    return cityLocations;
+  }, []);
 
   return useMemo(
     () => (
