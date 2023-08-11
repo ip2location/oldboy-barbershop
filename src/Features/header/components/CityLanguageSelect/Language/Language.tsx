@@ -1,7 +1,7 @@
 import { setCookie, getCookie, CookieValueTypes } from 'cookies-next';
-import { SEVEN_DAYS, EN, RU } from '@/constants';
 import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
+import { SEVEN_DAYS, EN, RU } from '../../../../../constants';
 
 interface LanguageSelectProps {
   languageValue: string;
