@@ -33,6 +33,7 @@ export const Language: React.FC<LanguageSelectProps> = ({ languageValue }): Reac
     setIsVisible((current) => !current);
   };
 
+  // eslint-disable-next-line no-console
   console.log(`Selected language:${selectedValue}`);
 
   return (
