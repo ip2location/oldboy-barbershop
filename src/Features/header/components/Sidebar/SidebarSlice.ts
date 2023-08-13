@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { axiosBaseQuery } from '@/services/baseQuery';
+import { axiosBaseQuery } from '../../../../services/baseQuery';
 
 const api = 'http://localhost:3000/';
 

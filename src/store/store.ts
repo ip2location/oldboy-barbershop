@@ -2,14 +2,14 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { headerReducer, sidebarSlice } from '../Features/header';
+import { headerReducer, searchingSlice } from '../Features/header';
 
 export const store = configureStore({
   reducer: {
     headerReducer,
-    [sidebarSlice.reducerPath]: sidebarSlice.reducer,
+    [searchingSlice.reducerPath]: searchingSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sidebarSlice.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(searchingSlice.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
