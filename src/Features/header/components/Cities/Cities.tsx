@@ -1,22 +1,16 @@
 import { FiNavigation } from 'react-icons/fi';
 import { ReactElement, useMemo, useCallback } from 'react';
 
-import { useFetchAllCityLocationsQuery } from '../Sidebar/SidebarSlice';
-import { LoadingSpinner } from './LoadingSpinner';
-
-interface CityList {
-  city: string;
-  branch: number;
-}
+import { useFetchCityListQuery } from '../Sidebar/SidebarSlice';
+import { LoadingSpinner } from '../../../../components/LoadingSpinner/LoadingSpinner';
+import { CityList } from './Cities.types';
 
 export const Cities = (): ReactElement => {
-  const { data, isLoading } = useFetchAllCityLocationsQuery('');
+  const { data, isLoading } = useFetchCityListQuery('');
 
   const handleCityClick = useCallback(() => {
     return data;
   }, [data]);
-
-  console.log(data);
 
   return useMemo(
     () => (

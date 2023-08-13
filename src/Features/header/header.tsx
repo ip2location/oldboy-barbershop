@@ -15,7 +15,7 @@ export const HeaderPage = (): ReactElement => {
       <div>
         <Header />
         <Promo />
-        <div className="mt-6">
+        <div className="mt-6 m-12">
           <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
             Запись онлайн
           </Button>

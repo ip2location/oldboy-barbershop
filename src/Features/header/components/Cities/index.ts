@@ -1,2 +1,2 @@
 export { Cities } from './Cities';
-export { LoadingSpinner } from './LoadingSpinner';
+export { LoadingSpinner } from '../../../../components/LoadingSpinner/LoadingSpinner';
