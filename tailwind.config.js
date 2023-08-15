@@ -52,6 +52,9 @@ module.exports = {
       maxWidth: {
         180: '180px',
       },
+      animation: {
+        'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
+      },
     },
   },
   variants: {},

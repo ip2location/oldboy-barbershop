@@ -6,6 +6,8 @@ import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
 
+import { ContactUs } from '../../components/ContactUs';
+
 export const HeaderPage = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,6 +26,7 @@ export const HeaderPage = (): ReactElement => {
             </Link>
           </div>
         </div>
+        <ContactUs onClick={() => setIsOpen((prevState) => !prevState)} />
       </div>
       {isOpen && <Sidebar setIsOpen={() => setIsOpen((prevState) => !prevState)} />}
     </Layout>
