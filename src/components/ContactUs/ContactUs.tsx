@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { FullLogoImage } from '../FullLogoImage';
 
-export interface ContactUsProps {
+interface ContactUsProps {
   onClick?: () => void;
 }
 

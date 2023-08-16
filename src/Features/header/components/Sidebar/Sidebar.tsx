@@ -8,7 +8,7 @@ interface SidebarProps {
 export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
   return (
     <div
-      className="relative z-40"
+      className="relative z-50"
       aria-labelledby="slide-over-title"
       role="dialog"
       aria-modal="true"

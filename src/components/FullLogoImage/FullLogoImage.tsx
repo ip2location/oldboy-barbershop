@@ -24,7 +24,7 @@ const FullLogoSvg = (): ReactElement => {
   );
 };
 
-interface IProps {
+interface FullLogoImageProps {
   isWhite: boolean;
   width?: string;
   height?: string;
@@ -34,7 +34,7 @@ export const FullLogoImage = ({
   isWhite,
   width = '100px',
   height = '50px',
-}: IProps): ReactElement => {
+}: FullLogoImageProps): ReactElement => {
   const color = isWhite ? 'text-white' : 'text-orange-title';
 
   return (
