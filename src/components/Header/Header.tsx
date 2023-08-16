@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
+import { CityLanguageSelect } from '../../Features/header/components/CityLanguageSelect/CityLanguageSelect';
 
 const mainNavItems = [
   { title: 'Главная', href: '#' },
@@ -26,7 +27,7 @@ export const Header = (): ReactElement => {
         overflow-hidden
         text-white"
     >
-      <div className="hero__top relative flex mb-5">
+      <div className="hero__top relative flex mb-5 w-full">
         <div className="hero__logo relative w-36 mr-4 flex align-top">
           <Link href="/">
             <Image
@@ -38,7 +39,7 @@ export const Header = (): ReactElement => {
             />
           </Link>
         </div>
-        <div className="hero__nav hero__nav--hidden -mt-0.5">
+        <div className="hero__nav hero__nav--hidden -mt-0.5 w-full max-w-full">
           <nav className="main-nav inset-0 flex items-center">
             <ul className="main-nav__list flex m-0">
               {mainNavItems.map(({ title, href }) => {
@@ -56,6 +57,7 @@ export const Header = (): ReactElement => {
             </ul>
           </nav>
         </div>
+        <CityLanguageSelect />
       </div>
     </header>
   );

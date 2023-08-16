@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 
 export const Cosmetics = (): ReactElement => {
   return (
-    <aside className="hero__banner absolute top-20 right-0 z-30 block">
+    <aside className="hero__banner absolute top-20 right-0 z-20 block">
       <article className="hero-cosmetics relative flex flex-col justify-end w-[22.5rem] h-[19.188rem] font-bold font-rex text-right">
         <h2 className="hero-cosmetics__title text-white font-rex text-2xl leading-6">
           <span className="hero-cosmetics__span text-orange-title text-base font-rex">
@@ -31,6 +31,7 @@ export const Cosmetics = (): ReactElement => {
             before:w-full
             before:h-full
             before:bg-[url('/images/bg/cosmetics-deco-bg.png')]
+            before:z-40
             before:bg-no-repeat
             before:bg-[position:bottom_52px_right_30px]
             before:bg-[length:305px_auto]
@@ -51,7 +52,7 @@ export const Cosmetics = (): ReactElement => {
             after:bg-no-repeat
             after:transition duration-200 linear
             after:opacity-100 
-            after:z-50
+            after:z-40
             after:content-['']
         "
         />
