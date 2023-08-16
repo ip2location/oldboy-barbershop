@@ -41,7 +41,6 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
                   </svg>
                 </button>
               </div>
-
               <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl text-black m-0 ">
                 {/* Search area */}
                 <form>
