@@ -1,28 +1,36 @@
 import Link from 'next/link';
-import { ReactElement, PropsWithChildren } from 'react';
+import { ReactElement, PropsWithChildren, ChangeEvent } from 'react';
 
-export interface InputDropdownProps extends PropsWithChildren {
-  onChange?: (event: any) => void;
+type DropdownVariant = 'fullWidth' | 'halfWidth' | 'width75' | 'width25';
+
+export interface DropdownInputProps extends PropsWithChildren {
+  variant: DropdownVariant;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
-  form_width: string;
-  search_item: string;
-  search_results_href: string;
-  search_results_li: string;
-  input_value: string;
+  searchItem: string;
+  searchResultsHref: string;
+  searchResultsText: string;
+  inputValue: string;
 }
 
-export const Dropdown = ({
+export const DropdownInput = ({
   onChange,
-  form_width,
+  variant,
   placeholder,
   children,
-  search_item,
-  search_results_href,
-  search_results_li,
-  input_value,
-}: InputDropdownProps): ReactElement => {
+  searchItem,
+  searchResultsHref,
+  searchResultsText,
+  inputValue,
+}: DropdownInputProps): ReactElement => {
+  const classes: Record<DropdownVariant, string> = {
+    fullWidth: 'w-full',
+    halfWidth: 'w-1/2',
+    width75: 'w-9/12',
+    width25: 'w-3/12',
+  };
   return (
-    <div className={`flex flex-col form-dropdown w-${form_width}`}>
+    <div className={`flex flex-col form-dropdown ${classes[variant]}`}>
       <div className="relative z-20 w-full">
         <form autoComplete="off">
           <input
@@ -35,7 +43,7 @@ export const Dropdown = ({
             placeholder={placeholder}
             onChange={onChange}
             type="search"
-            value={input_value}
+            value={inputValue}
           />
           {children}
         </form>
@@ -43,13 +51,13 @@ export const Dropdown = ({
       </div>
       <section
         className={` ${
-          input_value ? 'block' : 'hidden'
+          inputValue ? 'block' : 'hidden'
         } search-results relative z-10 w-full -mt-10 pt-10 pb-5 px-5 border border-slate-200 rounded-[20px] shadow-md`}
       >
         <h2 className="search-results__title mt-4 text-header-bg font-rex text-2xl">
           Результаты поиска:
         </h2>
-        <p className="text-orange-title font-rex hidden">такого {search_item} не найдено</p>
+        <p className="text-orange-title font-rex hidden">такого {searchItem} не найдено</p>
         <ul className="search-result__list h-min max-h-[50vh] m-0 p-0 overflow-y-scroll">
           <li
             className="search-results__item relative mb-1 pl-4 text-sm
@@ -65,12 +73,12 @@ export const Dropdown = ({
                 before:content-['']"
           >
             <Link
-              href={`/${search_results_href}`}
+              href={`/${searchResultsHref}`}
               className="text-orange-bg max-w-full py-1.5 px-3 overflow-hidden 
                 tracking-wider whitespace-nowrap text-ellipsis
                 rounded-[20px] transition-all duration-200 linear font-sans uppercase font-semibold"
             >
-              {search_results_li}
+              {searchResultsText}
             </Link>
           </li>
         </ul>

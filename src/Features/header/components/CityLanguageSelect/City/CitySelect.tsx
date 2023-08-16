@@ -4,7 +4,7 @@ import { setCookie } from 'cookies-next';
 import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
 import { Modal } from '../../../../../components/Modal/Modal';
 import { SEVEN_DAYS, Cookies } from '../../../../../constants';
-import { Dropdown } from '../../../../../components/Dropdown/Dropdown';
+import { DropdownInput } from '../../../../../components/DropdownInput/DropdownInput';
 
 interface CitySelectProps {
   cityValue: string;
@@ -34,10 +34,9 @@ export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
     setShowModal(false);
   };
 
-  const handleChange = (event: React.MouseEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setCityInput(event.currentTarget.value);
-    console.log(cityInput);
     return cityInput;
   };
 
@@ -82,14 +81,14 @@ export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
           >
             Бишкек
           </p>
-          <Dropdown
+          <DropdownInput
             placeholder="город, улица или метро"
-            form_width="1/2"
-            search_item="города"
-            search_results_href="/"
-            search_results_li={cityInput}
+            searchItem="города"
+            searchResultsHref="/"
+            searchResultsText={cityInput}
             onChange={handleChange}
-            input_value={cityInput}
+            inputValue={cityInput}
+            variant="halfWidth"
           />
         </Modal>
       ) : null}

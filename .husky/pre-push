@@ -4,7 +4,7 @@
 npm run test
 
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
-BRANCH_PATTERN="^(feature|fix|test|release)/OB-[0-9]+_[a-zA-Z0-9-_]+$"
+BRANCH_PATTERN="^(feature|fix|test|release)/OB-[0-9]+_[a-zA-Z0-9-]+$"
 
 if [[ ! "$BRANCH_NAME" =~ $BRANCH_PATTERN ]]; then
   echo "Invalid branch name format. Branch name should be in the format of <ticket type>/OB-<number>_<description>"
