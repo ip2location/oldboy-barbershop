@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import React, { ReactElement, useState, useEffect } from 'react';
-import { setCookie, getCookie, CookieValueTypes } from 'cookies-next';
+import React, { ReactElement, useState } from 'react';
+import { setCookie } from 'cookies-next';
+import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
 import { Modal } from '../../../../../components/Modal/Modal';
-import { SEVEN_DAYS } from '../../../../../constants';
+import { SEVEN_DAYS, Cookies } from '../../../../../constants';
 
 interface CitySelectProps {
   cityValue: string;
@@ -10,14 +11,10 @@ interface CitySelectProps {
 
 export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
   const [showModal, setShowModal] = useState(false);
-  const [selectedCity, setSelectedCity] = useState(cityValue);
-
-  useEffect(() => {
-    const cookieValue = getCookie('cityValue') as CookieValueTypes;
-    if (typeof cookieValue === 'string') {
-      setSelectedCity(cookieValue);
-    }
-  }, []);
+  const { selectedEntity: selectedCity, setSelectedEntity: setSelectedCity } = useSetSelectedEntity(
+    cityValue,
+    Cookies.City,
+  );
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -26,7 +23,7 @@ export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
   };
 
   const selectCity = (value: string) => {
-    setCookie('cityValue', value, { expires: SEVEN_DAYS });
+    setCookie(Cookies.City, value, { expires: SEVEN_DAYS });
     setSelectedCity(value);
   };
 
@@ -61,7 +58,9 @@ export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
-          <h1 className="text-black font-rex">Выбери свой барбершоп</h1>
+          <h1 className="text-black font-rex text-2xl font-bold">
+            Выбери <span className="text-orange-title">свой барбершоп</span>
+          </h1>
           <p
             className="font-rex p-2 mt-5 text-black cursor-pointer"
             onClick={() => handlePickCity('Москва')}

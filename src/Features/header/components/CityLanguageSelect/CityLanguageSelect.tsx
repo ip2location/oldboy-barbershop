@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { CitySelect } from './City/CitySelect';
-import { Language } from './Language';
+import { Language } from './Language/Language';
 
 export const CityLanguageSelect = (): ReactElement => {
   return (

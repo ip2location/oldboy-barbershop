@@ -1,7 +1,8 @@
-import { setCookie, getCookie, CookieValueTypes } from 'cookies-next';
+import { setCookie } from 'cookies-next';
 import Link from 'next/link';
-import { ReactElement, useEffect, useState } from 'react';
-import { SEVEN_DAYS, EN, RU } from '../../../../../constants';
+import { ReactElement, useState } from 'react';
+import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
+import { SEVEN_DAYS, EN, RU, Cookies } from '../../../../../constants';
 
 interface LanguageSelectProps {
   languageValue: string;
@@ -9,17 +10,11 @@ interface LanguageSelectProps {
 
 export const Language = ({ languageValue }: LanguageSelectProps): ReactElement => {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(languageValue);
-
-  useEffect(() => {
-    const cookieValue = getCookie('languageValue') as CookieValueTypes;
-    if (typeof cookieValue === 'string') {
-      setSelectedLanguage(cookieValue);
-    }
-  }, []);
+  const { selectedEntity: selectedLanguage, setSelectedEntity: setSelectedLanguage } =
+    useSetSelectedEntity(languageValue, Cookies.Language);
 
   const selectLanguage = (value: string) => {
-    setCookie('languageValue', value, { expires: SEVEN_DAYS });
+    setCookie(Cookies.Language, value, { expires: SEVEN_DAYS });
     setSelectedLanguage(value);
   };
 
