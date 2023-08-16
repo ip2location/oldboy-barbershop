@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 import { Layout } from '../../components/Layout';
 import { Button } from '../../components/Button';
-
 import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';

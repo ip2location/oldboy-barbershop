@@ -5,7 +5,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/Features/**/*.{js,ts,jsx,tsx, mdx}'
+    './src/Features/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
@@ -16,6 +16,7 @@ module.exports = {
         'orange-title': '#d6a354',
         'gold-title': '#BFA15C',
         'btn-blue': '#56afe1',
+        'orange-bg': '#896322',
         'opacity-tan': '#333',
       },
       fontSize: {
