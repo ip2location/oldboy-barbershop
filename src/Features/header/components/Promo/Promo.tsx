@@ -1,4 +1,4 @@
-import { barbsershopData } from '../../../../components/PromoBanner/PromoData';
+import { barbsershopData } from './Promo.constants';
 import { PromoBanner } from '../../../../components/PromoBanner/PromoBanner';
 import { Cosmetics } from '../../../promo/components/Cosmetics/Cosmetics';
 
