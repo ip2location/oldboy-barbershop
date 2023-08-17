@@ -47,11 +47,11 @@ export const Language = ({ languageValue = Languages.RU }: LanguageSelectProps):
           <li>
             {selectedLanguage === Languages.RU ? (
               <Link className="font-rex" onClick={() => handlePickLanguage(Languages.EN)} href="/">
-                RU - РУ - РУССКИЙ
+                EN - US - ENGLISH
               </Link>
             ) : (
               <Link className="font-rex" onClick={() => handlePickLanguage(Languages.RU)} href="/">
-                EN - US - ENGLISH
+                RU - РУ - РУССКИЙ
               </Link>
             )}
           </li>
