@@ -7,10 +7,10 @@ import { SEVEN_DAYS, Cookies } from '../../../../../constants';
 import { DropdownInput } from '../../../../../components/DropdownInput/DropdownInput';
 
 interface CitySelectProps {
-  cityValue: string;
+  cityValue?: string;
 }
 
-export const CitySelect = ({ cityValue }: CitySelectProps): ReactElement => {
+export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): ReactElement => {
   const [showModal, setShowModal] = useState(false);
   const [cityInput, setCityInput] = useState('');
   const { selectedEntity: selectedCity, setSelectedEntity: setSelectedCity } = useSetSelectedEntity(
