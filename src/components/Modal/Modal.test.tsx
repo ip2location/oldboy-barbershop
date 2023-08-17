@@ -13,11 +13,9 @@ describe('Test Modal component', () => {
   });
 
   test('Handler is called 1 time', async () => {
-    const user = userEvent.setup();
-
     render(<Modal showModal onClose={clickCloseButton} />);
 
-    await user.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     expect(clickCloseButton).toBeCalledTimes(1);
   });
