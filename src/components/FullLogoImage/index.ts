@@ -1,0 +1,1 @@
+export { FullLogoImage } from './FullLogoImage';
