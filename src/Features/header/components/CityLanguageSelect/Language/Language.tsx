@@ -2,13 +2,13 @@ import { setCookie } from 'cookies-next';
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
-import { SEVEN_DAYS, EN, RU, Cookies } from '../../../../../constants';
+import { SEVEN_DAYS, Languages, Cookies } from '../../../../../constants';
 
 interface LanguageSelectProps {
-  languageValue: string;
+  languageValue?: string;
 }
 
-export const Language = ({ languageValue }: LanguageSelectProps): ReactElement => {
+export const Language = ({ languageValue = Languages.RU }: LanguageSelectProps): ReactElement => {
   const [isVisible, setIsVisible] = useState(false);
   const { selectedEntity: selectedLanguage, setSelectedEntity: setSelectedLanguage } =
     useSetSelectedEntity(languageValue, Cookies.Language);
@@ -35,7 +35,7 @@ export const Language = ({ languageValue }: LanguageSelectProps): ReactElement =
         hover:bg-orange-title transition-all ease-out duration-200 select-none"
         onClick={handleShow}
       >
-        <p className="p-1 text-center">{selectedLanguage === EN ? 'ru' : 'en'}</p>
+        <p className="p-1 text-center">{selectedLanguage === Languages.EN ? 'en' : 'ru'}</p>
       </div>
 
       <section
@@ -45,13 +45,13 @@ export const Language = ({ languageValue }: LanguageSelectProps): ReactElement =
       >
         <ul className="w-max m-0 p-0">
           <li>
-            {selectedLanguage === RU ? (
-              <Link className="font-rex" onClick={() => handlePickLanguage(EN)} href="/">
-                RU - РУ - РУССКИЙ
+            {selectedLanguage === Languages.RU ? (
+              <Link className="font-rex" onClick={() => handlePickLanguage(Languages.EN)} href="/">
+                EN - US - ENGLISH
               </Link>
             ) : (
-              <Link className="font-rex" onClick={() => handlePickLanguage(RU)} href="/">
-                EN - US - ENGLISH
+              <Link className="font-rex" onClick={() => handlePickLanguage(Languages.RU)} href="/">
+                RU - РУ - РУССКИЙ
               </Link>
             )}
           </li>
