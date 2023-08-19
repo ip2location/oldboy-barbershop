@@ -5,7 +5,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/Features/**/*.{js,ts,jsx,tsx,mdx}'
+    './src/Features/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -52,6 +52,9 @@ module.exports = {
       },
       maxWidth: {
         180: '180px',
+      },
+      animation: {
+        'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
       },
     },
   },
