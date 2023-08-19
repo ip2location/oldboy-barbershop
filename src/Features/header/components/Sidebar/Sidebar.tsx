@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { Cities } from '../Cities';
 
+//
 interface SidebarProps {
   setIsOpen: () => void;
 }
@@ -18,10 +19,13 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
           className="fixed inset-0 w-full h-full bg-opacity-tan opacity-50"
           onClick={setIsOpen}
         />
-        <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        <div className="pointer-events-none fixed inset-y-0 right-1 flex max-w-full pl-10">
           <div className="pointer-events-auto w-screen max-w-md">
             {/* Close function and Icon */}
-            <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+            <div
+              // id="scrollableDiv"
+              className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+            >
               <div className="absolute top-0  flex pt-4 sm:-ml-10 sm:pr-4">
                 <button
                   onClick={setIsOpen}
@@ -42,7 +46,7 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
                 </button>
               </div>
 
-              <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl text-black m-0 ">
+              <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl text-black m-0">
                 {/* Search area */}
                 <form>
                   <div className="relative m-4">
