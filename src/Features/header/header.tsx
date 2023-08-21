@@ -7,11 +7,11 @@ import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
 import { ContactUs } from '../../components/ContactUs';
 
-interface HomePageProps {
+interface HeaderPageProps {
   barbershopCount: string;
 }
 
-export const HeaderPage = ({ barbershopCount }: HomePageProps): ReactElement => {
+export const HeaderPage = ({ barbershopCount }: HeaderPageProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
