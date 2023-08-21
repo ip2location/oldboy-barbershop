@@ -5,17 +5,20 @@ import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
-
 import { ContactUs } from '../../components/ContactUs';
 
-export const HeaderPage = (): ReactElement => {
+interface HomePageProps {
+  barbershopCount: string;
+}
+
+export const HeaderPage = ({ barbershopCount }: HomePageProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
       <div>
         <Header />
-        <Promo />
+        <Promo barbershopCount={barbershopCount} />
         <div className="mt-6 m-12">
           <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
             Запись онлайн

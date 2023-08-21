@@ -9,7 +9,7 @@ jest.mock('next/image', () => ({
 
 describe('PromoBanner', () => {
   test('pass the promo banner test', () => {
-    render(<PromoBanner barbershopCount={0} />);
+    render(<PromoBanner barbershopCount="" />);
     expect(screen.getByText('Крупнейшая сеть барбершопов')).toBeInTheDocument();
     expect(
       screen.getByText('намного больше чем просто мужская парихмахерская'),
