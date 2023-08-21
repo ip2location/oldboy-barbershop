@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
-import { LocationSelector } from '@/components/RegionSelect/LocationSelector';
-import { useSetSelectedEntity } from '@/hooks/useSetSelectedEntity';
-import { Cookies } from '@/constants';
+import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
+import { Cookies } from '../../../../../constants';
+import { LocationSelector } from '../../../../../components/RegionSelect/LocationSelector';
 import { Modal } from '../../../../../components/Modal/Modal';
 
 export const CitySelect = (): ReactElement => {

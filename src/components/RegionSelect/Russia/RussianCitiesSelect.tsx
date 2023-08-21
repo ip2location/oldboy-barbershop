@@ -2,48 +2,49 @@ import { useState } from 'react';
 import { setCookie } from 'cookies-next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { LocationSelectorScroll } from '../../LocationSelectorScroll/LocationSelectorScroll';
 import { DropdownInput } from '../../DropdownInput/DropdownInput';
 import { Cookies, SEVEN_DAYS } from '../../../constants';
 import { useSetSelectedEntity } from '../../../hooks/useSetSelectedEntity';
 
-interface CitySelectProps {
+interface RussianCitiesSelectProps {
   cityValue?: string;
 }
 
 const alphabet = [
-  { active: 'А' },
-  { active: 'Б' },
-  { active: 'В' },
-  { active: 'Г' },
-  { active: 'Д' },
-  { active: 'Е' },
-  { inactive: 'Ё' },
-  { active: 'Ж' },
-  { active: 'З' },
-  { active: 'И' },
-  { inactive: 'Й' },
-  { active: 'К' },
-  { active: 'Л' },
-  { active: 'М' },
-  { active: 'Н' },
-  { active: 'О' },
-  { active: 'П' },
-  { active: 'Р' },
-  { active: 'С' },
-  { active: 'Т' },
-  { active: 'У' },
-  { inactive: 'Ф' },
-  { active: 'Х' },
-  { inactive: 'Ц' },
-  { active: 'Ч' },
-  { inactive: 'Ш' },
-  { inactive: 'Щ' },
-  { inactive: 'Э' },
-  { active: 'Ю' },
-  { active: 'Я' },
+  { active: 'А', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Б', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'В', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Г', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Д', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Е', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ё', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Ж', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'З', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'И', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Й', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'К', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Л', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'М', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Н', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'О', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'П', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Р', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'С', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Т', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'У', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ф', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Х', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ц', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Ч', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ш', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Щ', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Э', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Ю', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Я', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
 ];
 
-export const RussianCitiesSelect = ({ cityValue = 'Москва' }: CitySelectProps) => {
+export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitiesSelectProps) => {
   const [cityInput, setCityInput] = useState('');
   const { setSelectedEntity: setSelectedCity } = useSetSelectedEntity(cityValue, Cookies.City);
 
@@ -62,7 +63,7 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: CitySelectPr
     return cityInput;
   };
   return (
-    <div className="location-logo__image flex flex-col items-center">
+    <div className="location-logo__image flex flex-col items-center mt-52">
       <h1 className="text-black font-rex text-2xl font-bold mb-4">
         Выбери <span className="text-orange-title">свой барбершоп</span>
       </h1>
@@ -142,6 +143,16 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: CitySelectPr
           </Link>
         </div>
       </div>
+      {alphabet.map(({ active, city, address }) => {
+        return (
+          <LocationSelectorScroll
+            locationHref="/"
+            locationName={city}
+            locationAddress={address}
+            locationLetter={active}
+          />
+        );
+      })}
     </div>
   );
 };
