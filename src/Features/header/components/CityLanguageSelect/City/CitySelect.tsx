@@ -13,10 +13,16 @@ interface CitySelectProps {
 export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): ReactElement => {
   const [showModal, setShowModal] = useState(false);
   const [cityInput, setCityInput] = useState('');
+
   const { selectedEntity: selectedCity, setSelectedEntity: setSelectedCity } = useSetSelectedEntity(
     cityValue,
-    Cookies.City,
+    Cookies.Country,
   );
+
+  // ????
+  // console.log(selectedCity);
+  // const cookGet = getCookie('country');
+  // console.log(JSON.parse(cookGet), 'cookie');
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
