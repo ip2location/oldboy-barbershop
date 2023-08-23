@@ -20,7 +20,7 @@ export async function middleware(req: NextRequest) {
 
   if (!getCountry) {
     try {
-      const response = await fetch(`http://ip-api.com/json/${ipCook}`);
+      const response = await fetch(`http://ip-api.com/json/${userIp}`);
       const setCountry = await response.json();
       if (setCountry) {
         res.cookies.set(Cookies.Country, setCountry, { expires: SEVEN_DAYS });
