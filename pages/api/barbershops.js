@@ -1,6 +1,6 @@
 const handler = (req, res) => {
   const barbershops = {
-    number: 294
+    number: 294,
   };
 
   res.status(200).json({
@@ -9,4 +9,4 @@ const handler = (req, res) => {
   });
 };
 
-export default handler
+export default handler;
