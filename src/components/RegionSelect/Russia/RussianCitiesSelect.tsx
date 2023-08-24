@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactElement, WheelEvent, useState } from 'react';
 import { setCookie } from 'cookies-next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,16 +13,17 @@ interface RussianCitiesSelectProps {
 
 const alphabet = [
   { active: 'А', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { active: 'Б', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { active: 'В', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'А', city: 'Армавир', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'Б', city: 'Балашиха', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { active: 'В', city: 'Великий-Новгород', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'Г', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'Д', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'Е', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Ё', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ё' },
   { active: 'Ж', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'З', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'И', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Й', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Й' },
   { active: 'К', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'Л', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'М', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
@@ -33,13 +34,13 @@ const alphabet = [
   { active: 'С', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'Т', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'У', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Ф', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ф' },
   { active: 'Х', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Ц', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ц' },
   { active: 'Ч', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Ш', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Щ', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
-  { inactive: 'Э', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
+  { inactive: 'Ш' },
+  { inactive: 'Щ' },
+  { inactive: 'Э' },
   { active: 'Ю', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
   { active: 'Я', city: 'Альметьевск', address: 'УЛ. ЛЕНИНА, Д. 46' },
 ];
@@ -62,8 +63,9 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
     setCityInput(event.currentTarget.value);
     return cityInput;
   };
+
   return (
-    <div className="location-logo__image flex flex-col items-center mt-52">
+    <div className="location-logo__image flex flex-col items-center pb-24">
       <h1 className="text-black font-rex text-2xl font-bold mb-4">
         Выбери <span className="text-orange-title">свой барбершоп</span>
       </h1>
@@ -143,16 +145,35 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
           </Link>
         </div>
       </div>
-      {alphabet.map(({ active, city, address }) => {
-        return (
-          <LocationSelectorScroll
-            locationHref="/"
-            locationName={city}
-            locationAddress={address}
-            locationLetter={active}
-          />
-        );
-      })}
+    </div>
+  );
+};
+
+export const RussianLocationScroll = (): ReactElement => {
+  const onWheel = (event: WheelEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLDivElement;
+    target.scrollLeft += event.deltaY + event.deltaX;
+  };
+
+  return (
+    <div className="location-selector__content mt-0">
+      <div className="branch-addresses px-32">
+        <div
+          className="branch-addresses__container relative pt-12 h-[43vh] overflow-y-scroll overflow-x-hidden columns-[15em]"
+          onWheel={onWheel}
+        >
+          {alphabet.map(({ active, city, address }) => {
+            return (
+              <LocationSelectorScroll
+                locationHref="/"
+                locationName={city}
+                locationAddress={address}
+                locationLetter={active}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

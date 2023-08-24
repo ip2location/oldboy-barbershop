@@ -19,7 +19,7 @@ export const CitySelect = (): ReactElement => {
     <>
       <Link
         href="/"
-        className="city-select relative z-20 block pl-12 text-left mr-3
+        className="city-select relative z-20 block pl-12 text-left mr-3 
         cursor-pointer transition-all ease-out duration-200
         before:absolute
         before:bg-[url('/images/icons/place.svg')]

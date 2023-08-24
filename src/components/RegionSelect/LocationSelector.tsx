@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement } from 'react';
-import { RussianCitiesSelect } from './Russia/RussianCitiesSelect';
+import { RussianCitiesSelect, RussianLocationScroll } from './Russia/RussianCitiesSelect';
 
 export const LocationSelector = (): ReactElement => {
   return (
     <section
-      className="location-selector fixed flex flex-col top-0 bottom-0 left-0 z-40 
-                    w-full h-full overflow-x-hidden overflow-y-scroll
-                    bg-white transition-all duration-150 ease-out"
+      className="location-selector flex flex-col top-0 bottom-0 left-0 z-40 
+        w-full h-full
+        bg-white transition-all duration-150 ease-out overflow-auto"
     >
-      <header className="location-selector__header fixed z-40 w-full p-[50px] bg-white h-[188px]">
+      <header className="location-selector__header z-40 w-full p-[50px] bg-white h-[188px]">
         <div className="location-selector__caption flex justify-between px-16 mb-20">
           <div className="main-countries flex items-start">
             <div className="logo-selector">
@@ -98,13 +98,8 @@ export const LocationSelector = (): ReactElement => {
           </div>
         </div>
       </header>
-      <div className="location-selector__content">
-        <div className="branch-addresses">
-          <div className="branch-addresses__container relative h-[43vh] pt-12 overflow-x-scroll">
-            <RussianCitiesSelect />
-          </div>
-        </div>
-      </div>
+      <RussianCitiesSelect />
+      <RussianLocationScroll />
     </section>
   );
 };
