@@ -169,6 +169,8 @@ export const RussianLocationScroll = (): ReactElement => {
                 locationName={city}
                 locationAddress={address}
                 locationLetter={active}
+                locationPlace="ЖК «ОМЕГА ХАУС»"
+                locationMetro="Площадь Габдуллы Тукая"
               />
             );
           })}
