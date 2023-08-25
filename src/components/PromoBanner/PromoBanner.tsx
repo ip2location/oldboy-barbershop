@@ -2,7 +2,7 @@ import Image from 'next/image';
 import promoScissors from '../../assets/promo/promoScissors.svg';
 
 interface PromoBannerProps {
-  barbershopCount: string;
+  barbershopCount: number;
 }
 
 export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element => {

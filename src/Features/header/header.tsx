@@ -8,7 +8,7 @@ import { Sidebar } from './components/Sidebar';
 import { ContactUs } from '../../components/ContactUs';
 
 interface HeaderPageProps {
-  barbershopCount: string;
+  barbershopCount: number;
 }
 
 export const HeaderPage = ({ barbershopCount }: HeaderPageProps): ReactElement => {
