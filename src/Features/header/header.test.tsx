@@ -12,7 +12,7 @@ describe('HeaderMainPage', () => {
   test('pass the header main page buttons', async () => {
     render(
       <ReduxProvider>
-        <HeaderPage barbershopCount="" />
+        <HeaderPage barbershopCount={0} />
       </ReduxProvider>,
     );
 
