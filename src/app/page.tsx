@@ -7,7 +7,6 @@ const Home = async () => {
   const response = await fetch('http://localhost:3000/api/barbershops');
   const jsonResponse = await response.json();
   const numberOfBarbershops = jsonResponse.data;
-  console.log(numberOfBarbershops, typeof numberOfBarbershops);
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
