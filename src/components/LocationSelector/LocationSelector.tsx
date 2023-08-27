@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement } from 'react';
-import { RussianCitiesSelect, RussianLocationScroll } from './Russia/RussianCitiesSelect';
+import { RussianCitiesSelect } from './Russia/RussianCitiesSelect';
+import { RussianLocationScroll } from './Russia/RussianLocationScroll';
 
 export const LocationSelector = (): ReactElement => {
   return (

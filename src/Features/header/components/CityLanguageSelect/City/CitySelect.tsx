@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
 import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
 import { Cookies } from '../../../../../constants';
-import { LocationSelector } from '../../../../../components/RegionSelect/LocationSelector';
+import { LocationSelector } from '../../../../../components/LocationSelector/LocationSelector';
 import { Modal } from '../../../../../components/Modal/Modal';
 
 export const CitySelect = (): ReactElement => {
