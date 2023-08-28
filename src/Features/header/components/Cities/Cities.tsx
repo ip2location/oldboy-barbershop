@@ -7,23 +7,23 @@ import { CityList } from './Cities.types';
 
 export const Cities = (): ReactElement => {
   const [page, setPage] = useState(0);
-  const [offset] = useState(8);
-  const [trigger, result] = useLazyFetchCityListQuery();
+  const [fetchCities, result] = useLazyFetchCityListQuery();
+
+  const offset = 8;
 
   const fetchMoreData = useCallback(() => {
-    trigger({ page, offset });
+    fetchCities({ page, offset });
     setPage((prev) => prev + 1);
-  }, [trigger, offset, page]);
+  }, [fetchCities, offset, page]);
 
   const handleCityClick = useCallback(() => {
     return result.data;
   }, [result.data]);
 
   useEffect(() => {
-    trigger({ page, offset });
+    fetchCities({ page, offset });
     setPage((prev) => prev + 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchCities, page]);
 
   return useMemo(
     () => (
@@ -46,7 +46,7 @@ export const Cities = (): ReactElement => {
                 </li>
               ))}
             </ul>
-            {result.data?.length >= 38 ? (
+            {result.data?.length ? (
               <p className="text-black font-rex ml-44 mt-4">This is the end</p>
             ) : (
               <button

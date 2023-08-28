@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
 import { Cities } from '../Cities';
 
-//
 interface SidebarProps {
   setIsOpen: () => void;
 }
