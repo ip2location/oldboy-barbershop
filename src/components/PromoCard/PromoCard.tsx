@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { PromoHeader } from '../PromoOrangeHeader';
+import { PromoHeader } from '../PromoHeader';
 
 export const PromoCard = (): ReactElement => {
   return (

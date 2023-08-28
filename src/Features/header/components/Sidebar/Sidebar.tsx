@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { Cities } from '../Cities';
 
 interface SidebarProps {
@@ -8,7 +8,7 @@ interface SidebarProps {
 export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
   return (
     <div
-      className="relative z-50"
+      className="relative z-40"
       aria-labelledby="slide-over-title"
       role="dialog"
       aria-modal="true"

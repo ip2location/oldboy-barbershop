@@ -5,12 +5,14 @@ export const useSetSelectedEntity = (
   entityValue: string,
   cookieName: string,
 ): { selectedEntity: string; setSelectedEntity: Dispatch<SetStateAction<string>> } => {
-  const [selectedEntity, setSelectedEntity] = useState(entityValue);
+  const [selectedEntity, setSelectedEntity] = useState('');
 
   useEffect(() => {
     const cookieValue = getCookie(cookieName) as CookieValueTypes;
     if (typeof cookieValue === 'string') {
       setSelectedEntity(cookieValue);
+    } else {
+      setSelectedEntity(entityValue);
     }
   }, [cookieName]);
 
