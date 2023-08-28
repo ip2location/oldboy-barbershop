@@ -1,11 +1,14 @@
-import { barbsershopData } from './Promo.constants';
 import { PromoBanner } from '../../../../components/PromoBanner/PromoBanner';
 import { Cosmetics } from '../../../promo/components/Cosmetics/Cosmetics';
 
-export const Promo = () => {
+interface PromoProps {
+  barbershopCount: number;
+}
+
+export const Promo = ({ barbershopCount }: PromoProps) => {
   return (
     <>
-      <PromoBanner barbershopCount={barbsershopData.barbershopCount} />;
+      <PromoBanner barbershopCount={barbershopCount} />;
       <Cosmetics />
     </>
   );
