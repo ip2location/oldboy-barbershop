@@ -4,9 +4,10 @@ type AppButtonVariant = 'appButton' | 'appButton_thin';
 
 export interface AppButtonProps extends PropsWithChildren {
   variant: AppButtonVariant;
+  link: string;
 }
 
-export const AppButton = ({ variant, children }: AppButtonProps): ReactElement => {
+export const AppButton = ({ variant, link, children }: AppButtonProps): ReactElement => {
   const classes: Record<AppButtonVariant, string> = {
     appButton:
       'box-border rounded-3xl border-2 border-white bg-transparent w-[195px] flex flex-row items-center justify-center gap-1 font-button_font text-white text-sm font-bold leading-10 text-center hover:bg-white hover:text-header-bg',
@@ -15,12 +16,7 @@ export const AppButton = ({ variant, children }: AppButtonProps): ReactElement =
   };
 
   return (
-    <a
-      className={`${classes[variant]}`}
-      href="https://play.google.com/store/apps/details?id=biz.app.apps.salon.app109144"
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a className={`${classes[variant]}`} href={link} target="_blank" role="button" rel="noreferrer">
       {children}
     </a>
   );

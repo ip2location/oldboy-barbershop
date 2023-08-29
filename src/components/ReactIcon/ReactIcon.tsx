@@ -6,7 +6,7 @@ interface ReactIconProps extends PropsWithChildren {
 }
 export const ReactIcon = ({ value, children }: ReactIconProps) => {
   return (
-    <div>
+    <div role="img">
       <IconContext.Provider value={value}>{children}</IconContext.Provider>
     </div>
   );

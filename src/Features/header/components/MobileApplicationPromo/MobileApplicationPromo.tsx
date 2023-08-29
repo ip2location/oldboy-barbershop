@@ -1,6 +1,6 @@
-import { AppButton } from '@/components/AppButton';
-import { ReactIcon } from '@/components/ReactIcon';
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
+import { AppButton } from '../../../../components/AppButton';
+import { ReactIcon } from '../../../../components/ReactIcon';
 
 export const MobileApplicationPromo = () => {
   return (
@@ -58,13 +58,16 @@ export const MobileApplicationPromo = () => {
           </p>
         </header>
         <div className="app-promo__buttons flex flex-col justify-end gap-4">
-          <AppButton variant="appButton">
+          <AppButton
+            variant="appButton"
+            link="https://play.google.com/store/apps/details?id=biz.app.apps.salon.app109144"
+          >
             <ReactIcon value={{ className: 'text-base' }}>
               <FaGooglePlay />
             </ReactIcon>
             Google Play
           </AppButton>
-          <AppButton variant="appButton_thin">
+          <AppButton variant="appButton_thin" link="https://appsto.re/ru/dlxTgb.i">
             <ReactIcon value={{ className: 'text-base' }}>
               <FaApple />
             </ReactIcon>
