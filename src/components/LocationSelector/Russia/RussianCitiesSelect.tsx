@@ -13,165 +13,135 @@ interface RussianCitiesSelectProps {
 export const russianRegion = [
   {
     letter: 'A',
+    href: '/',
     cities: [
       {
         city: 'Альметьевск',
-        addresses: [
-          {
-            address: 'УЛ. ЛЕНИНА, Д. 46',
-          },
-        ],
+        address: 'ул. Ленина, Д. 46',
       },
       {
         city: 'Армавир',
-        addresses: [{ address: 'УЛ. ЕФРЕМОВА, Д. 123/5' }],
+        address: 'ул. Ефремова, Д. 123/5',
       },
       {
         city: 'Архангельск',
-        addresses: [{ address: 'НАБ. СЕВЕРНОЙ ДВИНЫ, Д. 71' }],
-        place: 'ЖК «ОМЕГА ХАУС»',
+        address: 'наб. Северной Двины, Д. 71',
       },
     ],
   },
   {
     letter: 'Б',
+    href: '/',
     cities: [
       {
         city: 'Балашиха',
-        addresses: [
-          {
-            address: 'МКР. ЖЕЛЕЗНОДОРОЖНЫЙ, ПР-Т ГЕРОЕВ, Д. 5',
-            place: 'МКР. ЖЕЛЕЗНОДОРОЖНЫЙ',
-          },
-          {
-            address: 'УЛ. РЕУТОВСКАЯ Д. 5',
-          },
-        ],
+        address: 'мкр. Железнодорожный, пр-т Героев, Д. 5',
+        place: 'мкр. Железнодорожный',
+      },
+      {
+        city: 'Балашиха',
+        address: 'ул. Реутовская Д. 5',
       },
       {
         city: 'Белгород',
-        addresses: [
-          {
-            address: 'УЛ. ГУБКИНА, Д. 38Б',
-          },
-          {
-            address: 'УЛ. ПОПОВА, Д. 36',
-          },
-        ],
+        address: 'ул. Губкина, Д. 38Б',
+      },
+      {
+        city: 'Белгород',
+        address: 'ул. Попова, Д. 36',
       },
       {
         city: 'Боровичи',
-        addresses: [
-          {
-            address: 'УЛ. ДЗЕРЖИНСКОГО, 8',
-          },
-        ],
+        address: 'ул. Дзержинского, 8',
       },
       {
         city: 'Брянск',
-        addresses: [
-          {
-            address: 'УЛ. ДУКИ, Д. 51',
-          },
-        ],
+        address: 'ул. Дуки, Д. 51',
       },
     ],
   },
   {
     letter: 'B',
+    href: '/',
     cities: [
       {
         city: 'Великий Новгород',
-        addresses: [
-          {
-            address: 'УЛ. ПСКОВСКАЯ, Д. 11',
-          },
-        ],
+        address: 'ул. Псковская, Д. 11',
       },
       {
         city: 'Владивосток',
-        addresses: [
-          {
-            address: 'ПРОСПЕКТ ОКЕАНСКИЙ, Д. 30',
-          },
-        ],
+        address: 'проспект Океанский, Д. 30',
       },
       {
         city: 'Владикавказ',
-        addresses: [
-          {
-            address: 'УЛ. ГЕНЕРАЛА ПЛИЕВА, Д. 54',
-          },
-        ],
+        address: 'ул. генерала Плиева, Д. 54',
       },
       {
         city: 'Владимир',
-        addresses: [
-          {
-            address: 'УЛ. ТРАКТОРНАЯ, Д. 50',
-          },
-        ],
+        address: 'ул. Тракторная, Д. 50',
       },
       {
         city: 'Воронеж',
-        addresses: [
-          {
-            address: 'ПРОСПЕКТ ЛЕНИНСКИЙ, Д. 1Д',
-            place: 'ТРК «ЛЕВЫЙ БЕРЕГ»',
-          },
-          {
-            address: 'УЛ. ВОРОШИЛОВА Д. 1А',
-          },
-          {
-            address: 'УЛ. ХОЛЬЗУНОВА, Д. 15',
-          },
-          {
-            address: 'УЛ. ШИШКОВА, Д. 142',
-          },
-        ],
+        address: 'проспект Ленинский, Д. 1Д',
+        place: 'ТРК «Левый берег»',
+      },
+      {
+        city: 'Воронеж',
+        address: 'ул. Ворошилова Д. 1А',
+      },
+      {
+        city: 'Воронеж',
+        address: 'ул. Хользунова, Д. 15',
+      },
+      {
+        city: 'Воронеж',
+        address: 'ул. Шишкова, Д. 142',
       },
     ],
   },
   {
     letter: 'Г',
+    href: '/',
     cities: [
       {
         city: 'Гатчина',
-        addresses: [{ address: 'УЛ. ЛЕНИНА, Д. 46' }],
+        address: 'ул. Ленина, Д. 46',
       },
       {
         city: 'Геленджик',
-        addresses: [{ address: 'УЛ. ЕФРЕМОВА, Д. 123/5' }],
+        address: 'ул. Ефремова, Д. 123/5',
       },
       {
         city: 'Грозный',
-        addresses: [{ address: 'НАБ. СЕВЕРНОЙ ДВИНЫ, Д. 71' }],
+        address: 'наб. Северной Двины, Д. 71',
       },
     ],
   },
   {
     letter: 'Д',
+    href: '/',
     cities: [
       {
         city: 'Дербент',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
         city: 'Долгопрудный',
-        addresses: [{ address: 'ДОЛГОПРУДНЫЙ, ПР-Т РАКЕТОСТРОИТЕЛЕЙ, 7К1' }],
+        address: 'Долгопрудный, пр-т Ракетостроителей, 7К1',
       },
     ],
   },
   {
     letter: 'Е',
+    href: '/',
     cities: [
       {
         city: 'Екатеринбург',
-        addresses: [{ address: 'УЛ. АКАДЕМИКА ШВАРЦА, Д. 14' }],
+        address: 'ул. академика Шварца, Д. 14',
       },
       {
         city: 'Ессентуки',
-        addresses: [{ address: 'УЛ. ПЯТИГОРСКАЯ, Д. 133Б' }],
+        address: 'ул. Пятигорская, Д. 133Б',
       },
     ],
   },
@@ -180,28 +150,31 @@ export const russianRegion = [
   },
   {
     letter: 'Ж',
+    href: '/',
     cities: [
       {
         city: 'Жуковский',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'З',
+    href: '/',
     cities: [
       {
         city: 'Зеленоградск',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'И',
+    href: '/',
     cities: [
       {
         city: 'Ижевск',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
@@ -210,104 +183,122 @@ export const russianRegion = [
   },
   {
     letter: 'К',
+    href: '/',
     cities: [
       {
         city: 'Казань',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
+      },
+      {
+        city: 'Казань',
+        address: 'ул. Петербурская, Д. 9',
+        place: 'ТЦ «РЕСПУБЛИКА»',
+        metro: 'площадь Габдуллы Тукая',
       },
     ],
   },
   {
     letter: 'Л',
+    href: '/',
     cities: [
       {
         city: 'Лобня',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'М',
+    href: '/',
     cities: [
       {
         city: 'МО Люберцы',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
         city: 'Москва',
-        addresses: [
-          {
-            address: 'БУЛЬВАР ВЕЛАСКЕСА, Д. 2',
-          },
-          {
-            address: 'УЛ. АВТОЗАВОДСКАЯ, Д. 18',
-            place: 'ТРЦ «РИВЬЕРА»',
-            metro: 'АВТОЗАВОДСКАЯ',
-          },
-        ],
+        address: 'Бульвар Веласкеса, Д. 2',
+      },
+      {
+        city: 'Москва',
+        address: 'ул. Автозаводская, Д. 18',
+        place: 'ТРЦ «Ривьера»',
+        metro: 'Автозаводская',
       },
     ],
   },
   {
     letter: 'Н',
+    href: '/',
     cities: [
       {
         city: 'Набережные Челны',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'О',
+    href: '/',
     cities: [
       {
         city: 'Омск',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'П',
+    href: '/',
     cities: [
       {
         city: 'Пенза',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'Р',
+    href: '/',
     cities: [
       {
         city: 'Раменское',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
+      },
+      {
+        city: 'Реутов',
+        address: 'РЕУТОВ, ПР-Т ЮБИЛЕЙНЫЙ, Д. 40',
+        metro: 'НОВОКОСИНО',
       },
     ],
   },
   {
     letter: 'С',
+    href: '/',
     cities: [
       {
         city: 'Самара',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'Т',
+    href: '/',
     cities: [
       {
         city: 'Таганрог',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'У',
+    href: '/',
     cities: [
       {
         city: 'Улан-Удэ',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
@@ -316,10 +307,11 @@ export const russianRegion = [
   },
   {
     letter: 'Х',
+    href: '/',
     cities: [
       {
         city: 'Хабаровск',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
@@ -328,10 +320,11 @@ export const russianRegion = [
   },
   {
     letter: 'Ч',
+    href: '/',
     cities: [
       {
         city: 'Челябинск',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
@@ -346,19 +339,21 @@ export const russianRegion = [
   },
   {
     letter: 'Ю',
+    href: '/',
     cities: [
       {
         city: 'Югорск',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'Я',
+    href: '/',
     cities: [
       {
         city: 'Ярославль',
-        addresses: [{ address: 'УЛ. 345-Й ДАГЕСТАНСКОЙ СТРЕЛКОВОЙ ДИВИЗИИ, Д. 1/4' }],
+        address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
@@ -403,7 +398,7 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
             <ul className="alphabet__content flex justify-center w-[416px] flex-wrap">
               {russianRegion.map(({ letter, cities }) =>
                 cities ? (
-                  <li className="font-rex text-orange-title text-base mr-1.5">
+                  <li className="font-rex text-orange-title text-base mr-1.5" key={letter}>
                     <Link
                       href="#letter"
                       className="alphabet__trigger text-orange-title hover:underline hover:underline-offset-4 decoration-2 
@@ -418,7 +413,7 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
                     </Link>
                   </li>
                 ) : (
-                  <li className="font-rex text-orange-title text-base mr-1.5">
+                  <li className="font-rex text-orange-title text-base mr-1.5" key={letter}>
                     <Link
                       className="alphabet__trigger text-neutral-300 hover:underline hover:underline-offset-4 decoration-2
                             inline-block pr-2

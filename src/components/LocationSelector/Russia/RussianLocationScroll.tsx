@@ -1,5 +1,8 @@
-import { ReactElement, WheelEvent } from 'react';
-import { LocationSelectorScroll } from '../../LocationSelectorScroll/LocationSelectorScroll';
+import React, { ReactElement, WheelEvent } from 'react';
+import {
+  LocationProps,
+  LocationSelectorScroll,
+} from '../../LocationSelectorScroll/LocationSelectorScroll';
 import { russianRegion } from './RussianCitiesSelect';
 
 export const RussianLocationScroll = (): ReactElement => {
@@ -8,6 +11,25 @@ export const RussianLocationScroll = (): ReactElement => {
     target.scrollLeft += event.deltaY + event.deltaX;
   };
 
+  const groupedCities: Record<string, LocationProps[]> = {};
+
+  russianRegion.forEach(({ cities, href }) => {
+    if (cities) {
+      cities.forEach(({ city, address, place, metro }) => {
+        if (!groupedCities[city]) {
+          groupedCities[city] = [];
+        }
+        groupedCities[city].push({
+          city,
+          address,
+          place,
+          metro,
+          href,
+        });
+      });
+    }
+  });
+
   return (
     <div className="location-selector__content mt-0">
       <div className="branch-addresses px-32">
@@ -15,22 +37,28 @@ export const RussianLocationScroll = (): ReactElement => {
           className="branch-addresses__container relative pt-12 h-[43vh] overflow-y-scroll overflow-x-hidden columns-[15em]"
           onWheel={onWheel}
         >
-          {russianRegion.map(({ letter, cities }) =>
-            cities?.map(({ city, addresses }) =>
-              addresses.map(({ address, place, metro }) => (
+          {russianRegion.map(({ letter, href, cities }) => {
+            if (!cities) {
+              return null;
+            }
+            let isFirstCity = true;
+            return cities.map(({ city, address, place, metro }) => {
+              const showLetter = isFirstCity;
+              isFirstCity = false;
+
+              return (
                 <LocationSelectorScroll
-                  key={letter}
-                  href="/"
-                  title={city}
+                  key={address}
+                  href={href}
+                  letter={showLetter ? letter : ''}
+                  city={city}
                   address={address}
-                  letter={cities ? letter : null}
                   place={place}
                   metro={metro}
                 />
-              )),
-            ),
-          )}
-          ;
+              );
+            });
+          })}
         </div>
       </div>
     </div>

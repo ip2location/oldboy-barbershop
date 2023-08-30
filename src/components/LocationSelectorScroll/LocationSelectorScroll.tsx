@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { PropsWithChildren, ReactElement } from 'react';
 
 export interface LocationProps extends PropsWithChildren {
-  letter?: string | null;
+  letter?: string;
   href: string;
-  title: string;
+  city: string;
   address: string;
   place?: string;
   metro?: string;
@@ -13,7 +13,7 @@ export interface LocationProps extends PropsWithChildren {
 export const LocationSelectorScroll = ({
   letter,
   href,
-  title,
+  city,
   address,
   place,
   metro,
@@ -21,7 +21,7 @@ export const LocationSelectorScroll = ({
   return (
     <div className="branch-addresses__index inline-block break-inside-avoid break-after-column touch-auto">
       <div
-        className="branch-addresses__letter relative
+        className={`branch-addresses__letter relative
                 z-10
                 w-8 
                 mb-3.5
@@ -30,16 +30,16 @@ export const LocationSelectorScroll = ({
                 font-rex
                 leading-8
                 text-center
-                border-b-[1px] border-orange-title"
+                ${letter ? 'border-b-[1px]' : null} border-orange-title`}
       >
-        <div className="">{letter}</div>
+        <div>{letter}</div>
       </div>
       <div className="branch-addresses__content">
         <div>
-          <ul className="location-list">
+          <ul className="location-list mb-8">
             <li className="location-list__name">
               <Link className="text-header-bg text-xl font-rex" href={href}>
-                {title}
+                {city}
               </Link>
             </li>
             <li className="location-list__item">
@@ -76,9 +76,9 @@ export const LocationSelectorScroll = ({
               </Link>
               {place ? (
                 <div
-                  className="location-list__place 
+                  className="location-list__place uppercase
                       -top-1 left-0.5 
-                      py-[3px] px-2.5 
+                      py-[3px] pr-2.5 
                       text-header-bg 
                       text-[0.6rem] 
                       tracking-wide 
