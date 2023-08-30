@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 
-import { ReactIcon } from './ReactIcon';
+import { Icon } from './Icon';
 
-describe('Test AppButton component', () => {
+describe('Icon', () => {
   test('Should render correctly', () => {
-    render(<ReactIcon value={{ className: 'text-base' }} />);
+    render(<Icon value={{ className: 'text-base' }} />);
 
     expect(screen.getByRole('img')).toBeInTheDocument();
   });

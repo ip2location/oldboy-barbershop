@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
-import { AppButton } from '../../../../components/AppButton';
-import { ReactIcon } from '../../../../components/ReactIcon';
+import { LinkButton } from '../../../../components/LinkButton';
+import { Icon } from '../../../../components/Icon';
 
-export const MobileApplicationPromo = () => {
+export const MobileApplicationPromo = (): ReactElement => {
   return (
     <aside className="hero-app absolute top-96 right-2 z-40 block">
       <article
@@ -58,21 +59,21 @@ export const MobileApplicationPromo = () => {
           </p>
         </header>
         <div className="app-promo__buttons flex flex-col justify-end gap-4">
-          <AppButton
-            variant="appButton"
+          <LinkButton
+            variant="linkButton"
             link="https://play.google.com/store/apps/details?id=biz.app.apps.salon.app109144"
           >
-            <ReactIcon value={{ className: 'text-base' }}>
+            <Icon value={{ className: 'text-base' }}>
               <FaGooglePlay />
-            </ReactIcon>
+            </Icon>
             Google Play
-          </AppButton>
-          <AppButton variant="appButton_thin" link="https://appsto.re/ru/dlxTgb.i">
-            <ReactIcon value={{ className: 'text-base' }}>
+          </LinkButton>
+          <LinkButton variant="linkButtonThin" link="https://appsto.re/ru/dlxTgb.i">
+            <Icon value={{ className: 'text-base' }}>
               <FaApple />
-            </ReactIcon>
+            </Icon>
             App Store
-          </AppButton>
+          </LinkButton>
         </div>
       </article>
     </aside>

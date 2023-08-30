@@ -1,10 +1,11 @@
 import { IconContext } from 'react-icons';
-import { PropsWithChildren } from 'react';
+import { ReactElement, PropsWithChildren } from 'react';
 
-interface ReactIconProps extends PropsWithChildren {
+interface IconProps extends PropsWithChildren {
   value: object;
 }
-export const ReactIcon = ({ value, children }: ReactIconProps) => {
+
+export const Icon = ({ value, children }: IconProps): ReactElement => {
   return (
     <div role="img">
       <IconContext.Provider value={value}>{children}</IconContext.Provider>
