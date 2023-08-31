@@ -10,9 +10,9 @@ interface FooterProps {
   footerMainTitle: string;
   footerServicesTitle: string;
   footerInfoTitle: string;
-  footerMainList?: any;
-  footerServicesList?: any;
-  footerInfoList?: any;
+  footerMainList: any;
+  footerServicesList: any;
+  footerInfoList: any;
 }
 
 export const Footer = ({

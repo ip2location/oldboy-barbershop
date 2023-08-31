@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 interface FooterNavListProps {
   navTitle: string;
-  navList?: any;
+  navList: any;
 }
 
 export const FooterNavList = ({ navTitle, navList }: FooterNavListProps): ReactElement => {
@@ -13,7 +13,7 @@ export const FooterNavList = ({ navTitle, navList }: FooterNavListProps): ReactE
         {navTitle}
       </h3>
       <ul className="text-left pb-4">
-        {navList?.map(({ title, href }: any) => {
+        {navList.map(({ title, href }: any) => {
           return (
             <li key={title}>
               <Link

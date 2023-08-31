@@ -18,6 +18,8 @@ describe('Footer', () => {
         footerMainTitle="Меню"
         footerServicesTitle="Услуги"
         footerInfoTitle="Информация"
+        footerMainList={{}}
+        footerServicesList={{}}
         footerInfoList={footerInfoList}
       />,
     );
