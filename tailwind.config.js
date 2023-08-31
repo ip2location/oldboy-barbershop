@@ -37,7 +37,7 @@ module.exports = {
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
         rex_inline: ['Rex-Inline', 'Arial', 'sans-serif'],
-        button_font: ['Open Sans', 'Arial', 'sans - serif'],
+        button_font: ['Open Sans', 'Arial', 'sans-serif'],
       },
       skew: {
         15: '-15deg',
