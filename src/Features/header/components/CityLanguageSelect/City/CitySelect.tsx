@@ -10,19 +10,17 @@ interface CitySelectProps {
   cityValue?: string;
 }
 
-export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): ReactElement => {
+export const CitySelect = ({ cityValue = 'Бишкек' }: CitySelectProps): ReactElement => {
   const [showModal, setShowModal] = useState(false);
   const [cityInput, setCityInput] = useState('');
 
   const { selectedEntity: selectedCity, setSelectedEntity: setSelectedCity } = useSetSelectedEntity(
     cityValue,
-    Cookies.Country,
+    Cookies.City,
   );
 
-  // ????
-  // console.log(selectedCity);
-  // const cookGet = getCookie('country');
-  // console.log(JSON.parse(cookGet), 'cookie');
+  const { selectedEntity: selectedCountry, setSelectedEntity: setSelectedCountry } =
+    useSetSelectedEntity(cityValue, Cookies.Country);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -35,8 +33,22 @@ export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): Rea
     setSelectedCity(value);
   };
 
+  const selectCountry = (value: string) => {
+    if (value === 'Москва') {
+      const countryCode = 'RU';
+      setCookie(Cookies.Country, countryCode, { expires: SEVEN_DAYS });
+      setSelectedCountry(countryCode);
+    }
+    if (value === 'Бишкек') {
+      const countryCode = 'KG';
+      setCookie(Cookies.Country, countryCode, { expires: SEVEN_DAYS });
+      setSelectedCountry(countryCode);
+    }
+  };
+
   const handlePickCity = (value: string) => {
     selectCity(value);
+    selectCountry(value);
     setShowModal(false);
   };
 
@@ -68,7 +80,9 @@ export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): Rea
           Выбери свой <br /> барбершоп:
           <span className="m-0 text-orange-title font-rex text-[8.5px]">&#x25BC;</span>
         </p>
-        <p className="city-select__city font-rex m-0 text-base">{selectedCity}</p>
+        <p className="city-select__city font-rex m-0 text-base">
+          {selectedCountry} - {selectedCity}
+        </p>
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
