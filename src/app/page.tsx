@@ -3,7 +3,11 @@
 import { HeaderPage } from '@/Features/header';
 import { PromoCard } from '@/components/PromoCard';
 
-export default function Home() {
+const Home = async () => {
+  const response = await fetch('http://localhost:3000/api/barbershops');
+  const jsonResponse = await response.json();
+  const numberOfBarbershops = jsonResponse.data;
+
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
       <div
@@ -25,9 +29,11 @@ export default function Home() {
         after:left-0
         after:w-full"
       >
-        <HeaderPage />
+        <HeaderPage barbershopCount={numberOfBarbershops} />
       </div>
       <PromoCard />
     </main>
   );
-}
+};
+
+export default Home;
