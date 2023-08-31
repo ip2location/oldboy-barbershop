@@ -57,12 +57,9 @@ module.exports = {
       animation: {
         'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
       },
-      // backgroundImage: {
-      //   'footer-bg': "url('/images/bg/white-grunge-180.svg'), url('/images/bg/barberpull.jpg')",
-      // }
       flexBasis: {
           'footer-basis': "calc(100% - 320px)",
-        }
+      },
     },
   },
   variants: {},

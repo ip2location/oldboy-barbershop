@@ -7,18 +7,24 @@ interface FooterProps {
   branchesTotal: number;
   countriesTotal: number;
   capitalsTotal: number;
-  footerMainItems: any;
-  footerServicesItems: any;
-  footerInfoItems: any;
+  footerMainTitle: string;
+  footerServicesTitle: string;
+  footerInfoTitle: string;
+  footerMainList?: any;
+  footerServicesList?: any;
+  footerInfoList?: any;
 }
 
 export const Footer = ({
   branchesTotal,
   countriesTotal,
   capitalsTotal,
-  footerMainItems,
-  footerServicesItems,
-  footerInfoItems,
+  footerMainTitle,
+  footerServicesTitle,
+  footerInfoTitle,
+  footerMainList,
+  footerServicesList,
+  footerInfoList,
 }: FooterProps): ReactElement => {
   return (
     <footer
@@ -46,6 +52,7 @@ export const Footer = ({
                   sizes="(width:100%)"
                   width="270"
                   height="145"
+                  role="img"
                 />
               </Link>
             </div>
@@ -69,9 +76,9 @@ export const Footer = ({
           </div>
         </div>
         <div className="footer__menues flex justify-between basis-footer-basis py-10 px-5 mb-10 border-y-2 border-y-solid border-y-orange-title">
-          <FooterNavList navTitle="Меню" navList={footerMainItems} />
-          <FooterNavList navTitle="Услуги" navList={footerServicesItems} />
-          <FooterNavList navTitle="Информация" navList={footerInfoItems} />
+          <FooterNavList navTitle={footerMainTitle} navList={footerMainList} />
+          <FooterNavList navTitle={footerServicesTitle} navList={footerServicesList} />
+          <FooterNavList navTitle={footerInfoTitle} navList={footerInfoList} />
         </div>
       </div>
       <div className="footer__copyrights font-button_font text-footer-grey text-xs font-semibold text-right uppercase pr-10">

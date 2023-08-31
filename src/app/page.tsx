@@ -47,9 +47,12 @@ const Home = async () => {
         branchesTotal={numberOfBranches}
         countriesTotal={numberOfCountries}
         capitalsTotal={numberOfCapitals}
-        footerMainItems={footerMainList}
-        footerServicesItems={footerServicesList}
-        footerInfoItems={footerInfoList}
+        footerMainTitle="Меню"
+        footerServicesTitle="Услуги"
+        footerInfoTitle="Информация"
+        footerMainList={footerMainList}
+        footerServicesList={footerServicesList}
+        footerInfoList={footerInfoList}
       />
     </main>
   );
