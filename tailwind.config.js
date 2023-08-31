@@ -18,6 +18,7 @@ module.exports = {
         'btn-blue': '#56afe1',
         'orange-bg': '#896322',
         'opacity-tan': '#333',
+        'footer-grey': '#aeaeae',
       },
       fontSize: {
         xs: '.75rem',
@@ -56,6 +57,12 @@ module.exports = {
       animation: {
         'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
       },
+      // backgroundImage: {
+      //   'footer-bg': "url('/images/bg/white-grunge-180.svg'), url('/images/bg/barberpull.jpg')",
+      // }
+      flexBasis: {
+          'footer-basis': "calc(100% - 320px)",
+        }
     },
   },
   variants: {},

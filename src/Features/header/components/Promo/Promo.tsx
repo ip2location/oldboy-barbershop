@@ -2,13 +2,13 @@ import { PromoBanner } from '../../../../components/PromoBanner/PromoBanner';
 import { Cosmetics } from '../../../promo/components/Cosmetics/Cosmetics';
 
 interface PromoProps {
-  barbershopCount: number;
+  branchesTotal: number;
 }
 
-export const Promo = ({ barbershopCount }: PromoProps) => {
+export const Promo = ({ branchesTotal }: PromoProps) => {
   return (
     <>
-      <PromoBanner barbershopCount={barbershopCount} />;
+      <PromoBanner branchesTotal={branchesTotal} />;
       <Cosmetics />
     </>
   );

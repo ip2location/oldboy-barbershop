@@ -3,10 +3,20 @@
 import { HeaderPage } from '@/Features/header';
 import { PromoCard } from '@/components/PromoCard';
 
+import { Footer } from '@/components/Footer';
+
 const Home = async () => {
-  const response = await fetch('http://localhost:3000/api/barbershops');
+  const response = await fetch('http://localhost:3000/api/barbershopsInfo');
   const jsonResponse = await response.json();
-  const numberOfBarbershops = jsonResponse.data;
+  const numberOfBranches = jsonResponse.branchesTotal;
+  const numberOfCountries = jsonResponse.countriesTotal;
+  const numberOfCapitals = jsonResponse.capitalsTotal;
+
+  const res = await fetch('http://localhost:3000/api/footerLists');
+  const jsonRes = await res.json();
+  const { footerMainList } = jsonRes;
+  const { footerServicesList } = jsonRes;
+  const { footerInfoList } = jsonRes;
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
@@ -29,9 +39,18 @@ const Home = async () => {
         after:left-0
         after:w-full"
       >
-        <HeaderPage barbershopCount={numberOfBarbershops} />
+        <HeaderPage branchesTotal={numberOfBranches} />
       </div>
       <PromoCard />
+
+      <Footer
+        branchesTotal={numberOfBranches}
+        countriesTotal={numberOfCountries}
+        capitalsTotal={numberOfCapitals}
+        footerMainItems={footerMainList}
+        footerServicesItems={footerServicesList}
+        footerInfoItems={footerInfoList}
+      />
     </main>
   );
 };

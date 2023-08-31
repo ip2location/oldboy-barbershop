@@ -1,3 +1,3 @@
 export const barbsershopData = {
-  barbershopCount: 294,
+  branchesTotal: 294,
 };
