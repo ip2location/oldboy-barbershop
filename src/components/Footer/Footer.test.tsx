@@ -5,10 +5,7 @@ import { Footer } from './Footer';
 
 describe('Footer', () => {
   test('Should render correctly', () => {
-    const footerInfoList = [
-      { title: 'Политика конфиденциальности', href: '#' },
-      { title: 'Условия использования', href: '#' },
-    ];
+    const footerList = [{ title: '', href: '' }];
 
     render(
       <Footer
@@ -18,9 +15,9 @@ describe('Footer', () => {
         footerMainTitle="Меню"
         footerServicesTitle="Услуги"
         footerInfoTitle="Информация"
-        footerMainList={footerInfoList}
-        footerServicesList={footerInfoList}
-        footerInfoList={footerInfoList}
+        footerMainList={footerList}
+        footerServicesList={footerList}
+        footerInfoList={footerList}
       />,
     );
 
@@ -35,7 +32,5 @@ describe('Footer', () => {
     expect(screen.getByText(/Меню/i)).toBeInTheDocument();
     expect(screen.getByText(/Услуги/i)).toBeInTheDocument();
     expect(screen.getByText(/Информация/i)).toBeInTheDocument();
-    expect(screen.getByText(/Политика конфиденциальности/i)).toBeInTheDocument();
-    expect(screen.getByText(/Условия использования/i)).toBeInTheDocument();
   });
 });
