@@ -18,8 +18,8 @@ describe('Footer', () => {
         footerMainTitle="Меню"
         footerServicesTitle="Услуги"
         footerInfoTitle="Информация"
-        footerMainList={{}}
-        footerServicesList={{}}
+        footerMainList={{ title: '', href: '' }}
+        footerServicesList={{ title: '', href: '' }}
         footerInfoList={footerInfoList}
       />,
     );
