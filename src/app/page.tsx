@@ -6,17 +6,17 @@ import { PromoCard } from '@/components/PromoCard';
 import { Footer } from '@/components/Footer';
 
 const Home = async () => {
-  const response = await fetch('http://localhost:3000/api/barbershopsInfo');
-  const jsonResponse = await response.json();
-  const numberOfBranches = jsonResponse.branchesTotal;
-  const numberOfCountries = jsonResponse.countriesTotal;
-  const numberOfCapitals = jsonResponse.capitalsTotal;
+  const barbershopsInfoResponse = await fetch('http://localhost:3000/api/barbershopsInfo');
+  const barbershopsInfoJsonResponse = await barbershopsInfoResponse.json();
+  const numberOfBranches = barbershopsInfoJsonResponse.branchesTotal;
+  const numberOfCountries = barbershopsInfoJsonResponse.countriesTotal;
+  const numberOfCapitals = barbershopsInfoJsonResponse.capitalsTotal;
 
-  const res = await fetch('http://localhost:3000/api/footerLists');
-  const jsonRes = await res.json();
-  const { footerMainList } = jsonRes;
-  const { footerServicesList } = jsonRes;
-  const { footerInfoList } = jsonRes;
+  const footerListsResponse = await fetch('http://localhost:3000/api/footerLists');
+  const footerListsJsonResponse = await footerListsResponse.json();
+  const { footerMainList } = footerListsJsonResponse;
+  const { footerServicesList } = footerListsJsonResponse;
+  const { footerInfoList } = footerListsJsonResponse;
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">

@@ -1,24 +1,24 @@
 const handler = (req, res) => {
   const footerLists = {
     footerMainList: [
-      { title: 'Главная', href: '#' },
-      { title: 'Услуги', href: '#' },
-      { title: 'Косметика', href: '#' },
-      { title: 'Франшиза', href: '#' },
-      { title: 'Инвестиции', href: '#' },
-      { title: 'Блог', href: '#' },
-      { title: 'FAQ', href: '#' },
+      { title: 'Главная', href: '/' },
+      { title: 'Услуги', href: '/services' },
+      { title: 'Косметика', href: '/cosmetics' },
+      { title: 'Франшиза', href: '/franchising' },
+      { title: 'Инвестиции', href: '/investment' },
+      { title: 'Блог', href: '/blog' },
+      { title: 'FAQ', href: '/faq' },
     ],
     footerServicesList: [
-      { title: 'Стрижки', href: '#' },
-      { title: 'Усы и борода', href: '#' },
-      { title: 'Опасное бритье', href: '#' },
-      { title: 'Королевское бритье', href: '#' },
-      { title: 'Татуировки', href: '#' },
+      { title: 'Стрижки', href: '/services/haircut' },
+      { title: 'Усы и борода', href: '/services/beard' },
+      { title: 'Опасное бритье', href: '/services/shaving' },
+      { title: 'Королевское бритье', href: '/services/royal-shaving' },
+      { title: 'Татуировки', href: '/services/tatoo' },
     ],
     footerInfoList: [
-      { title: 'Политика конфиденциальности', href: '#' },
-      { title: 'Условия использования', href: '#' },
+      { title: 'Политика конфиденциальности', href: '/privacy' },
+      { title: 'Условия использования', href: '/terms' },
     ],
   };
 
