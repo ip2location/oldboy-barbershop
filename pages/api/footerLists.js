@@ -1,13 +1,13 @@
 const handler = (req, res) => {
   const footerLists = {
     footerMainList: [
-    { title: 'Главная', href: '#' },
-    { title: 'Услуги', href: '#' },
-    { title: 'Косметика', href: '#' },
-    { title: 'Франшиза', href: '#' },
-    { title: 'Инвестиции', href: '#' },
-    { title: 'Блог', href: '#' },
-    { title: 'FAQ', href: '#' },
+      { title: 'Главная', href: '#' },
+      { title: 'Услуги', href: '#' },
+      { title: 'Косметика', href: '#' },
+      { title: 'Франшиза', href: '#' },
+      { title: 'Инвестиции', href: '#' },
+      { title: 'Блог', href: '#' },
+      { title: 'FAQ', href: '#' },
     ],
     footerServicesList: [
       { title: 'Стрижки', href: '#' },
@@ -15,7 +15,7 @@ const handler = (req, res) => {
       { title: 'Опасное бритье', href: '#' },
       { title: 'Королевское бритье', href: '#' },
       { title: 'Татуировки', href: '#' },
-    ], 
+    ],
     footerInfoList: [
       { title: 'Политика конфиденциальности', href: '#' },
       { title: 'Условия использования', href: '#' },
