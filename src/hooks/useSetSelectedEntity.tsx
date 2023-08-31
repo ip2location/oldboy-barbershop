@@ -14,7 +14,7 @@ export const useSetSelectedEntity = (
     } else {
       setSelectedEntity(entityValue);
     }
-  }, [cookieName]);
+  }, [cookieName, entityValue]);
 
   return { selectedEntity, setSelectedEntity };
 };

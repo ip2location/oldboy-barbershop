@@ -10,20 +10,13 @@ export async function middleware(req: NextRequest) {
 
   const getCountry = req.cookies.get('country')?.value ?? '';
 
-  const userIp = req.ip ?? req.headers.get('x-real-ip');
-
-  if (userIp) {
-    res.cookies.set('user-ip', userIp, {
-      httpOnly: false,
-    });
-  }
-
   if (!getCountry) {
     try {
-      const response = await fetch(`http://ip-api.com/json/${userIp}`);
-      const setCountry = await response.json();
-      if (setCountry) {
-        res.cookies.set(Cookies.Country, setCountry, { expires: SEVEN_DAYS });
+      const response = await fetch(`http://ip-api.com/json`);
+      const userCountry = await response.json();
+      const { countryCode } = userCountry;
+      if (userCountry) {
+        res.cookies.set(Cookies.Country, countryCode, { expires: SEVEN_DAYS });
       }
     } catch (error) {
       return error;
