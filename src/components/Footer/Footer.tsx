@@ -33,7 +33,7 @@ export const Footer = ({
       mt-5
       pt-20 px-12 pb-12
 
-      bg-[url('/images/bg/white-grunge-180.svg'),_url('/images/bg/barberpull.jpg')]
+      bg-[url('/images/bg/barberpull.jpg')]
       bg-repeat-x
       bg-no-repeat
       bg-[top_-310px_center]
@@ -41,6 +41,7 @@ export const Footer = ({
       text-white
     "
     >
+      <div className='absolute top-0 left-0 w-full h-[40px] bg-[url("/images/bg/white-grunge.svg")] bg-cover rotate-180' />
       <div className="footer__content relative flex flex-wrap align-end justify-end h-full pr-10">
         <div className="footer__info-n-contacts flex justify-between w-full">
           <div className="footer__info absolute top-o left-0 pr-10 pl-0 flex flex-col justify-between w-80 pb-10">
