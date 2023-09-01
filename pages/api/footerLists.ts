@@ -1,4 +1,21 @@
-const handler = (req, res) => {
+const handler = (
+  req: any,
+  res: {
+    status: (arg0: number) => {
+      (): any;
+      new (): any;
+      json: {
+        (arg0: {
+          success: boolean;
+          footerMainList: { title: string; href: string }[];
+          footerServicesList: { title: string; href: string }[];
+          footerInfoList: { title: string; href: string }[];
+        }): void;
+        new (): any;
+      };
+    };
+  },
+) => {
   const footerLists = {
     footerMainList: [
       { title: 'Главная', href: '/' },

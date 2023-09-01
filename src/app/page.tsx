@@ -5,18 +5,24 @@ import { PromoCard } from '@/components/PromoCard';
 
 import { Footer } from '@/components/Footer';
 
+// async function getBarbershopsInfo() {
+//   const barbershopsInfoResponse = await fetch('http://localhost:3000/api/barbershopsInfo');
+//   const {branchesTotal, countriesTotal, capitalsTotal} = await barbershopsInfoResponse.json();
+// }
+
+// async function getFooterLists() {
+//   const footerListsResponse = await fetch('http://localhost:3000/api/footerLists');
+//   const {footerMainList, footerServicesList, footerInfoList} = await footerListsResponse.json();
+// }
+
+// const [data1, data2] = await Promise.all([getBarbershopsInfo, getFooterLists])
+
 const Home = async () => {
   const barbershopsInfoResponse = await fetch('http://localhost:3000/api/barbershopsInfo');
-  const barbershopsInfoJsonResponse = await barbershopsInfoResponse.json();
-  const numberOfBranches = barbershopsInfoJsonResponse.branchesTotal;
-  const numberOfCountries = barbershopsInfoJsonResponse.countriesTotal;
-  const numberOfCapitals = barbershopsInfoJsonResponse.capitalsTotal;
+  const { branchesTotal, countriesTotal, capitalsTotal } = await barbershopsInfoResponse.json();
 
   const footerListsResponse = await fetch('http://localhost:3000/api/footerLists');
-  const footerListsJsonResponse = await footerListsResponse.json();
-  const { footerMainList } = footerListsJsonResponse;
-  const { footerServicesList } = footerListsJsonResponse;
-  const { footerInfoList } = footerListsJsonResponse;
+  const { footerMainList, footerServicesList, footerInfoList } = await footerListsResponse.json();
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
@@ -39,14 +45,14 @@ const Home = async () => {
         after:left-0
         after:w-full"
       >
-        <HeaderPage branchesTotal={numberOfBranches} />
+        <HeaderPage branchesTotal={branchesTotal} />
       </div>
       <PromoCard />
 
       <Footer
-        branchesTotal={numberOfBranches}
-        countriesTotal={numberOfCountries}
-        capitalsTotal={numberOfCapitals}
+        branchesTotal={branchesTotal}
+        countriesTotal={countriesTotal}
+        capitalsTotal={capitalsTotal}
         footerMainTitle="Меню"
         footerServicesTitle="Услуги"
         footerInfoTitle="Информация"

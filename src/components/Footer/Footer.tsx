@@ -10,9 +10,9 @@ interface FooterProps {
   footerMainTitle: string;
   footerServicesTitle: string;
   footerInfoTitle: string;
-  footerMainList: any;
-  footerServicesList: any;
-  footerInfoList: any;
+  footerMainList: Array<{ title: string; href: string }>;
+  footerServicesList: Array<{ title: string; href: string }>;
+  footerInfoList: Array<{ title: string; href: string }>;
 }
 
 export const Footer = ({
@@ -58,11 +58,10 @@ export const Footer = ({
             </div>
             <div className="footer__caption text-left">
               <h2 className="footer__title text-orange-title font-rex text-xl leading-normal uppercase my-4">
-                <span className="branches-total">{branchesTotal} </span>
-                <span className="branches-word">филиала </span>в
-                <span className="countries-total"> {countriesTotal} </span>
-                странах и<span className="capitals-total"> {capitalsTotal} </span>
-                столицах
+                <span className="branches-total">{branchesTotal}</span>
+                <span className="branches-word"> филиала</span> в
+                <span className="countries-total"> {countriesTotal}</span> странах и
+                <span className="capitals-total"> {capitalsTotal}</span> столицах
               </h2>
               <p className="footer__subtitle font-button_font text-sm leading-normal uppercase my-3.5">
                 Крупнейшая международная сеть мужских парикмахерских
@@ -84,9 +83,9 @@ export const Footer = ({
       <div className="footer__copyrights font-button_font text-footer-grey text-xs font-semibold text-right uppercase pr-10">
         <p>
           <span className="footer__copyrights-stress text-white text-[10px] font-bold">
-            Копирование материалов запрещено 18+{' '}
+            Копирование материалов запрещено 18+
           </span>
-          &#169; 2014–2023 ИП&nbsp;Мирзоев&nbsp;Эльдар&nbsp;Арзуманович
+          &nbsp;&#169; 2014–2023 ИП&nbsp;Мирзоев&nbsp;Эльдар&nbsp;Арзуманович
         </p>
       </div>
     </footer>
