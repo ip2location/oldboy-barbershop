@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
+import { LinkOptions } from '@/types/link';
 import { FooterNavList } from '../FooterNavList';
 
 interface FooterProps {
@@ -10,9 +11,9 @@ interface FooterProps {
   footerMainTitle: string;
   footerServicesTitle: string;
   footerInfoTitle: string;
-  footerMainList: Array<{ title: string; href: string }>;
-  footerServicesList: Array<{ title: string; href: string }>;
-  footerInfoList: Array<{ title: string; href: string }>;
+  footerMainList: LinkOptions;
+  footerServicesList: LinkOptions;
+  footerInfoList: LinkOptions;
 }
 
 export const Footer = ({

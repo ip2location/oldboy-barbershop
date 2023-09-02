@@ -1,21 +1,6 @@
-const handler = (
-  req: any,
-  res: {
-    status: (arg0: number) => {
-      (): any;
-      new (): any;
-      json: {
-        (arg0: {
-          success: boolean;
-          branchesTotal: number;
-          countriesTotal: number;
-          capitalsTotal: number;
-        }): void;
-        new (): any;
-      };
-    };
-  },
-) => {
+import { NextApiRequest, NextApiResponse } from 'next';
+
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const barbershops = {
     branches: 294,
     countries: 11,

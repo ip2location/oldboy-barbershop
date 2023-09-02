@@ -1,9 +1,10 @@
 import { ReactElement } from 'react';
 import Link from 'next/link';
+import { LinkOptions } from '@/types/link';
 
 interface FooterNavListProps {
   navTitle: string;
-  navList: Array<{ title: string; href: string }>;
+  navList: LinkOptions;
 }
 
 export const FooterNavList = ({ navTitle, navList }: FooterNavListProps): ReactElement => {
