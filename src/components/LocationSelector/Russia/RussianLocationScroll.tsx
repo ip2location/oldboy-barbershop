@@ -41,16 +41,13 @@ export const RussianLocationScroll = (): ReactElement => {
             if (!cities) {
               return null;
             }
-            let isFirstCity = true;
-            return cities.map(({ city, address, place, metro }) => {
-              const showLetter = isFirstCity;
-              isFirstCity = false;
 
+            return cities.map(({ city, address, place, metro }, index) => {
               return (
                 <LocationSelectorScroll
                   key={address}
                   href={href}
-                  letter={showLetter ? letter : ''}
+                  letter={!index ? letter : ''}
                   city={city}
                   address={address}
                   place={place}

@@ -3,7 +3,7 @@ import { PropsWithChildren, ReactElement } from 'react';
 
 export interface LocationProps extends PropsWithChildren {
   letter?: string;
-  href: string;
+  href?: string;
   city: string;
   address: string;
   place?: string;
@@ -38,13 +38,13 @@ export const LocationSelectorScroll = ({
         <div>
           <ul className="location-list mb-8">
             <li className="location-list__name">
-              <Link className="text-header-bg text-xl font-rex" href={href}>
+              <Link className="text-header-bg text-xl font-rex" href={href ?? ''}>
                 {city}
               </Link>
             </li>
             <li className="location-list__item">
               <Link
-                href={href}
+                href={href ?? ''}
                 className="location-list__link w-64 py-1.5 pr-3 pl-7
                       overflow-hidden
                       text-sm

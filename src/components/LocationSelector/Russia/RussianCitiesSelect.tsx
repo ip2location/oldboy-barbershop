@@ -10,7 +10,11 @@ interface RussianCitiesSelectProps {
   cityValue?: string;
 }
 
-export const russianRegion = [
+export const russianRegion: Array<{
+  letter: string;
+  href?: string;
+  cities?: Array<{ city: string; address: string; place?: string; metro?: string }>;
+}> = [
   {
     letter: 'A',
     href: '/',
