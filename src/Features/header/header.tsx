@@ -8,17 +8,17 @@ import { Sidebar } from './components/Sidebar';
 import { ContactUs } from '../../components/ContactUs';
 
 interface HeaderPageProps {
-  barbershopCount: number;
+  branchesTotal: number;
 }
 
-export const HeaderPage = ({ barbershopCount }: HeaderPageProps): ReactElement => {
+export const HeaderPage = ({ branchesTotal }: HeaderPageProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
       <div>
         <Header />
-        <Promo barbershopCount={barbershopCount} />
+        <Promo branchesTotal={branchesTotal} />
         <div className="mt-6 m-12">
           <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
             Запись онлайн

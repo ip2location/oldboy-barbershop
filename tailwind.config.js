@@ -18,6 +18,7 @@ module.exports = {
         'btn-blue': '#56afe1',
         'orange-bg': '#896322',
         'opacity-tan': '#333',
+        'footer-grey': '#aeaeae',
       },
       fontSize: {
         xs: '.75rem',
@@ -55,6 +56,9 @@ module.exports = {
       },
       animation: {
         'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
+      },
+      flexBasis: {
+          'footer-basis': "calc(100% - 320px)",
       },
     },
   },
