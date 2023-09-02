@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import Link from 'next/link';
-import { LinkOptions } from '@/types/link';
+import { LinkOptions } from '../../types/link';
 
 interface FooterNavListProps {
   navTitle: string;

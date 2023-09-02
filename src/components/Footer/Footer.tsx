@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import { LinkOptions } from '@/types/link';
+import { LinkOptions } from '../../types/link';
 import { FooterNavList } from '../FooterNavList';
 
 interface FooterProps {
