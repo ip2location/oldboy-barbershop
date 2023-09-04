@@ -1,22 +1,13 @@
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
-import { setCookie } from 'cookies-next';
 import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
+import { Cookies } from '../../../../../constants';
+import { LocationSelector } from '../../../../../components/LocationSelector/LocationSelector';
 import { Modal } from '../../../../../components/Modal/Modal';
-import { SEVEN_DAYS, Cookies } from '../../../../../constants';
-import { DropdownInput } from '../../../../../components/DropdownInput/DropdownInput';
 
-interface CitySelectProps {
-  cityValue?: string;
-}
-
-export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): ReactElement => {
+export const CitySelect = (): ReactElement => {
   const [showModal, setShowModal] = useState(false);
-  const [cityInput, setCityInput] = useState('');
-  const { selectedEntity: selectedCity, setSelectedEntity: setSelectedCity } = useSetSelectedEntity(
-    cityValue,
-    Cookies.City,
-  );
+  const { selectedEntity: selectedCity } = useSetSelectedEntity('', Cookies.City);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -24,27 +15,11 @@ export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): Rea
     return showModal;
   };
 
-  const selectCity = (value: string) => {
-    setCookie(Cookies.City, value, { expires: SEVEN_DAYS });
-    setSelectedCity(value);
-  };
-
-  const handlePickCity = (value: string) => {
-    selectCity(value);
-    setShowModal(false);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setCityInput(event.currentTarget.value);
-    return cityInput;
-  };
-
   return (
     <>
       <Link
         href="/"
-        className="city-select relative z-20 block pl-12 text-left mr-3
+        className="city-select relative z-20 block pl-12 text-left mr-3 
         cursor-pointer transition-all ease-out duration-200
         before:absolute
         before:bg-[url('/images/icons/place.svg')]
@@ -66,30 +41,7 @@ export const CitySelect = ({ cityValue = 'Москва' }: CitySelectProps): Rea
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
-          <h1 className="text-black font-rex text-2xl font-bold">
-            Выбери <span className="text-orange-title">свой барбершоп</span>
-          </h1>
-          <p
-            className="font-rex p-2 mt-5 text-black cursor-pointer"
-            onClick={() => handlePickCity('Москва')}
-          >
-            Москва
-          </p>
-          <p
-            className="font-rex p-2 text-black cursor-pointer"
-            onClick={() => handlePickCity('Бишкек')}
-          >
-            Бишкек
-          </p>
-          <DropdownInput
-            placeholder="город, улица или метро"
-            searchItem="города"
-            searchResultsHref="/"
-            searchResultsText={cityInput}
-            onChange={handleChange}
-            inputValue={cityInput}
-            variant="halfWidth"
-          />
+          <LocationSelector />
         </Modal>
       ) : null}
     </>
