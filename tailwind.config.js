@@ -18,6 +18,7 @@ module.exports = {
         'btn-blue': '#56afe1',
         'orange-bg': '#896322',
         'opacity-tan': '#333',
+        'reddish': '#af212e',
       },
       fontSize: {
         xs: '.75rem',

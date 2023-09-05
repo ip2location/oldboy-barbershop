@@ -1,27 +1,21 @@
-import Link from 'next/link';
-import { ReactElement, PropsWithChildren, ChangeEvent } from 'react';
+import { ReactElement, PropsWithChildren, ChangeEvent, useState } from 'react';
+// eslint-disable-next-line import/no-cycle
+import { russianRegion } from '../LocationSelector/Russia/RussianCitiesSelect';
+import { DropdownCities } from '../DropdownCities';
 
 type DropdownVariant = 'fullWidth' | 'halfWidth' | 'width75' | 'width25';
 
 export interface DropdownInputProps extends PropsWithChildren {
   variant: DropdownVariant;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   searchItem: string;
-  searchResultsHref: string;
-  searchResultsText: string;
-  inputValue: string;
 }
 
 export const DropdownInput = ({
-  onChange,
   variant,
   placeholder,
   children,
   searchItem,
-  searchResultsHref,
-  searchResultsText,
-  inputValue,
 }: DropdownInputProps): ReactElement => {
   const classes: Record<DropdownVariant, string> = {
     fullWidth: 'w-full',
@@ -29,6 +23,13 @@ export const DropdownInput = ({
     width75: 'w-9/12',
     width25: 'w-3/12',
   };
+  const [search, setSearch]: [string, (search: string) => void] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    setSearch(event.target.value);
+  };
+
   return (
     <div className={`flex flex-col form-dropdown ${classes[variant]}`}>
       <div className="relative z-20 w-full">
@@ -41,9 +42,9 @@ export const DropdownInput = ({
               focus:border-orange-bg
               focus:shadow-xl"
             placeholder={placeholder}
-            onChange={onChange}
+            onChange={handleChange}
             type="search"
-            value={inputValue}
+            value={search}
           />
           {children}
         </form>
@@ -51,37 +52,33 @@ export const DropdownInput = ({
       </div>
       <section
         className={` ${
-          inputValue ? 'block' : 'hidden'
+          search ? 'block' : 'hidden'
         } search-results relative z-10 w-full -mt-10 pt-10 pb-5 px-5 border border-slate-200 rounded-[20px] shadow-md`}
       >
         <h2 className="search-results__title mt-4 text-header-bg font-rex text-2xl">
           Результаты поиска:
         </h2>
-        <p className="text-orange-title font-rex hidden">такого {searchItem} не найдено</p>
-        <ul className="search-result__list h-min max-h-[50vh] m-0 p-0 overflow-y-scroll">
-          <li
-            className="search-results__item relative mb-1 pl-4 text-sm
-                before:absolute
-                before:top-2/4
-                before:left-0
-                before:block
-                before:w-2
-                before:h-2
-                before:bg-orange-title
-                before:rounded-full
-                before:-translate-y-2/4
-                before:content-['']"
-          >
-            <Link
-              href={`/${searchResultsHref}`}
-              className="text-orange-bg max-w-full py-1.5 px-3 overflow-hidden 
-                tracking-wider whitespace-nowrap text-ellipsis
-                rounded-[20px] transition-all duration-200 linear font-sans uppercase font-semibold"
-            >
-              {searchResultsText}
-            </Link>
-          </li>
-        </ul>
+
+        {search === '' ? (
+          <p className="text-orange-title font-rex visible">такого {searchItem} не найдено</p>
+        ) : (
+          <ul className="search-result__list h-min max-h-[50vh] m-0 p-0 pt-5 overflow-y-scroll">
+            {russianRegion.map(({ cities }) =>
+              cities?.map(({ city, cityEnglishName, id, address, metro }) =>
+                city.toLowerCase().includes(search.toLowerCase()) ? (
+                  <DropdownCities
+                    id={id}
+                    href="/[cityEnglishName]/[id]"
+                    as={`/${cityEnglishName}/${id}`}
+                    city={city}
+                    address={address}
+                    metro={metro}
+                  />
+                ) : null,
+              ),
+            )}
+          </ul>
+        )}
       </section>
     </div>
   );
