@@ -5,17 +5,20 @@ import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
-
 import { ContactUs } from '../../components/ContactUs';
 
-export const HeaderPage = (): ReactElement => {
+interface HeaderPageProps {
+  branchesTotal: number;
+}
+
+export const HeaderPage = ({ branchesTotal }: HeaderPageProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
       <div>
         <Header />
-        <Promo />
+        <Promo branchesTotal={branchesTotal} />
         <div className="mt-6 m-12">
           <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
             Запись онлайн

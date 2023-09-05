@@ -4,6 +4,7 @@ export enum Cookies {
   City = 'city',
   Language = 'language',
 }
+
 export enum Languages {
   EN = 'en',
   RU = 'ru',
