@@ -18,7 +18,7 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
           className="fixed inset-0 w-full h-full bg-opacity-tan opacity-50"
           onClick={setIsOpen}
         />
-        <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        <div className="pointer-events-none fixed inset-y-0 right-1 flex max-w-full pl-10">
           <div className="pointer-events-auto w-screen max-w-md">
             {/* Close function and Icon */}
             <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
@@ -41,7 +41,8 @@ export const Sidebar = ({ setIsOpen }: SidebarProps): ReactElement => {
                   </svg>
                 </button>
               </div>
-              <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl text-black m-0 ">
+
+              <div className="flex h-full flex-col overflow-y-scroll bg-white py-4 shadow-xl text-black m-0">
                 {/* Search area */}
                 <form>
                   <div className="relative m-4">
