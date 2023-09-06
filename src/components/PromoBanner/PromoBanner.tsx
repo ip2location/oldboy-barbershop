@@ -2,10 +2,10 @@ import Image from 'next/image';
 import promoScissors from '../../assets/promo/promoScissors.svg';
 
 interface PromoBannerProps {
-  barbershopCount: number;
+  branchesTotal: number;
 }
 
-export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element => {
+export const PromoBanner = ({ branchesTotal }: PromoBannerProps): JSX.Element => {
   return (
     <div className="tracking-tigh sm:text-4xl uppercase font-rex w-48 mt-16 text-transform: skew-y-15">
       <h1 className="text-3xl text-white leading-8">
@@ -18,7 +18,7 @@ export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element 
       </div>
       <div className="flex">
         <span className="text-6xl text-white font-rex_inline leading-10 mt-4 ">
-          {barbershopCount}
+          {branchesTotal}
         </span>
         <p className="text-base text-white ml-2 mt-1">
           открытых <span>филиала</span>

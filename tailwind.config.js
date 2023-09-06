@@ -38,7 +38,7 @@ module.exports = {
       fontFamily: {
         rex: ['Rex-Bold', 'sans-serif'],
         rex_inline: ['Rex-Inline', 'Arial', 'sans-serif'],
-        button_font: ['Open Sans', 'Arial', 'sans - serif'],
+        button_font: ['Open Sans', 'Arial', 'sans-serif'],
       },
       skew: {
         15: '-15deg',
@@ -57,6 +57,9 @@ module.exports = {
       },
       animation: {
         'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
+      },
+      flexBasis: {
+          'footer-basis': "calc(100% - 320px)",
       },
     },
   },
