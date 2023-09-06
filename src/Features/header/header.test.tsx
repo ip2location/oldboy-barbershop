@@ -8,11 +8,16 @@ jest.mock('next/image', () => ({
   default: () => <div />,
 }));
 
+jest.mock('./components/Sidebar', () => ({
+  __esModule: true,
+  Sidebar: () => <div />,
+}));
+
 describe('HeaderMainPage', () => {
   test('pass the header main page buttons', async () => {
     render(
       <ReduxProvider>
-        <HeaderPage barbershopCount={0} />
+        <HeaderPage branchesTotal={0} />
       </ReduxProvider>,
     );
 

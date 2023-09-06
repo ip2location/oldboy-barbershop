@@ -3,10 +3,17 @@
 import { HeaderPage } from '@/Features/header';
 import { PromoCard } from '@/components/PromoCard';
 
+import { Footer } from '@/components/Footer';
+
 const Home = async () => {
-  const response = await fetch('http://localhost:3000/api/barbershops');
-  const jsonResponse = await response.json();
-  const numberOfBarbershops = jsonResponse.data;
+  const [barbershopsInfoResponse, footerListsResponse] = await Promise.all([
+    fetch('http://localhost:3000/api/barbershopsInfo'),
+    fetch('http://localhost:3000/api/footerLists'),
+  ]);
+  const [
+    { branchesTotal, countriesTotal, capitalsTotal },
+    { footerMainList, footerServicesList, footerInfoList },
+  ] = await Promise.all([barbershopsInfoResponse.json(), footerListsResponse.json()]);
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
@@ -29,9 +36,21 @@ const Home = async () => {
         after:left-0
         after:w-full"
       >
-        <HeaderPage barbershopCount={numberOfBarbershops} />
+        <HeaderPage branchesTotal={branchesTotal} />
       </div>
       <PromoCard />
+
+      <Footer
+        branchesTotal={branchesTotal}
+        countriesTotal={countriesTotal}
+        capitalsTotal={capitalsTotal}
+        footerMainTitle="Меню"
+        footerServicesTitle="Услуги"
+        footerInfoTitle="Информация"
+        footerMainList={footerMainList}
+        footerServicesList={footerServicesList}
+        footerInfoList={footerInfoList}
+      />
     </main>
   );
 };

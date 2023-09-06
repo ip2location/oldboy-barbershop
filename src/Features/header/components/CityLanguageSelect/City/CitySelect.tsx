@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
-import { setCookie } from 'cookies-next';
 import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
+import { Cookies } from '../../../../../constants';
+import { LocationSelector } from '../../../../../components/LocationSelector/LocationSelector';
 import { Modal } from '../../../../../components/Modal/Modal';
-import { SEVEN_DAYS, Cookies } from '../../../../../constants';
-import { DropdownInput } from '../../../../../components/DropdownInput/DropdownInput';
 
 interface CitySelectProps {
   cityValue?: string;
@@ -58,11 +57,11 @@ export const CitySelect = ({ cityValue = 'Бишкек' }: CitySelectProps): Rea
     return cityInput;
   };
 
-  return (
+return (
     <>
       <Link
         href="/"
-        className="city-select relative z-20 block pl-12 text-left mr-3
+        className="city-select relative z-20 block pl-12 text-left mr-3 
         cursor-pointer transition-all ease-out duration-200
         before:absolute
         before:bg-[url('/images/icons/place.svg')]
@@ -86,30 +85,7 @@ export const CitySelect = ({ cityValue = 'Бишкек' }: CitySelectProps): Rea
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
-          <h1 className="text-black font-rex text-2xl font-bold">
-            Выбери <span className="text-orange-title">свой барбершоп</span>
-          </h1>
-          <p
-            className="font-rex p-2 mt-5 text-black cursor-pointer"
-            onClick={() => handlePickCity('Москва')}
-          >
-            Москва
-          </p>
-          <p
-            className="font-rex p-2 text-black cursor-pointer"
-            onClick={() => handlePickCity('Бишкек')}
-          >
-            Бишкек
-          </p>
-          <DropdownInput
-            placeholder="город, улица или метро"
-            searchItem="города"
-            searchResultsHref="/"
-            searchResultsText={cityInput}
-            onChange={handleChange}
-            inputValue={cityInput}
-            variant="halfWidth"
-          />
+          <LocationSelector />
         </Modal>
       ) : null}
     </>
