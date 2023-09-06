@@ -19,6 +19,7 @@ module.exports = {
         'orange-bg': '#896322',
         'opacity-tan': '#333',
         'reddish': '#af212e',
+        'footer-grey': '#aeaeae',
       },
       fontSize: {
         xs: '.75rem',
