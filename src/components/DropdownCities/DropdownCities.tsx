@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import { setCookie } from 'cookies-next';
-import { CityID, SEVEN_DAYS } from '../../constants';
-import { useSetSelectedEntity } from '../../hooks/useSetSelectedEntity';
+import { Cookies, SEVEN_DAYS } from '../../constants';
+import { useSetSelectedEntity } from '../../types/useSetSelectedEntity';
 
-export interface DropdownProps {
+export interface DropdownCitiesProps {
   id: number;
   href: string;
   city: string;
@@ -20,17 +20,21 @@ export const DropdownCities = ({
   href,
   metro,
   as,
-}: DropdownProps): ReactElement => {
-  const { setSelectedEntity: setSelectedID } = useSetSelectedEntity(id.toLocaleString(), CityID.ID);
+}: DropdownCitiesProps): ReactElement => {
+  const { setSelectedEntity: setSelectedID } = useSetSelectedEntity(
+    id.toLocaleString(),
+    Cookies.City,
+  );
 
   const selectCity = (value: number) => {
-    setCookie(CityID.ID, value, { expires: SEVEN_DAYS });
+    setCookie(Cookies.City, value, { expires: SEVEN_DAYS });
     setSelectedID(value.toLocaleString());
   };
 
   const handlePickCity = (value: number) => {
     selectCity(value);
   };
+
   return (
     <li
       key={id}

@@ -23,7 +23,7 @@ export const DropdownInput = ({
     width75: 'w-9/12',
     width25: 'w-3/12',
   };
-  const [search, setSearch]: [string, (search: string) => void] = useState('');
+  const [search, setSearch] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();

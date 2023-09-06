@@ -4,7 +4,7 @@ import Image from 'next/image';
 // eslint-disable-next-line import/no-cycle
 import { DropdownInput } from '../../DropdownInput/DropdownInput';
 import { Cookies, SEVEN_DAYS } from '../../../constants';
-import { useSetSelectedEntity } from '../../../hooks/useSetSelectedEntity';
+import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
 
 interface RussianCitiesSelectProps {
   cityValue?: string;

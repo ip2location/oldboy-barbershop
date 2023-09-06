@@ -8,7 +8,3 @@ export enum Languages {
   EN = 'en',
   RU = 'ru',
 }
-
-export enum CityID {
-  ID = 'cityID',
-}

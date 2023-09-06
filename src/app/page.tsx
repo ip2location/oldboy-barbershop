@@ -1,7 +1,7 @@
 'use client';
 
-import { HeaderPage } from '@/Features/header';
-import { PromoCard } from '@/components/PromoCard';
+import { HeaderPage } from '../Features/header';
+import { PromoCard } from '../components/PromoCard';
 
 export default function Home() {
   return (
