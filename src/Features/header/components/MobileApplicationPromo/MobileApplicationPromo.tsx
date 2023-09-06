@@ -17,11 +17,11 @@ export const MobileApplicationPromo = (): ReactElement => {
       font-rex 
       text-right
       px-12
-      py-8
+      py-0
       
       after:absolute
-      after:-right-2
-      after:bottom-0
+      after:-right-0
+      after:bottom-10
       after:w-[140%]
       after:h-1
       after:bg-gradient-to-l
