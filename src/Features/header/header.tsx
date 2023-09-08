@@ -6,18 +6,20 @@ import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
 import { ContactUs } from '../../components/ContactUs';
+import { LinkOptions } from '../../types/link';
 
 interface HeaderPageProps {
+  mainNavList: LinkOptions;
   branchesTotal: number;
 }
 
-export const HeaderPage = ({ branchesTotal }: HeaderPageProps): ReactElement => {
+export const HeaderPage = ({ mainNavList, branchesTotal }: HeaderPageProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
       <div>
-        <Header />
+        <Header mainNavList={mainNavList} />
         <Promo branchesTotal={branchesTotal} />
         <div className="mt-6 m-12">
           <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>

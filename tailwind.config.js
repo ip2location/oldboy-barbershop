@@ -55,11 +55,17 @@ module.exports = {
         180: '180px',
       },
       animation: {
-        'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite'
+        'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite',
       },
       flexBasis: {
-          'footer-basis': "calc(100% - 320px)",
+        'footer-basis': "calc(100% - 320px)",
       },
+      width: {
+        'stageImageWidth': "calc(100% + 40px)",
+      },
+      backgroundSize: {
+        '150': '150px',
+      }
     },
   },
   variants: {},

@@ -2,21 +2,13 @@ import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import { CityLanguageSelect } from '../../Features/header/components/CityLanguageSelect/CityLanguageSelect';
+import { LinkOptions } from '../../types/link';
 
-const mainNavItems = [
-  { title: 'Главная', href: '#' },
-  { title: 'Услуги', href: '#' },
-  { title: 'Косметика', href: '#' },
-  { title: 'Блог', href: '#' },
-  { title: 'Франшиза', href: '#' },
-  { title: 'Инвестиции', href: '#' },
-  { title: 'Вакансии', href: '#' },
-  { title: 'Барберы', href: '#' },
-  { title: 'Контакты', href: '#' },
-  { title: 'Филиалы', href: '#' },
-];
+interface HeaderProps {
+  mainNavList: LinkOptions;
+}
 
-export const Header = (): ReactElement => {
+export const Header = ({ mainNavList }: HeaderProps): ReactElement => {
   return (
     <header
       className="hero
@@ -28,7 +20,7 @@ export const Header = (): ReactElement => {
         text-white"
     >
       <div className="hero__top relative flex mb-5 w-full">
-        <div className="hero__logo relative w-36 mr-4 flex align-top">
+        <div className="hero__logo relative w-40 mr-4 flex align-top">
           <Link href="/">
             <Image
               src="/images/logo/logo.svg"
@@ -42,7 +34,7 @@ export const Header = (): ReactElement => {
         <div className="hero__nav hero__nav--hidden -mt-0.5 w-full max-w-full">
           <nav className="main-nav inset-0 flex items-center">
             <ul className="main-nav__list flex m-0">
-              {mainNavItems.map(({ title, href }) => {
+              {mainNavList.map(({ title, href }) => {
                 return (
                   <li key={title} className="main-nav__item float-left text-center">
                     <Link
