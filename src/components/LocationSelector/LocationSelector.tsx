@@ -1,10 +1,24 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { RussianCitiesSelect } from './Russia/RussianCitiesSelect';
-import { RussianLocationScroll } from './Russia/RussianLocationScroll';
+import { CISCountriesSelect } from './CIS/CISCountriesSelect';
+
+type ClassesVariant = 'activeClass' | 'onHover';
 
 export const LocationSelector = (): ReactElement => {
+  const classes: Record<ClassesVariant, string> = {
+    activeClass: 'active drop-shadow-[1px_1px_0_orange]',
+    onHover:
+      'hover:transition-filter hover:duration-200 hover:ease hover:opacity-100 hover:drop-shadow-[1px_1px_0_orange]',
+  };
+  const [active, setActive] = useState('1');
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    setActive(event.currentTarget.id);
+  };
+
   return (
     <section
       className="location-selector flex flex-col top-0 bottom-0 left-0 z-40 
@@ -17,7 +31,12 @@ export const LocationSelector = (): ReactElement => {
             <div className="logo-selector">
               <div className="logo-text flex">
                 <Link
-                  className="location-logo relative cursor-pointer relative cursor-pointer mr-4 transition-filter duration-200 ease opacity-100 drop-shadow-[1px_1px_0_orange]"
+                  key={1}
+                  onClick={handleClick}
+                  id="1"
+                  className={`location-logo relative cursor-pointer relative cursor-pointer mr-4 transition-filter duration-200 ease opacity-100 ${
+                    active === '1' ? classes.activeClass : undefined
+                  } ${classes.onHover}`}
                   href="/"
                 >
                   <div>
@@ -30,17 +49,17 @@ export const LocationSelector = (): ReactElement => {
                   </div>
                 </Link>
                 <Link
-                  className="location-logo relative cursor-pointer relative cursor-pointer 
-                                hover:transition-filter 
-                                hover:duration-200 
-                                hover:ease 
-                                hover:opacity-100 
-                                hover:drop-shadow-[1px_1px_0_orange]"
+                  className={`location-logo relative cursor-pointer relative cursor-pointer ${
+                    active === '2' ? classes.activeClass : undefined
+                  } ${classes.onHover}`}
                   href="/"
+                  key={2}
+                  onClick={handleClick}
+                  id="2"
                 >
                   <div className="location-logo__image">
                     <Image
-                      alt="OldBoy Barbershop EU Logo"
+                      alt="OldBoy Barbershop CIS Logo"
                       width="120"
                       height="100"
                       src="/images/logo/location-sng.png"
@@ -60,13 +79,9 @@ export const LocationSelector = (): ReactElement => {
           <div className="location-logo__wrapper">
             <div className="location-logo__box flex">
               <Link
-                className="location-logo relative cursor-pointer mr-4
-                                hover:transition-filter 
-                                hover:duration-200 
-                                hover:ease 
-                                hover:opacity-100 
-                                hover:drop-shadow-[1px_1px_0_orange]"
-                href="/"
+                className={`location-logo relative cursor-pointer mr-4
+                                ${classes.onHover}`}
+                href="/europe"
               >
                 <div className="location-logo__image">
                   <Image
@@ -78,13 +93,9 @@ export const LocationSelector = (): ReactElement => {
                 </div>
               </Link>
               <Link
-                className="location-logo relative cursor-pointer
-                                hover:transition-filter 
-                                hover:duration-200 
-                                hover:ease 
-                                hover:opacity-100 
-                                hover:drop-shadow-[1px_1px_0_orange]"
-                href="/"
+                className={`location-logo relative cursor-pointer
+                                ${classes.onHover}`}
+                href="/usa"
               >
                 <div className="location-logo__image">
                   <Image
@@ -99,8 +110,7 @@ export const LocationSelector = (): ReactElement => {
           </div>
         </div>
       </header>
-      <RussianCitiesSelect />
-      <RussianLocationScroll />
+      {active === '1' ? <RussianCitiesSelect /> : <CISCountriesSelect />}
     </section>
   );
 };

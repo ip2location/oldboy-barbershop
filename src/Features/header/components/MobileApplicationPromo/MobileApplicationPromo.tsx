@@ -5,7 +5,7 @@ import { Icon } from '../../../../components/Icon';
 
 export const MobileApplicationPromo = (): ReactElement => {
   return (
-    <aside className="hero-app absolute top-96 right-2 z-40 block">
+    <aside className="hero-app absolute top-96 right-2 z-30 block">
       <article
         className="app-promo 
       flex 
@@ -41,7 +41,7 @@ export const MobileApplicationPromo = (): ReactElement => {
           before:w-[211px]
           before:h-[320px]
           before:bg-[url('/images/bg/mobile-app.png')]
-          before:z-40
+          before:z-30
           before:bg-contain
           before:bg-no-repeat
           before:content-['']

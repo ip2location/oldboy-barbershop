@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { DropdownInput } from '../../DropdownInput/DropdownInput';
 import { Cookies, SEVEN_DAYS } from '../../../constants';
 import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
+// eslint-disable-next-line import/no-cycle
+import { RussianLocationScroll } from './RussianLocationScroll';
 
 interface RussianCitiesSelectProps {
   cityValue?: string;
@@ -12,187 +14,187 @@ interface RussianCitiesSelectProps {
 
 export const russianRegion: Array<{
   letter: string;
-  cities?: Array<{
-    id: number;
-    cityEnglishName: string;
-    city: string;
+  places?: Array<{
+    id: string;
+    placeEnglishName: string;
+    place: string;
     address: string;
-    place?: string;
+    addressDetail?: string;
     metro?: string;
   }>;
 }> = [
   {
     letter: 'A',
-    cities: [
+    places: [
       {
-        id: 1,
-        cityEnglishName: 'Almetyevsk',
-        city: 'Альметьевск',
+        id: 'Альметьевск',
+        placeEnglishName: 'Almetyevsk',
+        place: 'Альметьевск',
         address: 'ул. Ленина, Д. 46',
       },
       {
-        id: 2,
-        cityEnglishName: 'Armavir',
-        city: 'Армавир',
+        id: 'Армавир',
+        placeEnglishName: 'Armavir',
+        place: 'Армавир',
         address: 'ул. Ефремова, Д. 123/5',
       },
       {
-        id: 3,
-        cityEnglishName: 'Arkhangelsk',
-        city: 'Архангельск',
+        id: 'Архангельск',
+        placeEnglishName: 'Arkhangelsk',
+        place: 'Архангельск',
         address: 'наб. Северной Двины, Д. 71',
       },
     ],
   },
   {
     letter: 'Б',
-    cities: [
+    places: [
       {
-        id: 4,
-        cityEnglishName: 'Balashikha',
-        city: 'Балашиха',
+        id: 'Балашиха',
+        placeEnglishName: 'Balashikha',
+        place: 'Балашиха',
         address: 'мкр. Железнодорожный, пр-т Героев, Д. 5',
-        place: 'мкр. Железнодорожный',
+        addressDetail: 'мкр. Железнодорожный',
       },
       {
-        id: 5,
-        cityEnglishName: 'Balashikha',
-        city: 'Балашиха',
+        id: 'Балашиха',
+        placeEnglishName: 'Balashikha-Reutovskaya',
+        place: 'Балашиха',
         address: 'ул. Реутовская Д. 5',
       },
       {
-        id: 6,
-        cityEnglishName: 'Belgorod',
-        city: 'Белгород',
+        id: 'Белгород',
+        placeEnglishName: 'Belgorod',
+        place: 'Белгород',
         address: 'ул. Губкина, Д. 38Б',
       },
       {
-        id: 7,
-        cityEnglishName: 'Belgorod',
-        city: 'Белгород',
+        id: 'Белгород',
+        placeEnglishName: 'Belgorod-Popova',
+        place: 'Белгород',
         address: 'ул. Попова, Д. 36',
       },
       {
-        id: 8,
-        cityEnglishName: 'Borovichi',
-        city: 'Боровичи',
+        id: 'Боровичи',
+        placeEnglishName: 'Borovichi',
+        place: 'Боровичи',
         address: 'ул. Дзержинского, 8',
       },
       {
-        id: 9,
-        cityEnglishName: 'Bryansk',
-        city: 'Брянск',
+        id: 'Брянск',
+        placeEnglishName: 'Bryansk',
+        place: 'Брянск',
         address: 'ул. Дуки, Д. 51',
       },
     ],
   },
   {
     letter: 'B',
-    cities: [
+    places: [
       {
-        id: 10,
-        cityEnglishName: 'Veliky Novgorod',
-        city: 'Великий Новгород',
+        id: 'Великий Новгород',
+        placeEnglishName: 'Veliky Novgorod',
+        place: 'Великий Новгород',
         address: 'ул. Псковская, Д. 11',
       },
       {
-        id: 11,
-        cityEnglishName: 'Vladivostok',
-        city: 'Владивосток',
+        id: 'Владивосток',
+        placeEnglishName: 'Vladivostok',
+        place: 'Владивосток',
         address: 'проспект Океанский, Д. 30',
       },
       {
-        id: 12,
-        cityEnglishName: 'Vladikavkaz',
-        city: 'Владикавказ',
+        id: 'Владикавказ',
+        placeEnglishName: 'Vladikavkaz',
+        place: 'Владикавказ',
         address: 'ул. генерала Плиева, Д. 54',
       },
       {
-        id: 13,
-        cityEnglishName: 'Vladimir',
-        city: 'Владимир',
+        id: 'Владимир',
+        placeEnglishName: 'Vladimir',
+        place: 'Владимир',
         address: 'ул. Тракторная, Д. 50',
       },
       {
-        id: 14,
-        cityEnglishName: 'Voronezh',
-        city: 'Воронеж',
+        id: 'Воронеж',
+        placeEnglishName: 'Voronezh',
+        place: 'Воронеж',
         address: 'проспект Ленинский, Д. 1Д',
-        place: 'ТРК «Левый берег»',
+        addressDetail: 'ТРК «Левый берег»',
       },
       {
-        id: 15,
-        cityEnglishName: 'Voronezh',
-        city: 'Воронеж',
+        id: 'Воронеж',
+        placeEnglishName: 'Voronezh-Voroshilova',
+        place: 'Воронеж',
         address: 'ул. Ворошилова Д. 1А',
       },
       {
-        id: 16,
-        cityEnglishName: 'Voronezh',
-        city: 'Воронеж',
+        id: 'Воронеж',
+        placeEnglishName: 'Voronezh-Holzunova',
+        place: 'Воронеж',
         address: 'ул. Хользунова, Д. 15',
       },
       {
-        id: 17,
-        cityEnglishName: 'Voronezh',
-        city: 'Воронеж',
+        id: 'Воронеж',
+        placeEnglishName: 'Voronezh-Shishkova',
+        place: 'Воронеж',
         address: 'ул. Шишкова, Д. 142',
       },
     ],
   },
   {
     letter: 'Г',
-    cities: [
+    places: [
       {
-        id: 18,
-        cityEnglishName: 'Gatchina',
-        city: 'Гатчина',
+        id: 'Гатчина',
+        placeEnglishName: 'Gatchina',
+        place: 'Гатчина',
         address: 'ул. Ленина, Д. 46',
       },
       {
-        id: 19,
-        cityEnglishName: 'Gelenzhik',
-        city: 'Геленджик',
+        id: 'Геленджик',
+        placeEnglishName: 'Gelenzhik',
+        place: 'Геленджик',
         address: 'ул. Ефремова, Д. 123/5',
       },
       {
-        id: 20,
-        cityEnglishName: 'Grozny',
-        city: 'Грозный',
+        id: 'Грозный',
+        placeEnglishName: 'Grozny',
+        place: 'Грозный',
         address: 'наб. Северной Двины, Д. 71',
       },
     ],
   },
   {
     letter: 'Д',
-    cities: [
+    places: [
       {
-        id: 21,
-        cityEnglishName: 'Derbent',
-        city: 'Дербент',
+        id: 'Дербент',
+        placeEnglishName: 'Derbent',
+        place: 'Дербент',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
-        id: 22,
-        cityEnglishName: 'Dolgoprudny',
-        city: 'Долгопрудный',
+        id: 'Долгопрудный',
+        placeEnglishName: 'Dolgoprudny',
+        place: 'Долгопрудный',
         address: 'Долгопрудный, пр-т Ракетостроителей, 7К1',
       },
     ],
   },
   {
     letter: 'Е',
-    cities: [
+    places: [
       {
-        id: 23,
-        cityEnglishName: 'Ekaterinburg',
-        city: 'Екатеринбург',
+        id: 'Екатеринбург',
+        placeEnglishName: 'Ekaterinburg',
+        place: 'Екатеринбург',
         address: 'ул. академика Шварца, Д. 14',
       },
       {
-        id: 24,
-        cityEnglishName: 'Esentuki',
-        city: 'Ессентуки',
+        id: 'Ессентуки',
+        placeEnglishName: 'Esentuki',
+        place: 'Ессентуки',
         address: 'ул. Пятигорская, Д. 133Б',
       },
     ],
@@ -202,33 +204,33 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Ж',
-    cities: [
+    places: [
       {
-        id: 25,
-        cityEnglishName: 'Zhukovsky',
-        city: 'Жуковский',
+        id: 'Жуковский',
+        placeEnglishName: 'Zhukovsky',
+        place: 'Жуковский',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'З',
-    cities: [
+    places: [
       {
-        id: 26,
-        cityEnglishName: 'Zelenogradsk',
-        city: 'Зеленоградск',
+        id: 'Зеленоградск',
+        placeEnglishName: 'Zelenogradsk',
+        place: 'Зеленоградск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'И',
-    cities: [
+    places: [
       {
-        id: 27,
-        cityEnglishName: 'Izhevsk',
-        city: 'Ижевск',
+        id: 'Ижевск',
+        placeEnglishName: 'Izhevsk',
+        place: 'Ижевск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
@@ -238,105 +240,105 @@ export const russianRegion: Array<{
   },
   {
     letter: 'К',
-    cities: [
+    places: [
       {
-        id: 28,
-        cityEnglishName: 'Kazan',
-        city: 'Казань',
+        id: 'Казань',
+        placeEnglishName: 'Kazan',
+        place: 'Казань',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
-        id: 29,
-        cityEnglishName: 'Kazan',
-        city: 'Казань',
+        id: 'Казань',
+        placeEnglishName: 'Kazan-Petersburg',
+        place: 'Казань',
         address: 'ул. Петербурская, Д. 9',
-        place: 'ТЦ «РЕСПУБЛИКА»',
+        addressDetail: 'ТЦ «РЕСПУБЛИКА»',
         metro: 'площадь Габдуллы Тукая',
       },
     ],
   },
   {
     letter: 'Л',
-    cities: [
+    places: [
       {
-        id: 30,
-        cityEnglishName: 'Lobnya',
-        city: 'Лобня',
+        id: 'Лобня',
+        placeEnglishName: 'Lobnya',
+        place: 'Лобня',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'М',
-    cities: [
+    places: [
       {
-        id: 31,
-        cityEnglishName: 'Moscow region Lyubercy',
-        city: 'МО Люберцы',
+        id: 'МО Люберцы',
+        placeEnglishName: 'Moscow region Lyubercy',
+        place: 'МО Люберцы',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
-        id: 32,
-        cityEnglishName: 'Moscow',
-        city: 'Москва',
+        id: 'Москва',
+        placeEnglishName: 'Moscow',
+        place: 'Москва',
         address: 'Бульвар Веласкеса, Д. 2',
       },
       {
-        id: 33,
-        cityEnglishName: 'Moscow',
-        city: 'Москва',
+        id: 'Москва',
+        placeEnglishName: 'Moscow-Avtozavodskaya',
+        place: 'Москва',
         address: 'ул. Автозаводская, Д. 18',
-        place: 'ТРЦ «Ривьера»',
+        addressDetail: 'ТРЦ «Ривьера»',
         metro: 'Автозаводская',
       },
     ],
   },
   {
     letter: 'Н',
-    cities: [
+    places: [
       {
-        id: 34,
-        cityEnglishName: 'Naberezhnye Chelny',
-        city: 'Набережные Челны',
+        id: 'Набережные Челны',
+        placeEnglishName: 'Naberezhnye Chelny',
+        place: 'Набережные Челны',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'О',
-    cities: [
+    places: [
       {
-        id: 35,
-        cityEnglishName: 'Omsk',
-        city: 'Омск',
+        id: 'Омск',
+        placeEnglishName: 'Omsk',
+        place: 'Омск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'П',
-    cities: [
+    places: [
       {
-        id: 36,
-        cityEnglishName: 'Penza',
-        city: 'Пенза',
+        id: 'Пенза',
+        placeEnglishName: 'Penza',
+        place: 'Пенза',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'Р',
-    cities: [
+    places: [
       {
-        id: 37,
-        cityEnglishName: 'Ramenskoe',
-        city: 'Раменское',
+        id: 'Раменское',
+        placeEnglishName: 'Ramenskoe',
+        place: 'Раменское',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
-        id: 38,
-        cityEnglishName: 'Reutov',
-        city: 'Реутов',
+        id: 'Реутов',
+        placeEnglishName: 'Reutov',
+        place: 'Реутов',
         address: 'РЕУТОВ, ПР-Т ЮБИЛЕЙНЫЙ, Д. 40',
         metro: 'НОВОКОСИНО',
       },
@@ -344,33 +346,33 @@ export const russianRegion: Array<{
   },
   {
     letter: 'С',
-    cities: [
+    places: [
       {
-        id: 39,
-        cityEnglishName: 'Samara',
-        city: 'Самара',
+        id: 'Самара',
+        placeEnglishName: 'Samara',
+        place: 'Самара',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'Т',
-    cities: [
+    places: [
       {
-        id: 40,
-        cityEnglishName: 'Taganrog',
-        city: 'Таганрог',
+        id: 'Таганрог',
+        placeEnglishName: 'Taganrog',
+        place: 'Таганрог',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'У',
-    cities: [
+    places: [
       {
-        id: 41,
-        cityEnglishName: 'Ulan-Ude',
-        city: 'Улан-Удэ',
+        id: 'Улан-Удэ',
+        placeEnglishName: 'Ulan-Ude',
+        place: 'Улан-Удэ',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
@@ -380,11 +382,11 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Х',
-    cities: [
+    places: [
       {
-        id: 42,
-        cityEnglishName: 'Khabarovsk',
-        city: 'Хабаровск',
+        id: 'Хабаровск',
+        placeEnglishName: 'Khabarovsk',
+        place: 'Хабаровск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
@@ -394,11 +396,11 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Ч',
-    cities: [
+    places: [
       {
-        id: 43,
-        cityEnglishName: 'Chelyabinsk',
-        city: 'Челябинск',
+        id: 'Челябинск',
+        placeEnglishName: 'Chelyabinsk',
+        place: 'Челябинск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
@@ -414,22 +416,22 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Ю',
-    cities: [
+    places: [
       {
-        id: 44,
-        cityEnglishName: 'Yugorsk',
-        city: 'Югорск',
+        id: 'Югорск',
+        placeEnglishName: 'Yugorsk',
+        place: 'Югорск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
   },
   {
     letter: 'Я',
-    cities: [
+    places: [
       {
-        id: 45,
-        cityEnglishName: 'Yaroslavl',
-        city: 'Ярославль',
+        id: 'Ярославль',
+        placeEnglishName: 'Yaroslavl',
+        place: 'Ярославль',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
     ],
@@ -446,94 +448,102 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
 
   const handlePickCity = (value: string) => {
     selectCity(value);
+    window.location.reload();
   };
 
   return (
-    <div className="location-logo__image flex flex-col items-center pb-24">
-      <h1 className="text-black font-rex text-2xl font-bold mb-4">
-        Выбери <span className="text-orange-title">свой барбершоп</span>
-      </h1>
-      <DropdownInput placeholder="город, улица или метро" searchItem="города" variant="halfWidth" />
-      <div className="location-selector__alphabet mt-12 flex justify-center w-full">
-        <div className="alphabet relative flex justify-center mr-14">
-          <div>
-            <ul className="alphabet__content flex justify-center w-[416px] flex-wrap">
-              {russianRegion.map(({ letter, cities }) =>
-                cities ? (
-                  <li className="font-rex text-orange-title text-base mr-1.5" key={letter}>
-                    <Link
-                      href="#letter"
-                      className="alphabet__trigger text-orange-title hover:underline hover:underline-offset-4 decoration-2 
+    <>
+      <div className="location-logo__image flex flex-col items-center pb-24">
+        <h1 className="text-black font-rex text-2xl font-bold mb-4">
+          Выбери <span className="text-orange-title">свой барбершоп</span>
+        </h1>
+        <DropdownInput
+          placeholder="город, улица или метро"
+          searchItem="города"
+          variant="halfWidth"
+        />
+        <div className="location-selector__alphabet mt-12 flex justify-center w-full">
+          <div className="alphabet relative flex justify-center mr-14">
+            <div>
+              <ul className="alphabet__content flex justify-center w-[416px] flex-wrap">
+                {russianRegion.map(({ letter, places }) =>
+                  places ? (
+                    <li className="font-rex text-orange-title text-base mr-1.5" key={letter}>
+                      <Link
+                        href="#letter"
+                        className="alphabet__trigger text-orange-title hover:underline hover:underline-offset-4 decoration-2 
                                           inline-block pr-2
                                           w-5
                                           h-5
                                           text-center
                                           uppercase
                                           border-1 border-transparent"
-                    >
-                      {letter}
-                    </Link>
-                  </li>
-                ) : (
-                  <li className="font-rex text-orange-title text-base mr-1.5" key={letter}>
-                    <Link
-                      className="alphabet__trigger text-neutral-300 hover:underline hover:underline-offset-4 decoration-2
+                      >
+                        {letter}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li className="font-rex text-orange-title text-base mr-1.5" key={letter}>
+                      <Link
+                        className="alphabet__trigger text-neutral-300 hover:underline hover:underline-offset-4 decoration-2
                             inline-block pr-2
                             w-5
                             h-5
                             text-center
                             uppercase
                             border-1 border-transparent"
-                      href="#letter"
-                    >
-                      {letter}
-                    </Link>
-                  </li>
-                ),
-              )}
-              ,
-            </ul>
+                        href="#letter"
+                      >
+                        {letter}
+                      </Link>
+                    </li>
+                  ),
+                )}
+                ,
+              </ul>
+            </div>
           </div>
-        </div>
-        <div className="location-selector__links flex self-center justify-between w-[290px]">
-          <Link
-            className="location-selector__top h-[71px] ease-in-out duration-200 bg-transparent"
-            href="/"
-          >
-            <Image
-              src="/images/logo/location-moscow.png"
-              alt="Oldboy Barbershop Moscow logo"
-              className="h-full 
+          <div className="location-selector__links flex self-center justify-between w-[290px]">
+            <Link
+              className="location-selector__top h-[71px] ease-in-out duration-200 bg-transparent"
+              href="/"
+            >
+              <Image
+                src="/images/logo/location-moscow.png"
+                alt="Oldboy Barbershop Moscow logo"
+                className="h-full 
                             hover:transition-filter 
                             hover:duration-200 
                             hover:ease 
                             hover:opacity-100 
                             hover:drop-shadow-[1px_1px_0_orange]"
-              width={126}
-              height={100}
-              onClick={() => handlePickCity('Москва')}
-            />
-          </Link>
-          <Link
-            className="location-selector__top h-[71px] ease-in-out duration-200 bg-transparent"
-            href="/"
-          >
-            <Image
-              src="/images/logo/location-peterburg.png"
-              alt="Oldboy Barbershop St. Petersburg logo"
-              className="h-full
+                width={126}
+                height={100}
+                onClick={() => handlePickCity('Москва')}
+              />
+            </Link>
+            <Link
+              className="location-selector__top h-[71px] ease-in-out duration-200 bg-transparent"
+              href="/"
+            >
+              <Image
+                src="/images/logo/location-peterburg.png"
+                alt="Oldboy Barbershop St. Petersburg logo"
+                className="h-full
                               hover:transition-filter 
                               hover:duration-200 
                               hover:ease 
                               hover:opacity-100 
                               hover:drop-shadow-[1px_1px_0_orange]"
-              width={126}
-              height={100}
-              onClick={() => handlePickCity('Санкт-Петербург')}
-            />
-          </Link>
+                width={126}
+                height={100}
+                onClick={() => handlePickCity('Санкт-Петербург')}
+              />
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+      <RussianLocationScroll />
+    </>
   );
 };

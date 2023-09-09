@@ -63,14 +63,14 @@ export const DropdownInput = ({
           <p className="text-orange-title font-rex visible">такого {searchItem} не найдено</p>
         ) : (
           <ul className="search-result__list h-min max-h-[50vh] m-0 p-0 pt-5 overflow-y-scroll">
-            {russianRegion.map(({ cities }) =>
-              cities?.map(({ city, cityEnglishName, id, address, metro }) =>
-                city.toLowerCase().includes(search.toLowerCase()) ? (
+            {russianRegion.map(({ places }) =>
+              places?.map(({ place, placeEnglishName, id, address, metro }) =>
+                place.toLowerCase().includes(search.toLowerCase()) ? (
                   <DropdownCities
                     id={id}
                     href="/[cityEnglishName]/[id]"
-                    as={`/${cityEnglishName}/${id}`}
-                    city={city}
+                    as={`/${placeEnglishName}/${id}`}
+                    city={place}
                     address={address}
                     metro={metro}
                   />
