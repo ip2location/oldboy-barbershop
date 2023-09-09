@@ -13,7 +13,7 @@ export const RussianLocationScroll = (): ReactElement => {
 
   const groupedCities: Record<string, LocationProps[]> = {};
 
-  russianRegion.forEach(({ cities, href }) => {
+  russianRegion.forEach(({ cities }) => {
     if (cities) {
       cities.forEach(({ city, address, place, metro }) => {
         if (!groupedCities[city]) {
@@ -24,7 +24,6 @@ export const RussianLocationScroll = (): ReactElement => {
           address,
           place,
           metro,
-          href,
         });
       });
     }
@@ -37,16 +36,15 @@ export const RussianLocationScroll = (): ReactElement => {
           className="branch-addresses__container relative pt-12 h-[43vh] overflow-y-scroll overflow-x-hidden columns-[15em]"
           onWheel={onWheel}
         >
-          {russianRegion.map(({ letter, href, cities }) => {
+          {russianRegion.map(({ letter, cities }) => {
             if (!cities) {
               return null;
             }
 
-            return cities.map(({ city, address, place, metro }, index) => {
+            return cities.map(({ city, address, place, metro, id }, index) => {
               return (
                 <LocationSelectorScroll
-                  key={address}
-                  href={href}
+                  key={id}
                   letter={!index ? letter : ''}
                   city={city}
                   address={address}

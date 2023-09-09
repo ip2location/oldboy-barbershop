@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
-import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
+import { useSetSelectedEntity } from '../../../../../types/useSetSelectedEntity';
 import { Cookies } from '../../../../../constants';
 import { LocationSelector } from '../../../../../components/LocationSelector/LocationSelector';
 import { Modal } from '../../../../../components/Modal/Modal';
