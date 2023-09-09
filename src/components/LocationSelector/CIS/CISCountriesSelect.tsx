@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
-import { useSetSelectedEntity } from '@/types/useSetSelectedEntity';
-import { Cookies, SEVEN_DAYS } from '@/constants';
 import { setCookie } from 'cookies-next';
+import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
+import { Cookies, SEVEN_DAYS } from '../../../constants';
 import { LocationSelectorScroll } from '../../LocationSelectorScroll';
 
 interface CISCountriesSelectProps {
@@ -139,7 +139,7 @@ export const CISCountriesSelect = ({
   return (
     <div className="location-selector__abroad">
       <div className="px-32 mt-32">
-        <div className="flex flex-row flex-wrap justify-between relative pt-12 h-full overflow-y-scroll overflow-x-hidden columns-[15em]">
+        <div className="flex flex-row flex-wrap justify-between  relative pt-12 h-full overflow-y-scroll overflow-x-hidden columns-[15em]">
           {cisRegion.map(({ letter, country, places }) => {
             if (!places) {
               return null;

@@ -1,8 +1,8 @@
 import React, { ReactElement, WheelEvent } from 'react';
 // eslint-disable-next-line import/no-cycle
-import { useSetSelectedEntity } from '@/types/useSetSelectedEntity';
-import { Cookies, SEVEN_DAYS } from '@/constants';
 import { setCookie } from 'cookies-next';
+import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
+import { Cookies, SEVEN_DAYS } from '../../../constants';
 // eslint-disable-next-line import/no-cycle
 import { russianRegion } from './RussianCitiesSelect';
 import {
