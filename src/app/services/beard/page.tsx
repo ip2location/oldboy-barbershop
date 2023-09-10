@@ -8,35 +8,47 @@ export default function Beard() {
     <main>
       <div
         className="
+        bg-black
         bg-[url('/images/beard/beard-bg.jpg')]
         bg-no-repeat
         relative
-        h-screen
+        bg-[position:center_bottom,_left_bottom_0.4rem]
+        after:bg-[url('/images/bg/white-grunge.svg')]
+        after:h-12
+        after:bg-repeat-x
+        after:bg-[top_1rem_center]
         "
       >
-        <Header />
+        <div className="p-10">
+          <Header />
+        </div>
       </div>
-      <div className="flex flex-row">
-        <Image
-          src="/images/beard/beard-image1.jpeg"
-          width={300}
-          height={300}
-          alt="Picture of the author"
-        />
+      <div className="flex p-10 mx-18">
+        <div className="pr-10">
+          <Image
+            src="/images/beard/beard-image1.jpeg"
+            width={1400}
+            height={100}
+            alt="Picture of the author"
+            className="rounded"
+          />
+        </div>
+
         <div>
-          <h1>Стрижка усов и бороды, оформление</h1>
-          <p>
+          <h2 className="font-rex text-4xl">Стрижка усов и бороды, оформление</h2>
+          <p className="leading-7 my-5 text-lg">
             Борода и усы для мужчины важная особенность издревле. И если вы думаете, что «отпустить
             бороду» или «отрастить усы» — значит просто дать волосам на лице расти как они хотят, то
             вы сильно ошибаетесь. За ними нужен особый уход как ежедневный, так и профессиональный.
           </p>
           <Image
             src="/images/beard/beard-image2.jpeg"
-            width={400}
+            width={1200}
             height={400}
             alt="Picture of the author"
+            className="my-8"
           />
-          <p>
+          <p className="leading-7 my-5 text-lg">
             Специалисты рекомендуют мужчинам посещать барбершоп хотя бы раз в месяц для поддержания
             бороды и усов в ухоженном, здоровом виде как внешне, так и внутренне. Мастера OldBoy
             предлагают Вам услугу модной стрижки бороды и усов. Мало просто подстричь волосы на лице
@@ -47,22 +59,24 @@ export default function Beard() {
           </p>
           <Image
             src="/images/beard/beard-image3.jpeg"
-            width={400}
+            width={1200}
             height={400}
             alt="Picture of the author"
+            className="my-8"
           />
-          <p>
+          <p className="leading-7 my-5 text-lg">
             OldBoy Barbershop стал узнаваем и очень популярен среди носителей бороды, начиная с
             самого открытия в 2014 году. По сей день OldBoy считается одним из самых востребованных
             в мире среди парней и мужчин, которые ухаживают за собой и своими волосами.
           </p>
           <Image
             src="/images/beard/beard-image4.jpeg"
-            width={400}
+            width={1200}
             height={400}
             alt="Picture of the author"
+            className="my-8"
           />
-          <p>
+          <p className="leading-7 my-5 text-lg">
             В сети барбершопов OldBoy царит неповторимая атмосфера брутальности и мужества;
             обратившись однажды за стрижкой бороды или усов, клиенты возвращаются вновь и пробуют
             другие процедуры по уходу за лицом и волосами. Ведь помимо обычной коррекции или стрижки
@@ -75,11 +89,12 @@ export default function Beard() {
           <h1>Стоимость услуги</h1>
           <Image
             src="/images/beard/beard-image5.jpeg"
-            width={400}
+            width={1200}
             height={400}
             alt="Picture of the author"
+            className="my-8"
           />
-          <p>
+          <p className="leading-7 my-5 text-lg">
             Цены на услуги стрижки бороды и усов в сети барбершопов OldBoy варьируются от 200 до
             1200 рублей в зависимости от города, в котором вы хотите посетить мастера.
             Высококачественное профессиональное бритье и моделирование усов и бороды в салоне Oldboy
