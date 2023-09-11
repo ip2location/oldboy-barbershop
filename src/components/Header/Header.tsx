@@ -39,7 +39,7 @@ export const Header = ({ mainNavList }: HeaderProps): ReactElement => {
                   <li key={title} className="main-nav__item float-left text-center">
                     <Link
                       href={href}
-                      className="main-nav__link font-rex mr-5 text-[14.6px] hover:text-orange-400 transition delay-150"
+                      className="main-nav__link font-rex mr-5 text-[14.6px] hover:text-orange-title transition delay-150"
                     >
                       {title}
                     </Link>
