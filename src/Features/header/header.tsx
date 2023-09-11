@@ -21,7 +21,7 @@ export const HeaderPage = ({ mainNavList, branchesTotal }: HeaderPageProps): Rea
       <div>
         <Header mainNavList={mainNavList} />
         <Promo branchesTotal={branchesTotal} />
-        <div className="mt-6 m-12">
+        <div className="mt-6 ">
           <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
             Запись онлайн
           </Button>

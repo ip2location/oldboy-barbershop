@@ -1,5 +1,5 @@
 export interface CityList {
   id: number;
-  city: string;
+  name: string;
   branch: number;
 }
