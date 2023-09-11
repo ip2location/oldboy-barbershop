@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import { Layout } from '@/components/Layout';
-import { Header } from '@/components/Header';
-import { LinkOptions } from '@/types/link';
-import { ServicePromo } from '@/components/ServicePromo';
-import { ServiceAboutSection } from '@/components/ServiceAboutSection';
+import { Layout } from '../../components/Layout';
+import { Header } from '../../components/Header';
+import { LinkOptions } from '../../types/link';
+import { ServicePromo } from '../../components/ServicePromo';
+import { ServiceAboutSection } from '../../components/ServiceAboutSection';
 import { StageHeader } from './components/StageHeader/StageHeader';
 import { StageSection } from './components/StageSection';
 import { StageContent } from './components/StageContent';
