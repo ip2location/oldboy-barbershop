@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
-import { ServiceIconVariant } from '@/types/serviceIcon';
 
+type ServiceIconVariant = 'shavette' | 'scissors' | 'tattoo';
 interface ServicePromoProps {
   titleTop: string;
   titleBottom: string;

@@ -11,5 +11,6 @@ export const StageSection = ({ variant, children }: StageSectionProps): ReactEle
     row: 'stage flex flex-row mb-10',
     rowReverse: 'stage_flipped flex flex-row-reverse mb-28',
   };
+
   return <section className={`${classes[variant]}`}>{children}</section>;
 };

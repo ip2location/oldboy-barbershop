@@ -21,16 +21,7 @@ const RoyalShavingPage = async () => {
 
   return (
     <main className="overflow-hidden flex md:container md:max-w-screen-2xl mx-auto flex-col">
-      <RoyalShaving
-        mainNavList={headerMainList}
-        titleTop="Королевское"
-        titleBottom="бритьё"
-        iconVariant="shavette"
-        aboutSectionSrc="/images/royal/tnh.png"
-        aboutSectionAlt="Королевское бритьё в Oldboy Barbershop"
-        headline="Бритьё, достойное королей"
-        decorationVariant="razor"
-      />
+      <RoyalShaving mainNavList={headerMainList} />
       <Footer
         branchesTotal={branchesTotal}
         countriesTotal={countriesTotal}

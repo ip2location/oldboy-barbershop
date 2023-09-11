@@ -11,6 +11,7 @@ interface StageHeaderProps extends PropsWithChildren {
   titlePosition: TitlePositionVariant;
   imagePosition: ImagePositionVariant;
 }
+
 export const StageHeader = ({
   headerTitleTop,
   headerTitleBottom,
@@ -27,6 +28,7 @@ export const StageHeader = ({
     imageLeft: 'stage__image after:-right-5',
     imageRight: 'stage__image_reversed -left-10 after:right-auto after:left-0 after:rotate-180',
   };
+
   return (
     <header
       className={`${classes[headerPosition]} basis-4/12 mb-10 relative z-20 w-[90%] max-w-[600px] skew-y-15`}

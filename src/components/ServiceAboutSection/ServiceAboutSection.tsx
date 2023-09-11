@@ -1,6 +1,7 @@
 import { ReactElement, PropsWithChildren } from 'react';
 import Image from 'next/image';
-import { ServiceDecorationVariant } from '@/types/serviceDecoration';
+
+type ServiceDecorationVariant = 'razor' | 'scissors' | 'none';
 
 interface ServiceAboutSectionProps extends PropsWithChildren {
   aboutSectionSrc: string;
@@ -23,6 +24,7 @@ export const ServiceAboutSection = ({
       'absolute top-32 z-30 -left-10 w-[401px] h-[309px] bg-[url("/images/bg/scissors-deco.png")] bg-cover',
     none: 'hidden',
   };
+
   return (
     <section className="section service-about flex mb-16 p-10">
       <div className="service__header relative pr-10 pb-5">
@@ -33,6 +35,7 @@ export const ServiceAboutSection = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
+            role="img"
           />
         </div>
         <div className={`service__decoration ${classes[decorationVariant]}`} />

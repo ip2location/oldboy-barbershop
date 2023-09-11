@@ -2,36 +2,18 @@ import { ReactElement } from 'react';
 import Image from 'next/image';
 import { Layout } from '@/components/Layout';
 import { Header } from '@/components/Header';
+import { LinkOptions } from '@/types/link';
 import { ServicePromo } from '@/components/ServicePromo';
 import { ServiceAboutSection } from '@/components/ServiceAboutSection';
-import { LinkOptions } from '@/types/link';
-import { ServiceIconVariant } from '@/types/serviceIcon';
-import { ServiceDecorationVariant } from '@/types/serviceDecoration';
 import { StageHeader } from './components/StageHeader/StageHeader';
 import { StageSection } from './components/StageSection';
 import { StageContent } from './components/StageContent';
 
 interface HeaderPageProps {
   mainNavList: LinkOptions;
-  titleTop: string;
-  titleBottom: string;
-  iconVariant: ServiceIconVariant;
-  aboutSectionSrc: string;
-  aboutSectionAlt: string;
-  headline: string;
-  decorationVariant: ServiceDecorationVariant;
 }
 
-export const RoyalShaving = ({
-  mainNavList,
-  titleTop,
-  titleBottom,
-  iconVariant,
-  aboutSectionSrc,
-  aboutSectionAlt,
-  headline,
-  decorationVariant,
-}: HeaderPageProps): ReactElement => {
+export const RoyalShaving = ({ mainNavList }: HeaderPageProps): ReactElement => {
   return (
     <div>
       <div
@@ -55,15 +37,15 @@ export const RoyalShaving = ({
         <Layout>
           <div>
             <Header mainNavList={mainNavList} />
-            <ServicePromo titleTop={titleTop} titleBottom={titleBottom} iconVariant={iconVariant} />
+            <ServicePromo titleTop="Королевское" titleBottom="бритьё" iconVariant="shavette" />
           </div>
         </Layout>
       </div>
       <ServiceAboutSection
-        aboutSectionSrc={aboutSectionSrc}
-        aboutSectionAlt={aboutSectionAlt}
-        headline={headline}
-        decorationVariant={decorationVariant}
+        aboutSectionSrc="/images/royal/tnh.png"
+        aboutSectionAlt="Королевское бритьё в Oldboy Barbershop"
+        headline="Бритьё, достойное королей"
+        decorationVariant="razor"
       >
         <p
           className="
@@ -115,8 +97,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
@@ -156,8 +138,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
@@ -196,8 +178,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
@@ -234,8 +216,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
@@ -274,8 +256,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
@@ -304,8 +286,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
@@ -334,8 +316,8 @@ export const RoyalShaving = ({
             sizes="(width:100%)"
             width="1240"
             height="666"
-            className="w-full
-            object-cover"
+            className="w-full object-cover"
+            role="img"
           />
         </StageHeader>
         <StageContent
