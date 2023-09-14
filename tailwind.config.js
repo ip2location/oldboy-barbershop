@@ -61,6 +61,12 @@ module.exports = {
       flexBasis: {
           'footer-basis': "calc(100% - 320px)",
       },
+      screens: {
+        sm: '360px',
+        md: '700px',
+        lg: '1000px',
+        xl: '1280px'
+      },
     },
   },
   variants: {},
