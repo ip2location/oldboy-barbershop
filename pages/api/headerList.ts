@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  const headerList = [
+  const headerMainList = [
     { title: 'Главная', href: '/' },
     { title: 'Услуги', href: '/services' },
     { title: 'Косметика', href: '/cosmetics' },
@@ -16,7 +16,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
 
   res.status(200).json({
     success: true,
-    headerMainList: headerList,
+    headerMainList,
   });
 };
 export default handler;

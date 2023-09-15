@@ -17,6 +17,7 @@ describe('Header', () => {
     ];
 
     render(<Header mainNavList={mainNavList} />);
+
     expect(screen.getByText('Главная')).toBeInTheDocument();
   });
 });

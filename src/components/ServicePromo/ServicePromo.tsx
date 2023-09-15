@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 type ServiceIconVariant = 'shavette' | 'scissors' | 'tattoo';
+
 interface ServicePromoProps {
   titleTop: string;
   titleBottom: string;

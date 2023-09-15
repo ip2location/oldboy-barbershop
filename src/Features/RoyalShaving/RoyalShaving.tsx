@@ -9,11 +9,11 @@ import { StageHeader } from './components/StageHeader/StageHeader';
 import { StageSection } from './components/StageSection';
 import { StageContent } from './components/StageContent';
 
-interface HeaderPageProps {
+interface RoyalShavingProps {
   mainNavList: LinkOptions;
 }
 
-export const RoyalShaving = ({ mainNavList }: HeaderPageProps): ReactElement => {
+export const RoyalShaving = ({ mainNavList }: RoyalShavingProps): ReactElement => {
   return (
     <div>
       <div
