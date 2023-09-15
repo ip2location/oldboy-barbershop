@@ -7,7 +7,7 @@ interface StageSectionProps extends PropsWithChildren {
 }
 
 export const StageSection = ({ variant, children }: StageSectionProps): ReactElement => {
-  const classes = {
+  const classes: Record<StageSectionVariant, string> = {
     row: 'stage flex flex-row mb-10',
     rowReverse: 'stage_flipped flex flex-row-reverse mb-28',
   };

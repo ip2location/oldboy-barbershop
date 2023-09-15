@@ -3,6 +3,7 @@ import { ReactElement, PropsWithChildren } from 'react';
 type HeaderPositionVariant = 'headerLeft' | 'headerRight';
 type TitlePositionVariant = 'titleLeft' | 'titleRight';
 type ImagePositionVariant = 'imageLeft' | 'imageRight';
+type PositionVariant = HeaderPositionVariant | TitlePositionVariant | ImagePositionVariant;
 
 interface StageHeaderProps extends PropsWithChildren {
   headerTitleTop: string;
@@ -20,7 +21,7 @@ export const StageHeader = ({
   imagePosition,
   children,
 }: StageHeaderProps): ReactElement => {
-  const classes = {
+  const classes: { [K in PositionVariant]: string } = {
     headerLeft: 'stage__header mr-10',
     headerRight: 'stage__heade_reversed ml-10 mr-0',
     titleLeft: 'after:-right-5',
