@@ -18,7 +18,11 @@ const mainNavItems = [
 ];
 
 export const Header = (): ReactElement => {
-  const [open, setOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const toggleNav = () => {
+    setIsNavOpen((current) => !current);
+    document.body.style.overflow = isNavOpen ? 'auto' : 'hidden';
+  };
 
   return (
     <header
@@ -50,19 +54,16 @@ export const Header = (): ReactElement => {
         </div>
         <div className="hero__nav hero__nav--hidden w-full max-w-full">
           <div
-            onClick={() => {
-              setOpen(!open);
-              document.body.style.overflow = 'hidden';
-            }}
+            onClick={toggleNav}
             className="burger-menu fixed right-4 top-4 z-50 bg-[rgba(19,19,19,.5)] text-3xl cursor-pointer flex items-center content-center justify-center h-12 w-12 border-2 
         border-orange-title rounded-full lg:hidden"
           >
-            {!open ? <AiOutlineMenu /> : <AiOutlineClose />}
+            {!isNavOpen ? <AiOutlineMenu /> : <AiOutlineClose />}
           </div>
           <div className="fixed right-0 top-0 bottom-0 z-40 w-full max-w-[400px] transition-all ease-out duration-300 lg:static lg:flex lg:-mt-1.5 lg:flex-wrap lg:max-w-auto">
             <nav
               className={`main-nav items-center absolute top-0 bottom-0 left-0 flex justify-center bg-header-bg/[.9] lg:bg-header-bg/[0] lg:static lg:opacity-100 transition-all ease-in duration-500 ${
-                open ? 'right-0 opacity-100' : 'right-[-400px] opacity-0'
+                isNavOpen ? 'right-0 opacity-100' : 'right-[-400px] opacity-0'
               }`}
             >
               <ul className="main-nav__list flex flex-col lg:flex-row m-0">
