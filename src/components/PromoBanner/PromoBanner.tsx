@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import promoScissors from '../../assets/promo/promoScissors.svg';
+import promoScissors from 'public/promoScissors.svg';
 
 interface PromoBannerProps {
   branchesTotal: number;
