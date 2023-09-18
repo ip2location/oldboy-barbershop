@@ -5,7 +5,7 @@ import { Icon } from '../../../../components/Icon';
 
 export const MobileApplicationPromo = (): ReactElement => {
   return (
-    <aside className="hero-app absolute top-[400px] right-2 z-40 lg:block hidden">
+    <aside className="hero-app absolute top-[400px] right-2 z-30 lg:block hidden">
       <article
         className="app-promo 
       flex 
