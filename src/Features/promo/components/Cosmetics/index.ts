@@ -1,1 +1,1 @@
-export { Cosmetics } from './cosmetics';
+export { Cosmetics } from './Cosmetics';

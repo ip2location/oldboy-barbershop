@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Cosmetics } from './cosmetics';
+import { Cosmetics } from './Cosmetics';
 
 jest.mock('next/link', () => {
   return ({ children }: { children: React.ReactNode }) => children;
