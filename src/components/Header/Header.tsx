@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import { CityLanguageSelect } from '../../Features/header/components/CityLanguageSelect/CityLanguageSelect';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 
 const mainNavItems = [
   { title: 'Главная', href: '#' },
@@ -58,6 +59,7 @@ export const Header = (): ReactElement => {
           </nav>
         </div>
         <CityLanguageSelect />
+        <ThemeSwitcher />
       </div>
     </header>
   );
