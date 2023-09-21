@@ -26,7 +26,7 @@ export const PromoBanner = ({ branchesTotal }: PromoBannerProps): JSX.Element =>
       </div>
       <p className="w-auto bg-orange-title h-1 mb-2.5 mt-6" />
       <p className="text-base text-white">намного больше чем просто мужская парихмахерская</p>
-      <Image src={promoScissors} alt="Logo" width={20} height={33} />
+      <Image src={promoScissors} alt="Logo" sizes="(width:100%)" width="61" height="33" />
     </div>
   );
 };

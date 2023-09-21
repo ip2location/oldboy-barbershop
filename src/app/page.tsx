@@ -38,6 +38,10 @@ const Home = async () => {
         <HeaderPage branchesTotal={branchesTotal} />
       </div>
       <PromoCard />
+      <PromoCard />
+      <PromoCard />
+      <PromoCard />
+      <PromoCard />
 
       <Footer
         branchesTotal={branchesTotal}

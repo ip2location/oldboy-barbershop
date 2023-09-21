@@ -19,14 +19,16 @@ export const HeaderPage = ({ branchesTotal }: HeaderPageProps): ReactElement => 
       <div>
         <Header />
         <Promo branchesTotal={branchesTotal} />
-        <div className="mt-6 ">
-          <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
-            Запись онлайн
-          </Button>
-          <div className="mt-6">
-            <Link href="/">
-              <Button variant="accentLink">Купить косметику</Button>
-            </Link>
+        <div className="flex justify-center lg:block">
+          <div className="mt-6 ">
+            <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
+              Запись онлайн
+            </Button>
+            <div className="mt-6">
+              <Link href="/">
+                <Button variant="accentLink">Купить косметику</Button>
+              </Link>
+            </div>
           </div>
         </div>
         <ContactUs onClick={() => setIsOpen((prevState) => !prevState)} />
