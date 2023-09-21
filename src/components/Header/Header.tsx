@@ -59,7 +59,7 @@ export const Header = ({ mainNavList }: HeaderProps): ReactElement => {
               }`}
             >
               <ul className="main-nav__list flex flex-col lg:flex-row m-0">
-                {mainNavItems.map(({ title, href }) => {
+                {mainNavList.map(({ title, href }) => {
                   return (
                     <li key={title} className="main-nav__item float-left text-center m-5 lg:m-0">
                       <Link
