@@ -66,7 +66,10 @@ module.exports = {
       },
       backgroundSize: {
         '150': '150px',
-      }
+      },
+      screens: {
+        sm: '360px',
+      },
     },
   },
   variants: {},

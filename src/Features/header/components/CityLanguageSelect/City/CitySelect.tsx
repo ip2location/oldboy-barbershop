@@ -37,7 +37,9 @@ export const CitySelect = (): ReactElement => {
           Выбери свой <br /> барбершоп:
           <span className="m-0 text-orange-title font-rex text-[8.5px]">&#x25BC;</span>
         </p>
-        <p className="city-select__city font-rex m-0 text-base">{selectedCity}</p>
+        <p className="city-select__city font-rex m-0 text-base hover:text-orange-title">
+          {selectedCity}
+        </p>
       </Link>
       {showModal ? (
         <Modal showModal={showModal} onClose={() => setShowModal(false)}>
