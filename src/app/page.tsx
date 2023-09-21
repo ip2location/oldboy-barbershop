@@ -4,7 +4,7 @@ import { Footer } from '../components/Footer/Footer';
 import { HeaderPage } from '../Features/header';
 import { PromoCard } from '../components/PromoCard';
 
-const RoyalShaving = async () => {
+const Home = async () => {
   const [headerListResponse, barbershopsInfoResponse, footerListsResponse] = await Promise.all([
     fetch('http://localhost:3000/api/headerList'),
     fetch('http://localhost:3000/api/barbershopsInfo'),
@@ -61,4 +61,4 @@ const RoyalShaving = async () => {
   );
 };
 
-export default RoyalShaving;
+export default Home;
