@@ -3,21 +3,13 @@ import { ReactElement, useState } from 'react';
 import Image from 'next/image';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { CityLanguageSelect } from '../../Features/header/components/CityLanguageSelect/CityLanguageSelect';
+import { LinkOptions } from '../../types/link';
 
-const mainNavItems = [
-  { title: 'Главная', href: '#' },
-  { title: 'Услуги', href: '#' },
-  { title: 'Косметика', href: '#' },
-  { title: 'Блог', href: '#' },
-  { title: 'Франшиза', href: '#' },
-  { title: 'Инвестиции', href: '#' },
-  { title: 'Вакансии', href: '#' },
-  { title: 'Барберы', href: '#' },
-  { title: 'Контакты', href: '#' },
-  { title: 'Филиалы', href: '#' },
-];
+interface HeaderProps {
+  mainNavList: LinkOptions;
+}
 
-export const Header = (): ReactElement => {
+export const Header = ({ mainNavList }: HeaderProps): ReactElement => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleNav = () => {
     setIsNavOpen((current) => !current);
@@ -67,7 +59,7 @@ export const Header = (): ReactElement => {
               }`}
             >
               <ul className="main-nav__list flex flex-col lg:flex-row m-0">
-                {mainNavItems.map(({ title, href }) => {
+                {mainNavList.map(({ title, href }) => {
                   return (
                     <li key={title} className="main-nav__item float-left text-center m-5 lg:m-0">
                       <Link
