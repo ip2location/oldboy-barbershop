@@ -1,5 +1,6 @@
-import { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { setCookie } from 'cookies-next';
+import axios from 'axios';
 import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
 import { Cookies, SEVEN_DAYS } from '../../../constants';
 import { LocationSelectorScroll } from '../../LocationSelectorScroll';
@@ -8,122 +9,38 @@ interface CISCountriesSelectProps {
   cityValue?: string;
 }
 
-export const cisRegion: Array<{
+interface Place {
+  id: string;
+  place?: string;
+  placeEnglishName?: string;
+  address: string;
+  addressDetail?: string;
+}
+
+interface Region {
   letter: string;
   country: string;
-  places?: Array<{
-    id: string;
-    place?: string;
-    placeEnglishName?: string;
-    address: string;
-    addressDetail?: string;
-  }>;
-}> = [
-  {
-    letter: 'BY',
-    country: 'Беларусь',
-    places: [
-      {
-        id: 'Минск',
-        placeEnglishName: 'Minsk',
-        address: 'МИНСК',
-      },
-    ],
-  },
-  {
-    letter: 'KZ',
-    country: 'Казахстан',
-    places: [
-      {
-        id: 'Актау',
-        placeEnglishName: 'Aktau',
-        address: 'Г. АКТАУ, 6-Й МИКРОРАЙОН, 39',
-      },
-      {
-        id: 'Астана',
-        placeEnglishName: 'Astana-Amman',
-        address: 'Г. АСТАНА, УЛ. АММАН, Д. 2',
-        addressDetail: 'ЖК «МИЛАНСКИЙ КВАРТАЛ»',
-      },
-      {
-        id: 'Астана',
-        placeEnglishName: 'Astana-Imanova',
-        address: 'Г. АСТАНА, УЛ. ИМАНОВА, Д. 16',
-      },
-      {
-        id: 'Астана',
-        placeEnglishName: 'Astana-Kunaeva',
-        address: 'Г. АСТАНА, УЛ. ДИНМУХАМЕДА КУНАЕВА, Д. 10',
-        addressDetail: 'БЦ «ИЗУМРУДНЫЙ КВАРТАЛ»',
-      },
-      {
-        id: 'Атырау',
-        placeEnglishName: 'Atyrau',
-        address: 'Г. АТЫРАУ, УЛ. ГУРЬЕВСКАЯ, Д. 1',
-      },
-      {
-        id: 'Костанай',
-        placeEnglishName: 'Kostanai',
-        address: 'Г. КОСТАНАЙ, УЛ. АЛТЫНСАРИНА, Д. 110',
-      },
-      {
-        id: 'Усть-Каменогорск',
-        placeEnglishName: 'Ust-Kamenogorsk',
-        address: 'Г. УСТЬ-КАМЕНОГОРСК, УЛ. КАБАНБАЙ БАТЫРА, 156',
-      },
-    ],
-  },
-  {
-    letter: 'KG',
-    country: 'Кыргызстан',
-    places: [
-      {
-        id: 'Бишкек',
-        placeEnglishName: 'Bishkek',
-        address: 'Г. БИШКЕК, УЛ. ЛОГВИНЕНКО, Д. 51',
-      },
-    ],
-  },
-  {
-    letter: 'GE',
-    country: 'Грузия',
-    places: [
-      {
-        id: 'Тбилиси',
-        placeEnglishName: 'Tbilisi',
-        address: 'Г. ТБИЛИСИ, ПР-КТ АЛЕКСАНДРА КАЗБЕГИ, Д. 11',
-      },
-    ],
-  },
-  {
-    letter: 'TM',
-    country: 'Туркменистан',
-    places: [
-      {
-        id: 'Ашхабад',
-        placeEnglishName: 'Ashkhabad-Ataturk',
-        address: 'АШХАБАД, УЛ. АТАТЮРК, Д. 80',
-        addressDetail: 'ТРЦ «БЕРКЕРАР», 1 ЭТАЖ, B15',
-      },
-      {
-        id: 'Ашхабад',
-        placeEnglishName: 'Ashkhabad-Magtymkuly',
-        address: 'УЛ. МАГТЫМКУЛЫ',
-        addressDetail: 'ТРЦ «GÜL ZEMIN» A11',
-      },
-      {
-        id: 'Ашхабад',
-        placeEnglishName: 'Ashkhabad-Tahran',
-        address: 'УЛ. ТАХРАН',
-        addressDetail: 'ТРЦ «ASHGABAT» C-1.71',
-      },
-    ],
-  },
-];
+  places?: Place[];
+}
 
 export const CISCountriesSelect = ({
   cityValue = 'Москва',
 }: CISCountriesSelectProps): ReactElement => {
+  const [cisRegion, setCisRegion] = useState<Region[]>([]);
+
+  useEffect(() => {
+    const fetchCisRegion = async () => {
+      try {
+        const response = await axios.get('/api/cisRegionLists');
+        setCisRegion(response.data.cisRegionList);
+      } catch (error) {
+        console.error('Error fetching data from API:', error);
+      }
+    };
+
+    fetchCisRegion();
+  }, []);
+
   const { setSelectedEntity: setSelectedCity } = useSetSelectedEntity(cityValue, Cookies.City);
 
   const selectCity = (value: string) => {
@@ -135,35 +52,124 @@ export const CISCountriesSelect = ({
     selectCity(value);
     window.location.reload();
   };
-  let lastRenderedCountry = '';
+
   return (
     <div className="location-selector__abroad">
-      <div className="px-32 mt-32">
-        <div className="flex flex-row flex-wrap justify-between  relative pt-12 h-full overflow-y-scroll overflow-x-hidden columns-[15em]">
-          {cisRegion.map(({ letter, country, places }) => {
+      <div className="branch-addresses px-32 mt-32">
+        <div className="branch-addresses__container flex flex-row flex-wrap justify-center pt-12 h-auto overflow-visible">
+          {cisRegion.reduce((accelerator: React.ReactNode[], { letter, country, places }) => {
             if (!places) {
-              return null;
+              return accelerator;
             }
 
-            return places.map(({ address, addressDetail, id }, index) => {
-              const renderCountry = lastRenderedCountry !== country;
-              lastRenderedCountry = country;
-              return (
-                <div className="countries-block block w-[257px]">
-                  <LocationSelectorScroll
-                    key={id}
-                    letter={!index ? letter : ''}
-                    place={renderCountry ? country : ''}
-                    address={address}
-                    addressDetail={addressDetail}
-                    onClick={() => handlePickCity(id)}
-                  />
-                </div>
-              );
-            });
-          })}
+            const countryHeader = (
+              <div className="country-header w-0 h-0" key={`header-${country}`}>
+                {country}
+              </div>
+            );
+
+            const placeElements = places.map(({ address, addressDetail, id }, index) => (
+              <LocationSelectorScroll
+                key={id}
+                letter={!index ? letter : ''}
+                place={!index ? country : ''}
+                address={address}
+                addressDetail={addressDetail}
+                onClick={() => handlePickCity(id)}
+                options="forCIS"
+              />
+            ));
+
+            return [...accelerator, countryHeader, ...placeElements];
+          }, [])}
         </div>
       </div>
     </div>
   );
 };
+
+export default CISCountriesSelect;
+
+// import { ReactElement, useEffect, useState } from 'react';
+// import { setCookie } from 'cookies-next';
+// import axios from 'axios';
+// import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
+// import { Cookies, SEVEN_DAYS } from '../../../constants';
+// import { LocationSelectorScroll } from '../../LocationSelectorScroll';
+
+// interface CISCountriesSelectProps {
+//   cityValue?: string;
+// }
+
+// export const CISCountriesSelect = ({
+//   cityValue = 'Москва',
+// }: CISCountriesSelectProps): ReactElement => {
+//   const [cisRegion, setCisRegion] = useState<
+//     Array<{
+//       letter: string;
+//       country: string;
+//       places?: Array<{
+//         id: string;
+//         place?: string;
+//         placeEnglishName?: string;
+//         address: string;
+//         addressDetail?: string;
+//       }>;
+//     }>
+//   >([]);
+
+//   useEffect(() => {
+//     const regionsUrl = 'http://localhost:3000/api/cisRegionLists';
+
+//     axios
+//       .get(regionsUrl)
+//       .then((response) => {
+//         setCisRegion(response.data.cisRegionList);
+//       })
+//       .catch((error) => {
+//         console.error('Error fetching data from API:', error);
+//       });
+//   }, []);
+//   const { setSelectedEntity: setSelectedCity } = useSetSelectedEntity(cityValue, Cookies.City);
+
+//   const selectCity = (value: string) => {
+//     setCookie(Cookies.City, value, { expires: SEVEN_DAYS });
+//     setSelectedCity(value);
+//   };
+
+//   const handlePickCity = (value: string) => {
+//     selectCity(value);
+//     window.location.reload();
+//   };
+//   let lastRenderedCountry = '';
+//   return (
+//     <div className="location-selector__abroad">
+//       <div className="px-32 mt-32">
+//         <div className="flex flex-row flex-wrap justify-between  relative pt-12 h-full overflow-y-scroll overflow-x-hidden columns-[15em]">
+//           {cisRegion.map(({ letter, country, places }) => {
+//             if (!places) {
+//               return null;
+//             }
+
+//             return places.map(({ address, addressDetail, id }, index) => {
+//               const renderCountry = lastRenderedCountry !== country;
+//               lastRenderedCountry = country;
+//               return (
+//                 <div className="countries-block block w-[257px]">
+//                   <LocationSelectorScroll
+//                     key={id}
+//                     letter={!index ? letter : ''}
+//                     place={renderCountry ? country : ''}
+//                     address={address}
+//                     addressDetail={addressDetail}
+//                     onClick={() => handlePickCity(id)}
+//                   />
+//                 </div>
+//               );
+//             });
+//           })}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };

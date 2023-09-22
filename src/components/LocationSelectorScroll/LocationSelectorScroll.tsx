@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import { PropsWithChildren, ReactElement } from 'react';
 
+type ClassesOptions = 'forRussia' | 'forCIS';
+
 export interface LocationProps extends PropsWithChildren {
   letter?: string;
   href?: string;
   place?: string;
-  address: string;
+  address?: string;
   addressDetail?: string;
   metro?: string;
   country?: string;
   onClick?: () => void;
+  options: ClassesOptions;
 }
 
 export const LocationSelectorScroll = ({
@@ -21,9 +24,16 @@ export const LocationSelectorScroll = ({
   metro,
   country,
   onClick,
+  options,
 }: LocationProps): ReactElement => {
+  const classes: Record<ClassesOptions, string> = {
+    forRussia: 'none',
+    forCIS: 'w-60',
+  };
   return (
-    <div className="branch-addresses__index inline-block break-inside-avoid break-after-column touch-auto">
+    <div
+      className={`branch-addresses__index inline-block break-inside-avoid break-after-column touch-auto ${classes[options]}`}
+    >
       <div
         className={`branch-addresses__letter relative
                 z-10

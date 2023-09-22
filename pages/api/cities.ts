@@ -1,4 +1,6 @@
-const handler = (req, res) => {
+import { NextApiRequest, NextApiResponse } from 'next';
+
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const cityLocations = [
     { id: 0, name: 'Москва', branch: 92 },
     { id: 1, name: 'Санкт-Петербург', branch: 16 },

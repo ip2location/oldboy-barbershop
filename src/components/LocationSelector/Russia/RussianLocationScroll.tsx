@@ -1,21 +1,31 @@
-import React, { ReactElement, WheelEvent } from 'react';
-// eslint-disable-next-line import/no-cycle
+import React, { ReactElement, ReactNode, WheelEvent } from 'react';
 import { setCookie } from 'cookies-next';
 import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
 import { Cookies, SEVEN_DAYS } from '../../../constants';
-// eslint-disable-next-line import/no-cycle
-import { russianRegion } from './RussianCitiesSelect';
-import {
-  LocationProps,
-  LocationSelectorScroll,
-} from '../../LocationSelectorScroll/LocationSelectorScroll';
+import { LocationSelectorScroll } from '../../LocationSelectorScroll/LocationSelectorScroll';
 
 interface RussianLocationScrollProps {
   cityValue?: string;
+  russianRegion: RussianRegion[];
+}
+
+interface Place {
+  id: string;
+  place?: string;
+  placeEnglishName?: string;
+  address?: string;
+  addressDetail?: string;
+  metro?: string;
+}
+
+interface RussianRegion {
+  letter: string;
+  places?: Place[];
 }
 
 export const RussianLocationScroll = ({
   cityValue = 'Москва',
+  russianRegion,
 }: RussianLocationScrollProps): ReactElement => {
   const { setSelectedEntity: setSelectedCity } = useSetSelectedEntity(cityValue, Cookies.City);
 
@@ -33,25 +43,6 @@ export const RussianLocationScroll = ({
     target.scrollLeft += event.deltaY + event.deltaX;
   };
 
-  const groupedCities: Record<string, LocationProps[]> = {};
-  let lastRenderedPlace = '';
-
-  russianRegion.forEach(({ places }) => {
-    if (places) {
-      places.forEach(({ place, address, addressDetail, metro }) => {
-        if (!groupedCities[place]) {
-          groupedCities[place] = [];
-        }
-        groupedCities[place].push({
-          place,
-          address,
-          addressDetail,
-          metro,
-        });
-      });
-    }
-  });
-
   return (
     <div className="location-selector__content mt-0">
       <div className="branch-addresses px-32">
@@ -59,28 +50,28 @@ export const RussianLocationScroll = ({
           className="branch-addresses__container relative pt-12 h-[43vh] overflow-y-scroll overflow-x-hidden columns-[15em]"
           onWheel={onWheel}
         >
-          {russianRegion.map(({ letter, places }) => {
+          {russianRegion.reduce((acc: ReactNode[], { letter, places }) => {
             if (!places) {
-              return null;
+              return acc;
             }
 
-            return places.map(({ place, address, addressDetail, metro, id }, index) => {
-              const renderPlace = lastRenderedPlace !== place;
-              lastRenderedPlace = place;
+            const placeElements = places.map(({ place, address, addressDetail, id }, index) => {
+              const renderOnce = index === 0 || place !== places[index - 1].place;
 
               return (
                 <LocationSelectorScroll
                   key={id}
-                  letter={!index && renderPlace ? letter : undefined}
-                  place={renderPlace ? place : undefined}
+                  letter={!index ? letter : ''}
+                  place={renderOnce ? place : ''}
                   address={address}
                   addressDetail={addressDetail}
-                  metro={metro}
                   onClick={() => handlePickCity(id)}
+                  options="forRussia"
                 />
               );
             });
-          })}
+            return [...acc, ...placeElements];
+          }, [])}
         </div>
       </div>
     </div>

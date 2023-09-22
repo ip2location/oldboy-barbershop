@@ -12,11 +12,11 @@ export const LocationSelector = (): ReactElement => {
     onHover:
       'hover:transition-filter hover:duration-200 hover:ease hover:opacity-100 hover:drop-shadow-[1px_1px_0_orange]',
   };
-  const [active, setActive] = useState('1');
+  const [isRegionActive, setIsRegionActive] = useState('Russia');
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    setActive(event.currentTarget.id);
+    setIsRegionActive(event.currentTarget.id);
   };
 
   return (
@@ -35,7 +35,7 @@ export const LocationSelector = (): ReactElement => {
                   onClick={handleClick}
                   id="1"
                   className={`location-logo relative cursor-pointer relative cursor-pointer mr-4 transition-filter duration-200 ease opacity-100 ${
-                    active === '1' ? classes.activeClass : undefined
+                    isRegionActive === 'Russia' ? classes.activeClass : undefined
                   } ${classes.onHover}`}
                   href="/"
                 >
@@ -50,7 +50,7 @@ export const LocationSelector = (): ReactElement => {
                 </Link>
                 <Link
                   className={`location-logo relative cursor-pointer relative cursor-pointer ${
-                    active === '2' ? classes.activeClass : undefined
+                    isRegionActive === 'CIS' ? classes.activeClass : undefined
                   } ${classes.onHover}`}
                   href="/"
                   key={2}
@@ -110,7 +110,7 @@ export const LocationSelector = (): ReactElement => {
           </div>
         </div>
       </header>
-      {active === '1' ? <RussianCitiesSelect /> : <CISCountriesSelect />}
+      {isRegionActive === 'Russia' ? <RussianCitiesSelect /> : <CISCountriesSelect />}
     </section>
   );
 };
