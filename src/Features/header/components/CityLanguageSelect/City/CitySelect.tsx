@@ -12,6 +12,7 @@ export const CitySelect = (): ReactElement => {
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     setShowModal(true);
+    document.body.style.overflow = showModal ? 'auto' : 'hidden';
     return showModal;
   };
 
