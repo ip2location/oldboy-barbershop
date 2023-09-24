@@ -1,5 +1,6 @@
 'use client';
 
+import { Footer } from '@/components/Footer';
 import Image from 'next/image';
 import { Header } from '../../../components/Header';
 
@@ -141,6 +142,7 @@ export default function Beard() {
           </p>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

@@ -1,13 +1,13 @@
 import Image from 'next/image';
-import promoScissors from '../../assets/promo/promoScissors.svg';
+import promoScissors from 'public/promoScissors.svg';
 
 interface PromoBannerProps {
-  barbershopCount: number;
+  branchesTotal: number;
 }
 
-export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element => {
+export const PromoBanner = ({ branchesTotal }: PromoBannerProps): JSX.Element => {
   return (
-    <div className="tracking-tigh sm:text-4xl uppercase font-rex w-48 mt-16 text-transform: skew-y-15">
+    <div className="tracking-tigh sm:text-4xl uppercase font-rex w-48 mt-8 text-transform: skew-y-15">
       <h1 className="text-3xl text-white leading-8">
         Oldboy <br /> barbershop
       </h1>
@@ -18,7 +18,7 @@ export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element 
       </div>
       <div className="flex">
         <span className="text-6xl text-white font-rex_inline leading-10 mt-4 ">
-          {barbershopCount}
+          {branchesTotal}
         </span>
         <p className="text-base text-white ml-2 mt-1">
           открытых <span>филиала</span>
@@ -26,7 +26,7 @@ export const PromoBanner = ({ barbershopCount }: PromoBannerProps): JSX.Element 
       </div>
       <p className="w-auto bg-orange-title h-1 mb-2.5 mt-6" />
       <p className="text-base text-white">намного больше чем просто мужская парихмахерская</p>
-      <Image src={promoScissors} alt="Logo" width={61} height={33} />
+      <Image src={promoScissors} alt="Logo" sizes="(width:100%)" width="61" height="33" />
     </div>
   );
 };

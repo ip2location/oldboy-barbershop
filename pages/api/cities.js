@@ -41,9 +41,12 @@ const handler = (req, res) => {
     { id: 38, name: 'Электрогорск', branch: 1 },
   ];
 
+  const page = Number(req.query.page);
+  const offset = Number(req.query.offset);
+
   res.status(200).json({
     success: true,
-    data: cityLocations,
+    data: cityLocations.slice(page * offset, offset * (page + 1)),
   });
 };
 export default handler;

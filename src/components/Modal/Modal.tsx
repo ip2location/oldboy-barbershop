@@ -13,9 +13,11 @@ export const Modal = ({ showModal, onClose, children }: PropsWithChildren<ModalP
   };
 
   return (
-    <section
-      className={`location-selector fixed inset-0 overflow-hidden w-full flex flex-col z-50 justify-center items-center 
-        transition-all ease-out duration-200 ${showModal ? 'visible bg-white' : 'invisible'}`}
+    <div
+      className={`location-selector fixed inset-0 flex flex-col z-40 justify-center items-center 
+        transition-all ease-out duration-200 ${
+          showModal ? 'visible bg-white overflow-hidden' : 'invisible overflow-auto'
+        }`}
     >
       <button
         type="button"
@@ -28,6 +30,6 @@ export const Modal = ({ showModal, onClose, children }: PropsWithChildren<ModalP
         <TfiClose className="mt-3 text-black hover:text-white" />
       </button>
       {children}
-    </section>
+    </div>
   );
 };

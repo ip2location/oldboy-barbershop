@@ -6,27 +6,31 @@ import { Header } from '../../components/Header';
 import { Promo } from './components/Promo';
 import { Sidebar } from './components/Sidebar';
 import { ContactUs } from '../../components/ContactUs';
+import { LinkOptions } from '../../types/link';
 
 interface HeaderPageProps {
-  barbershopCount: number;
+  mainNavList: LinkOptions;
+  branchesTotal: number;
 }
 
-export const HeaderPage = ({ barbershopCount }: HeaderPageProps): ReactElement => {
+export const HeaderPage = ({ mainNavList, branchesTotal }: HeaderPageProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
       <div>
-        <Header />
-        <Promo barbershopCount={barbershopCount} />
-        <div className="mt-6 m-12">
-          <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
-            Запись онлайн
-          </Button>
-          <div className="mt-6">
-            <Link href="/">
-              <Button variant="accentLink">Купить косметику</Button>
-            </Link>
+        <Header mainNavList={mainNavList} />
+        <Promo branchesTotal={branchesTotal} />
+        <div className="flex justify-center lg:block">
+          <div className="mt-6 ">
+            <Button variant="standard" onClick={() => setIsOpen((prevState) => !prevState)}>
+              Запись онлайн
+            </Button>
+            <div className="mt-6">
+              <Link href="/">
+                <Button variant="accentLink">Купить косметику</Button>
+              </Link>
+            </div>
           </div>
         </div>
         <ContactUs onClick={() => setIsOpen((prevState) => !prevState)} />

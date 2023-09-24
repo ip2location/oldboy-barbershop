@@ -9,13 +9,22 @@ export const searchingSlice = createApi({
   tagTypes: ['CityLocationList'],
   endpoints: (build) => ({
     fetchCityList: build.query({
-      query: () => ({
-        url: '/api/cities',
+      query: (params: { page: number; offset: number }) => ({
+        url: `/api/cities?page=${params.page}&offset=${params.offset}`,
         method: 'get',
       }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.push(...newItems);
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      },
       providesTags: ['CityLocationList'],
     }),
   }),
 });
 
-export const { useFetchCityListQuery } = searchingSlice;
+export const { useLazyFetchCityListQuery, useFetchCityListQuery } = searchingSlice;
