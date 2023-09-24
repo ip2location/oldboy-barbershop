@@ -9,14 +9,15 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
 
   const getCountry = req.cookies.get('country')?.value ?? '';
-
-  if (!getCountry) {
+  const getCity = req.cookies.get('city')?.value ?? '';
+  if (!getCountry || !getCity) {
     try {
       const response = await fetch(`http://ip-api.com/json`);
-      const userCountry = await response.json();
-      const { countryCode } = userCountry;
-      if (userCountry) {
+      const userData = await response.json();
+      const { countryCode, city } = userData;
+      if (userData) {
         res.cookies.set(Cookies.Country, countryCode, { expires: SEVEN_DAYS });
+        res.cookies.set(Cookies.City, city, { expires: SEVEN_DAYS });
       }
     } catch (error) {
       return error;
