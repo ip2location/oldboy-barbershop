@@ -39,7 +39,7 @@ export const CitySelect = (): ReactElement => {
           <span className="m-0 text-orange-title font-rex text-[8.5px]">&#x25BC;</span>
         </p>
         <p className="city-select__city font-rex m-0 text-base">
-          {selectedCountry} - {selectedCity}
+          {selectedCountry}-{selectedCity}
         </p>
       </Link>
       {showModal ? (
