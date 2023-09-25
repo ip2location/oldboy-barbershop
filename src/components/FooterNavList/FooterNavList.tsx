@@ -14,7 +14,7 @@ export const FooterNavList = ({ navTitle, navList }: FooterNavListProps): ReactE
         {navTitle}
       </h3>
       <ul className="text-left pb-4">
-        {navList.map(({ title, href }) => {
+        {navList?.map(({ title, href }) => {
           return (
             <li key={title}>
               <Link

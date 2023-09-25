@@ -4,12 +4,22 @@ import { Footer } from '@/components/Footer';
 import Image from 'next/image';
 import { Header } from '../../../components/Header';
 
-export default function Beard() {
+export default async function Beard(): Promise<Object> {
+  const [barbershopsInfoResponse, footerListsResponse] = await Promise.all([
+    fetch('http://localhost:3000/api/barbershopsInfo'),
+    fetch('http://localhost:3000/api/footerLists'),
+  ]);
+  const [
+    { branchesTotal, countriesTotal, capitalsTotal },
+    { footerMainList, footerServicesList, footerInfoList },
+  ] = await Promise.all([barbershopsInfoResponse.json(), footerListsResponse.json()]);
+
   const defaultTextClassName = 'leading-8 my-5 text-lg';
   const defaultImageClassName = 'my-8 max-h-[32rem] object-cover';
+
   return (
-    <main>
-      <div
+    <div>
+      <header
         className="
         bg-black
         py-8
@@ -28,7 +38,7 @@ export default function Beard() {
         "
       >
         <div className="px-12">
-          <Header />
+          <Header mainNavList={[]} />
 
           <div className="flex pb-20">
             <div>
@@ -52,8 +62,8 @@ export default function Beard() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="p-10 mt-0 mx-auto mb-14 max-w-screen-2xl lg:flex">
+      </header>
+      <main className="p-10 mt-0 mx-auto mb-14 max-w-screen-2xl lg:flex">
         <div className="relative pr-10 mb-12 lg:mb-0">
           <div className="w-60 lg:w-80">
             <Image
@@ -141,8 +151,20 @@ export default function Beard() {
             комфорт, брутальную атмосферу, хорошую компанию и кофе, или напитки покрепче.
           </p>
         </div>
-      </div>
-      <Footer />
-    </main>
+      </main>
+      <footer>
+        <Footer
+          branchesTotal={branchesTotal}
+          countriesTotal={countriesTotal}
+          capitalsTotal={capitalsTotal}
+          footerMainTitle="Меню"
+          footerServicesTitle="Услуги"
+          footerInfoTitle="Информация"
+          footerMainList={footerMainList}
+          footerServicesList={footerServicesList}
+          footerInfoList={footerInfoList}
+        />
+      </footer>
+    </div>
   );
 }
