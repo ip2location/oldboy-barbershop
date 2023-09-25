@@ -15,9 +15,22 @@ jest.mock('./components/Sidebar', () => ({
 
 describe('HeaderMainPage', () => {
   test('pass the header main page buttons', async () => {
+    const mainNavList = [
+      { title: 'Главная', href: '/' },
+      { title: 'Услуги', href: '/services' },
+      { title: 'Косметика', href: '/cosmetics' },
+      { title: 'Блог', href: '/blog' },
+      { title: 'Франшиза', href: '/franchising' },
+      { title: 'Инвестиции', href: '/investment' },
+      { title: 'Вакансии', href: '/vacancies' },
+      { title: 'Барберы', href: '/barbers' },
+      { title: 'Контакты', href: '/contacts' },
+      { title: 'Филиалы', href: '#' },
+    ];
+
     render(
       <ReduxProvider>
-        <HeaderPage branchesTotal={0} />
+        <HeaderPage mainNavList={mainNavList} branchesTotal={294} />
       </ReduxProvider>,
     );
 
