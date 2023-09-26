@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import { LinkOptions } from '../../types/link';
 import { FooterNavList } from '../FooterNavList';
+import { LinkOptions } from '../../types/link';
 
-interface FooterProps {
+export interface FooterProps {
   branchesTotal: number;
   countriesTotal: number;
   capitalsTotal: number;
@@ -33,7 +33,6 @@ export const Footer = ({
       relative
       mt-5
       pt-20 px-12 pb-12
-
       bg-[url('/images/bg/barberpull.jpg')]
       bg-repeat-x
       bg-no-repeat
