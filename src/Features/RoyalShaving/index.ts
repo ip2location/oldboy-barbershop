@@ -1,0 +1,1 @@
+export { RoyalShaving } from './RoyalShaving';

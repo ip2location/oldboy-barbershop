@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { setCookie } from 'cookies-next';
 import Link from 'next/link';
 import Image from 'next/image';
+// eslint-disable-next-line import/no-cycle
 import { DropdownInput } from '../../DropdownInput/DropdownInput';
 import { Cookies, SEVEN_DAYS } from '../../../constants';
-import { useSetSelectedEntity } from '../../../hooks/useSetSelectedEntity';
+import { useSetSelectedEntity } from '../../../types/useSetSelectedEntity';
 
 interface RussianCitiesSelectProps {
   cityValue?: string;
@@ -12,22 +12,33 @@ interface RussianCitiesSelectProps {
 
 export const russianRegion: Array<{
   letter: string;
-  href?: string;
-  cities?: Array<{ city: string; address: string; place?: string; metro?: string }>;
+  cities?: Array<{
+    id: number;
+    cityEnglishName: string;
+    city: string;
+    address: string;
+    place?: string;
+    metro?: string;
+  }>;
 }> = [
   {
     letter: 'A',
-    href: '/',
     cities: [
       {
+        id: 1,
+        cityEnglishName: 'Almetyevsk',
         city: 'Альметьевск',
         address: 'ул. Ленина, Д. 46',
       },
       {
+        id: 2,
+        cityEnglishName: 'Armavir',
         city: 'Армавир',
         address: 'ул. Ефремова, Д. 123/5',
       },
       {
+        id: 3,
+        cityEnglishName: 'Arkhangelsk',
         city: 'Архангельск',
         address: 'наб. Северной Двины, Д. 71',
       },
@@ -35,30 +46,41 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Б',
-    href: '/',
     cities: [
       {
+        id: 4,
+        cityEnglishName: 'Balashikha',
         city: 'Балашиха',
         address: 'мкр. Железнодорожный, пр-т Героев, Д. 5',
         place: 'мкр. Железнодорожный',
       },
       {
+        id: 5,
+        cityEnglishName: 'Balashikha',
         city: 'Балашиха',
         address: 'ул. Реутовская Д. 5',
       },
       {
+        id: 6,
+        cityEnglishName: 'Belgorod',
         city: 'Белгород',
         address: 'ул. Губкина, Д. 38Б',
       },
       {
+        id: 7,
+        cityEnglishName: 'Belgorod',
         city: 'Белгород',
         address: 'ул. Попова, Д. 36',
       },
       {
+        id: 8,
+        cityEnglishName: 'Borovichi',
         city: 'Боровичи',
         address: 'ул. Дзержинского, 8',
       },
       {
+        id: 9,
+        cityEnglishName: 'Bryansk',
         city: 'Брянск',
         address: 'ул. Дуки, Д. 51',
       },
@@ -66,38 +88,53 @@ export const russianRegion: Array<{
   },
   {
     letter: 'B',
-    href: '/',
     cities: [
       {
+        id: 10,
+        cityEnglishName: 'Veliky Novgorod',
         city: 'Великий Новгород',
         address: 'ул. Псковская, Д. 11',
       },
       {
+        id: 11,
+        cityEnglishName: 'Vladivostok',
         city: 'Владивосток',
         address: 'проспект Океанский, Д. 30',
       },
       {
+        id: 12,
+        cityEnglishName: 'Vladikavkaz',
         city: 'Владикавказ',
         address: 'ул. генерала Плиева, Д. 54',
       },
       {
+        id: 13,
+        cityEnglishName: 'Vladimir',
         city: 'Владимир',
         address: 'ул. Тракторная, Д. 50',
       },
       {
+        id: 14,
+        cityEnglishName: 'Voronezh',
         city: 'Воронеж',
         address: 'проспект Ленинский, Д. 1Д',
         place: 'ТРК «Левый берег»',
       },
       {
+        id: 15,
+        cityEnglishName: 'Voronezh',
         city: 'Воронеж',
         address: 'ул. Ворошилова Д. 1А',
       },
       {
+        id: 16,
+        cityEnglishName: 'Voronezh',
         city: 'Воронеж',
         address: 'ул. Хользунова, Д. 15',
       },
       {
+        id: 17,
+        cityEnglishName: 'Voronezh',
         city: 'Воронеж',
         address: 'ул. Шишкова, Д. 142',
       },
@@ -105,17 +142,22 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Г',
-    href: '/',
     cities: [
       {
+        id: 18,
+        cityEnglishName: 'Gatchina',
         city: 'Гатчина',
         address: 'ул. Ленина, Д. 46',
       },
       {
+        id: 19,
+        cityEnglishName: 'Gelenzhik',
         city: 'Геленджик',
         address: 'ул. Ефремова, Д. 123/5',
       },
       {
+        id: 20,
+        cityEnglishName: 'Grozny',
         city: 'Грозный',
         address: 'наб. Северной Двины, Д. 71',
       },
@@ -123,13 +165,16 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Д',
-    href: '/',
     cities: [
       {
+        id: 21,
+        cityEnglishName: 'Derbent',
         city: 'Дербент',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
+        id: 22,
+        cityEnglishName: 'Dolgoprudny',
         city: 'Долгопрудный',
         address: 'Долгопрудный, пр-т Ракетостроителей, 7К1',
       },
@@ -137,13 +182,16 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Е',
-    href: '/',
     cities: [
       {
+        id: 23,
+        cityEnglishName: 'Ekaterinburg',
         city: 'Екатеринбург',
         address: 'ул. академика Шварца, Д. 14',
       },
       {
+        id: 24,
+        cityEnglishName: 'Esentuki',
         city: 'Ессентуки',
         address: 'ул. Пятигорская, Д. 133Б',
       },
@@ -154,9 +202,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Ж',
-    href: '/',
     cities: [
       {
+        id: 25,
+        cityEnglishName: 'Zhukovsky',
         city: 'Жуковский',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -164,9 +213,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'З',
-    href: '/',
     cities: [
       {
+        id: 26,
+        cityEnglishName: 'Zelenogradsk',
         city: 'Зеленоградск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -174,9 +224,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'И',
-    href: '/',
     cities: [
       {
+        id: 27,
+        cityEnglishName: 'Izhevsk',
         city: 'Ижевск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -187,13 +238,16 @@ export const russianRegion: Array<{
   },
   {
     letter: 'К',
-    href: '/',
     cities: [
       {
+        id: 28,
+        cityEnglishName: 'Kazan',
         city: 'Казань',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
+        id: 29,
+        cityEnglishName: 'Kazan',
         city: 'Казань',
         address: 'ул. Петербурская, Д. 9',
         place: 'ТЦ «РЕСПУБЛИКА»',
@@ -203,9 +257,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Л',
-    href: '/',
     cities: [
       {
+        id: 30,
+        cityEnglishName: 'Lobnya',
         city: 'Лобня',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -213,17 +268,22 @@ export const russianRegion: Array<{
   },
   {
     letter: 'М',
-    href: '/',
     cities: [
       {
+        id: 31,
+        cityEnglishName: 'Moscow region Lyubercy',
         city: 'МО Люберцы',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
+        id: 32,
+        cityEnglishName: 'Moscow',
         city: 'Москва',
         address: 'Бульвар Веласкеса, Д. 2',
       },
       {
+        id: 33,
+        cityEnglishName: 'Moscow',
         city: 'Москва',
         address: 'ул. Автозаводская, Д. 18',
         place: 'ТРЦ «Ривьера»',
@@ -233,9 +293,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Н',
-    href: '/',
     cities: [
       {
+        id: 34,
+        cityEnglishName: 'Naberezhnye Chelny',
         city: 'Набережные Челны',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -243,9 +304,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'О',
-    href: '/',
     cities: [
       {
+        id: 35,
+        cityEnglishName: 'Omsk',
         city: 'Омск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -253,9 +315,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'П',
-    href: '/',
     cities: [
       {
+        id: 36,
+        cityEnglishName: 'Penza',
         city: 'Пенза',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -263,13 +326,16 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Р',
-    href: '/',
     cities: [
       {
+        id: 37,
+        cityEnglishName: 'Ramenskoe',
         city: 'Раменское',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
       {
+        id: 38,
+        cityEnglishName: 'Reutov',
         city: 'Реутов',
         address: 'РЕУТОВ, ПР-Т ЮБИЛЕЙНЫЙ, Д. 40',
         metro: 'НОВОКОСИНО',
@@ -278,9 +344,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'С',
-    href: '/',
     cities: [
       {
+        id: 39,
+        cityEnglishName: 'Samara',
         city: 'Самара',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -288,9 +355,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Т',
-    href: '/',
     cities: [
       {
+        id: 40,
+        cityEnglishName: 'Taganrog',
         city: 'Таганрог',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -298,9 +366,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'У',
-    href: '/',
     cities: [
       {
+        id: 41,
+        cityEnglishName: 'Ulan-Ude',
         city: 'Улан-Удэ',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -311,9 +380,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Х',
-    href: '/',
     cities: [
       {
+        id: 42,
+        cityEnglishName: 'Khabarovsk',
         city: 'Хабаровск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -324,9 +394,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Ч',
-    href: '/',
     cities: [
       {
+        id: 43,
+        cityEnglishName: 'Chelyabinsk',
         city: 'Челябинск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -343,9 +414,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Ю',
-    href: '/',
     cities: [
       {
+        id: 44,
+        cityEnglishName: 'Yugorsk',
         city: 'Югорск',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -353,9 +425,10 @@ export const russianRegion: Array<{
   },
   {
     letter: 'Я',
-    href: '/',
     cities: [
       {
+        id: 45,
+        cityEnglishName: 'Yaroslavl',
         city: 'Ярославль',
         address: 'ул. 345-й Дагестанской Стрелковой дивизии, Д. 1/4',
       },
@@ -364,7 +437,6 @@ export const russianRegion: Array<{
 ];
 
 export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitiesSelectProps) => {
-  const [cityInput, setCityInput] = useState('');
   const { setSelectedEntity: setSelectedCity } = useSetSelectedEntity(cityValue, Cookies.City);
 
   const selectCity = (value: string) => {
@@ -376,26 +448,12 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
     selectCity(value);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setCityInput(event.currentTarget.value);
-    return cityInput;
-  };
-
   return (
     <div className="location-logo__image flex flex-col items-center pb-24">
       <h1 className="text-black font-rex text-2xl font-bold mb-4">
         Выбери <span className="text-orange-title">свой барбершоп</span>
       </h1>
-      <DropdownInput
-        placeholder="город, улица или метро"
-        searchItem="города"
-        searchResultsHref="/"
-        searchResultsText={cityInput}
-        onChange={handleChange}
-        inputValue={cityInput}
-        variant="halfWidth"
-      />
+      <DropdownInput placeholder="город, улица или метро" searchItem="города" variant="halfWidth" />
       <div className="location-selector__alphabet mt-12 flex justify-center w-full">
         <div className="alphabet relative flex justify-center mr-14">
           <div>

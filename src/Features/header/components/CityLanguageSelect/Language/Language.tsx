@@ -1,7 +1,7 @@
 import { setCookie } from 'cookies-next';
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
-import { useSetSelectedEntity } from '../../../../../hooks/useSetSelectedEntity';
+import { useSetSelectedEntity } from '../../../../../types/useSetSelectedEntity';
 import { SEVEN_DAYS, Languages, Cookies } from '../../../../../constants';
 
 interface LanguageSelectProps {
