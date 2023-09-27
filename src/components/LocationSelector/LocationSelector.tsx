@@ -17,7 +17,7 @@ export const LocationSelector = (): ReactElement => {
             <div className="logo-selector">
               <div className="logo-text flex">
                 <Link
-                  className="location-logo relative cursor-pointer relative cursor-pointer mr-4 transition-filter duration-200 ease opacity-100 drop-shadow-[1px_1px_0_orange]"
+                  className="location-logo relative cursor-pointer mr-4 transition-filter duration-200 ease opacity-100 drop-shadow-[1px_1px_0_orange]"
                   href="/"
                 >
                   <div>
@@ -30,7 +30,7 @@ export const LocationSelector = (): ReactElement => {
                   </div>
                 </Link>
                 <Link
-                  className="location-logo relative cursor-pointer relative cursor-pointer 
+                  className="location-logo relative cursor-pointer 
                                 hover:transition-filter 
                                 hover:duration-200 
                                 hover:ease 

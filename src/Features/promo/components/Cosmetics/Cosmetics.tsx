@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 
 export const Cosmetics = (): ReactElement => {
   return (
-    <aside className="hero__banner absolute top-20 right-14 z-20 block">
+    <aside className="hero__banner absolute top-20 right-14 z-20 lg:block hidden">
       <article className="hero-cosmetics relative flex flex-col justify-end w-[22.5rem] h-[19.188rem] font-bold font-rex text-right">
         <h2 className="hero-cosmetics__title text-white font-rex text-2xl leading-6">
           <span className="hero-cosmetics__span text-orange-title text-base font-rex">
