@@ -1,5 +1,5 @@
 import { PromoBanner } from '../../../../components/PromoBanner/PromoBanner';
-import { Cosmetics } from '../../../promo/components/Cosmetics/Cosmetics';
+import { Cosmetics } from '../../../promo/components/Cosmetics';
 
 import { MobileApplicationPromo } from '../MobileApplicationPromo/MobileApplicationPromo';
 
