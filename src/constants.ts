@@ -10,3 +10,8 @@ export enum Languages {
   EN = 'en',
   RU = 'ru',
 }
+
+export enum ThemeMode {
+  Light = 'light',
+  Dark = 'dark',
+}
