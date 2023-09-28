@@ -41,7 +41,7 @@ export const MobileApplicationPromo = (): ReactElement => {
           before:w-[211px]
           before:h-[320px]
           before:bg-[url('/images/bg/mobile-app.png')]
-          before:z-40
+          before:z-30
           before:bg-contain
           before:bg-no-repeat
           before:content-['']

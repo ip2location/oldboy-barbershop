@@ -1,25 +1,39 @@
 import Link from 'next/link';
 import { PropsWithChildren, ReactElement } from 'react';
 
+type ClassesOptions = 'forRussia' | 'forCIS';
+
 export interface LocationProps extends PropsWithChildren {
   letter?: string;
   href?: string;
-  city: string;
-  address: string;
   place?: string;
+  address?: string;
+  addressDetail?: string;
   metro?: string;
+  country?: string;
+  onClick?: () => void;
+  options: ClassesOptions;
 }
 
 export const LocationSelectorScroll = ({
   letter,
   href,
-  city,
-  address,
   place,
+  address,
+  addressDetail,
   metro,
+  country,
+  onClick,
+  options,
 }: LocationProps): ReactElement => {
+  const classes: Record<ClassesOptions, string> = {
+    forRussia: 'none',
+    forCIS: 'w-60',
+  };
   return (
-    <div className="branch-addresses__index inline-block break-inside-avoid break-after-column touch-auto">
+    <div
+      className={`branch-addresses__index inline-block break-inside-avoid break-after-column touch-auto ${classes[options]}`}
+    >
       <div
         className={`branch-addresses__letter relative
                 z-10
@@ -37,12 +51,14 @@ export const LocationSelectorScroll = ({
       <div className="branch-addresses__content">
         <div>
           <ul className="location-list mb-8">
-            <li className="location-list__name">
-              <Link className="text-header-bg text-xl font-rex" href={href ?? ''}>
-                {city}
-              </Link>
-            </li>
-            <li className="location-list__item">
+            {place || country ? (
+              <li className="location-list__name">
+                <Link className="text-header-bg text-xl font-rex" href={href ?? ''}>
+                  {place ?? country}
+                </Link>
+              </li>
+            ) : null}
+            <li className="location-list__item" onClick={onClick}>
               <Link
                 href={href ?? ''}
                 className="location-list__link w-64 py-1.5 pr-3 pl-7
@@ -70,11 +86,12 @@ export const LocationSelectorScroll = ({
                       before:content-['']
                       
                       hover:bg-orange-title
+                      hover:w-full
                       hover:text-white"
               >
                 {address}
               </Link>
-              {place ? (
+              {addressDetail ? (
                 <div
                   className="location-list__place uppercase
                       -top-1 left-0.5 
@@ -104,7 +121,7 @@ export const LocationSelectorScroll = ({
                       before:shadow-[inset_0_0_0_3px_#fff]
                       before:content-['']"
                 >
-                  {place}
+                  {addressDetail}
                 </div>
               ) : null}
 

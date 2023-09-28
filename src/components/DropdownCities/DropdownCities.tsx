@@ -5,7 +5,7 @@ import { Cookies, SEVEN_DAYS } from '../../constants';
 import { useSetSelectedEntity } from '../../types/useSetSelectedEntity';
 
 export interface DropdownCitiesProps {
-  id: number;
+  id: string;
   href: string;
   city: string;
   address: string;
@@ -26,12 +26,12 @@ export const DropdownCities = ({
     Cookies.City,
   );
 
-  const selectCity = (value: number) => {
+  const selectCity = (value: string) => {
     setCookie(Cookies.City, value, { expires: SEVEN_DAYS });
-    setSelectedID(value.toLocaleString());
+    setSelectedID(value);
   };
 
-  const handlePickCity = (value: number) => {
+  const handlePickCity = (value: string) => {
     selectCity(value);
   };
 

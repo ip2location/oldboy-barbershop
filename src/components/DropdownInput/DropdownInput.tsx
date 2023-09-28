@@ -1,6 +1,4 @@
 import { ReactElement, PropsWithChildren, ChangeEvent, useState } from 'react';
-// eslint-disable-next-line import/no-cycle
-import { russianRegion } from '../LocationSelector/Russia/RussianCitiesSelect';
 import { DropdownCities } from '../DropdownCities';
 
 type DropdownVariant = 'fullWidth' | 'halfWidth' | 'width75' | 'width25';
@@ -9,6 +7,21 @@ export interface DropdownInputProps extends PropsWithChildren {
   variant: DropdownVariant;
   placeholder: string;
   searchItem: string;
+  russianRegion: RussianRegion[];
+}
+
+interface Place {
+  id: string;
+  place?: string;
+  placeEnglishName?: string;
+  address: string;
+  addressDetail?: string;
+  metro?: string;
+}
+
+interface RussianRegion {
+  letter: string;
+  places?: Place[];
 }
 
 export const DropdownInput = ({
@@ -16,6 +29,7 @@ export const DropdownInput = ({
   placeholder,
   children,
   searchItem,
+  russianRegion,
 }: DropdownInputProps): ReactElement => {
   const classes: Record<DropdownVariant, string> = {
     fullWidth: 'w-full',
@@ -63,20 +77,21 @@ export const DropdownInput = ({
           <p className="text-orange-title font-rex visible">такого {searchItem} не найдено</p>
         ) : (
           <ul className="search-result__list h-min max-h-[50vh] m-0 p-0 pt-5 overflow-y-scroll">
-            {russianRegion.map(({ cities }) =>
-              cities?.map(({ city, cityEnglishName, id, address, metro }) =>
-                city.toLowerCase().includes(search.toLowerCase()) ? (
-                  <DropdownCities
-                    id={id}
-                    href="/[cityEnglishName]/[id]"
-                    as={`/${cityEnglishName}/${id}`}
-                    city={city}
-                    address={address}
-                    metro={metro}
-                  />
-                ) : null,
-              ),
-            )}
+            {russianRegion &&
+              russianRegion.map(({ places }) =>
+                places?.map(({ place, placeEnglishName, id, address, metro }) =>
+                  place?.toLowerCase().includes(search.toLowerCase()) ? (
+                    <DropdownCities
+                      id={id}
+                      href="/[cityEnglishName]/[id]"
+                      as={`/${placeEnglishName}/${id}`}
+                      city={place}
+                      address={address}
+                      metro={metro}
+                    />
+                  ) : null,
+                ),
+              )}
           </ul>
         )}
       </section>
