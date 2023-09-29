@@ -3,6 +3,7 @@ import { ReactElement, useState } from 'react';
 import Image from 'next/image';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { CityLanguageSelect } from '../../Features/header/components/CityLanguageSelect/CityLanguageSelect';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 import { LinkOptions } from '../../types/link';
 
 interface HeaderProps {
@@ -76,6 +77,7 @@ export const Header = ({ mainNavList }: HeaderProps): ReactElement => {
           </div>
         </div>
         <CityLanguageSelect />
+        <ThemeSwitcher />
       </div>
     </header>
   );

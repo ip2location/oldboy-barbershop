@@ -4,9 +4,15 @@ export enum Cookies {
   Country = 'country',
   City = 'city',
   Language = 'language',
+  Theme = 'theme',
 }
 
 export enum Languages {
   EN = 'en',
   RU = 'ru',
+}
+
+export enum ThemeMode {
+  Light = 'light',
+  Dark = 'dark',
 }
