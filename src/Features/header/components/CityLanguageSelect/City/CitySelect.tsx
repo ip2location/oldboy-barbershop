@@ -10,10 +10,9 @@ export const CitySelect = (): ReactElement => {
   const { selectedEntity: selectedCity } = useSetSelectedEntity('', Cookies.City);
   const { selectedEntity: selectedCountry } = useSetSelectedEntity('', Cookies.Country);
 
-  const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    setShowModal(true);
-    return showModal;
+  const toggleModal = () => {
+    setShowModal((current) => !current);
+    document.body.style.overflow = showModal ? 'auto' : 'hidden';
   };
 
   return (
@@ -32,7 +31,7 @@ export const CitySelect = (): ReactElement => {
         before:content-['']"
       >
         <p
-          onClick={handleOpen}
+          onClick={toggleModal}
           className="city-select__title m-0 text-orange-title font-rex text-xs"
         >
           Выбери свой <br /> барбершоп:
@@ -43,7 +42,7 @@ export const CitySelect = (): ReactElement => {
         </p>
       </Link>
       {showModal ? (
-        <Modal showModal={showModal} onClose={() => setShowModal(false)}>
+        <Modal showModal={showModal} onClose={toggleModal}>
           <LocationSelector />
         </Modal>
       ) : null}
