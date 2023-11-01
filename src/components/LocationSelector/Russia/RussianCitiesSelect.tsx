@@ -36,7 +36,7 @@ export const RussianCitiesSelect = ({ cityValue = 'Москва' }: RussianCitie
           const response = await axios.get('/api/russianCitiesLists');
           setRussianRegion(response.data.russianRegionList);
         } catch (error) {
-          console.log('Error fetching data from API:', error);
+          // console.log('Error fetching data from API:', error);
         }
       };
       fetchRussianRegion();

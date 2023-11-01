@@ -1,0 +1,1 @@
+export { PromoCosmetics } from './PromoCosmetics';

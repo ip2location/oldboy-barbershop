@@ -9,12 +9,13 @@ export const PromoHeader = ({ children }: PropsWithChildren): ReactElement => {
             after:top-0
             after:-right-5
             after:bg-[url('/images/bg/gold-v-grunge.svg')]
-            after:bg-repeat-y
+            after:bg-repeat-x
             after:bg-[position:center_center]
             after:bg-cover
             after:w-10
             after:h-full
-            after:content-['']"
+            after:content-['']
+            "
     >
       {children}
     </header>

@@ -18,7 +18,8 @@ module.exports = {
         'btn-blue': '#56afe1',
         'orange-bg': '#896322',
         'opacity-tan': '#333',
-        'reddish': '#af212e',
+        'orange-light': '#d29c4e;',
+        reddish: '#af212e',
         'footer-grey': '#aeaeae',
       },
       fontSize: {
@@ -54,6 +55,10 @@ module.exports = {
       },
       maxWidth: {
         180: '180px',
+        1800: '1800px',
+      },
+      bgImage: {
+        gradient24: 'linear-gradient(45deg, var(--tw-gradient-stops))',
       },
       animation: {
         'ping-slow': 'ping 2s cubic-bezier(.37,0,.8,.77) infinite',

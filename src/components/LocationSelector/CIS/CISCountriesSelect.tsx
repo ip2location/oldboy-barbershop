@@ -34,7 +34,7 @@ export const CISCountriesSelect = ({
         const response = await axios.get('/api/cisRegionLists');
         setCisRegion(response.data.cisRegionList);
       } catch (error) {
-        console.error('Error fetching data from API:', error);
+        // console.error('Error fetching data from API:', error);
       }
     };
 
