@@ -20,7 +20,17 @@ export async function middleware(req: NextRequest) {
         res.cookies.set(Cookies.City, city, { expires: SEVEN_DAYS });
       }
     } catch (error) {
-      return error;
+      try {
+        const response2 = await fetch(`http://api.ip2location.io`);
+        const userData2 = await response2.json();
+        const { country_code, city_name } = userData2;
+        if (userData2) {
+          res.cookies.set(Cookies.Country, country_code, { expires: SEVEN_DAYS });
+          res.cookies.set(Cookies.City, city_name, { expires: SEVEN_DAYS });
+        }
+      } catch (error2) {
+        return error2;
+      }
     }
   }
   return res;
